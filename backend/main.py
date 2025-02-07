@@ -17,7 +17,7 @@ if not settings.validate_api_key():
     raise ValueError("Invalid API key format")
 
 app = FastAPI(
-    title="Personal Brand API",
+    title="Human-Technology Catalyst API",
     debug=settings.DEBUG
 )
 

@@ -69,6 +69,36 @@ module.exports = {
           '100%': { transform: 'translateY(0)', opacity: '1' },
         },
       },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            color: theme('colors.gray.700'),
+            maxWidth: '65ch',
+            h1: {
+              backgroundClip: 'text',
+              backgroundImage: 'linear-gradient(to right, var(--tw-gradient-stops))',
+              fontWeight: '800',
+            },
+            a: {
+              color: theme('colors.primary.500'),
+              '&:hover': {
+                color: theme('colors.primary.600'),
+              },
+            },
+          },
+        },
+        dark: {
+          css: {
+            color: theme('colors.gray.300'),
+            a: {
+              color: theme('colors.primary.400'),
+              '&:hover': {
+                color: theme('colors.primary.300'),
+              },
+            },
+          },
+        },
+      }),
     },
   },
   plugins: [

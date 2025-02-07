@@ -20,7 +20,10 @@
   }
 
   .card {
-    @apply bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 transition-all duration-200;
+    @apply bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-xl
+    border border-gray-200/50 dark:border-gray-700/50
+    shadow-xl hover:shadow-2xl transition-all duration-300
+    hover:-translate-y-1;
   }
 
   .input {
@@ -75,4 +78,37 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400 dark:bg-gray-500;
+}
+
+@layer utilities {
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 8s linear infinite;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
 } 
