@@ -10,9 +10,17 @@
   },
   "dependencies": {
     "axios": "^1.7.9",
-    "framer-motion": "latest",
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest"
+    "framer-motion": "^10.18.0",
+    "next": "13.5.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.10",
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.35",
+    "postcss-preset-env": "^9.3.0",
+    "tailwindcss": "^3.4.1"
   }
 }
