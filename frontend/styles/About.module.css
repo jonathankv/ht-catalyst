@@ -1,0 +1,209 @@
+.aboutSection {
+  padding: 6rem 2rem;
+  background: linear-gradient(to bottom right, #ffffff, #f8f9fa);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  background: linear-gradient(120deg, #2D3436, #000000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+.tabsContainer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.tabButton {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #666;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.tabButton::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, #0070f3, #00c9ff);
+  transition: width 0.3s ease;
+}
+
+.tabButton:hover::after,
+.tabButton.active::after {
+  width: 100%;
+}
+
+.tabButton.active {
+  color: #0070f3;
+  font-weight: 500;
+}
+
+.content {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  margin-bottom: 3rem;
+}
+
+.paragraph {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+}
+
+.skillsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.skillItem {
+  width: 100%;
+}
+
+.skillInfo {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+.skillBar {
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.skillProgress {
+  height: 100%;
+  background: linear-gradient(135deg, #0070f3, #00c9ff);
+  border-radius: 4px;
+}
+
+.timeline {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, #0070f3, #00c9ff);
+  opacity: 0.3;
+}
+
+.timelineItem {
+  margin-bottom: 2rem;
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.timelineContent {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 500px;
+  position: relative;
+}
+
+.timelineContent::before {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #0070f3;
+  border-radius: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -6px;
+}
+
+.timelineContent h3 {
+  color: #0070f3;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.timelineContent p {
+  color: #666;
+  margin: 0.25rem 0;
+}
+
+@media (max-width: 768px) {
+  .aboutSection {
+    padding: 4rem 1rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .tabsContainer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .tabButton {
+    width: 100%;
+    text-align: center;
+  }
+
+  .timelineContent {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .content {
+    padding: 1.5rem;
+  }
+
+  .paragraph {
+    font-size: 1rem;
+  }
+} 

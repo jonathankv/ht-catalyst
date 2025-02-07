@@ -3,6 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import axios from 'axios';
 import styles from '../styles/Chat.module.css';
 
+// Access environment variables in frontend
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+
 const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');

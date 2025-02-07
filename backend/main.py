@@ -2,25 +2,34 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from anthropic import Anthropic
+from config import Settings
 import os
 from dotenv import load_dotenv
+from prompt_config import format_chat_prompt
 
 # Load environment variables
 load_dotenv()
 
+# Load and validate settings
+settings = Settings()
+if not settings.validate_api_key():
+    raise ValueError("Invalid API key format")
+
 app = FastAPI()
 
-# Configure CORS
+# Get CORS origins from settings
+origins = settings.CORS_ORIGINS.split(",")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # Frontend URL
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Initialize Anthropic client
-anthropic = Anthropic(api_key=os.getenv('ANTHROPIC_API_KEY'))
+# Initialize Anthropic client with validated API key
+anthropic = Anthropic(api_key=settings.ANTHROPIC_API_KEY)
 
 class ChatRequest(BaseModel):
     message: str
@@ -32,19 +41,14 @@ async def read_root():
 @app.post("/api/chat")
 async def chat(request: ChatRequest):
     try:
-        # Create a chat message
-        message = await anthropic.messages.create(
-            model="claude-3-opus-20240229",
-            max_tokens=1024,
-            messages=[{
-                "role": "user",
-                "content": request.message
-            }]
-        )
+        # Create a chat message using the prompt configuration
+        chat_params = format_chat_prompt(request.message)
+        message = anthropic.messages.create(**chat_params)
         
         return {
             "response": message.content[0].text,
             "status": "success"
         }
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e)) 
+        print(f"Error in chat endpoint: {str(e)}")  # Add logging for debugging
+        raise HTTPException(status_code=500, detail="Internal server error")  # Don't expose raw error details 
