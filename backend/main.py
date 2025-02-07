@@ -11,11 +11,15 @@ from prompt_config import format_chat_prompt
 load_dotenv()
 
 # Load and validate settings
-settings = Settings()
+env_file = f".env.{os.getenv('ENVIRONMENT', 'development')}"
+settings = Settings(_env_file=env_file)
 if not settings.validate_api_key():
     raise ValueError("Invalid API key format")
 
-app = FastAPI()
+app = FastAPI(
+    title="Personal Brand API",
+    debug=settings.DEBUG
+)
 
 # Get CORS origins from settings
 origins = settings.CORS_ORIGINS.split(",")
@@ -29,7 +33,14 @@ app.add_middleware(
 )
 
 # Initialize Anthropic client with validated API key
-anthropic = Anthropic(api_key=settings.ANTHROPIC_API_KEY)
+anthropic = Anthropic(
+    api_key=settings.ANTHROPIC_API_KEY,
+)
+
+if settings.is_production:
+    # Add production-specific middleware
+    from fastapi.middleware.httpsredirect import HTTPSRedirectMiddleware
+    app.add_middleware(HTTPSRedirectMiddleware)
 
 class ChatRequest(BaseModel):
     message: str
