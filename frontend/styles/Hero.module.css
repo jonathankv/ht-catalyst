@@ -1,0 +1,118 @@
+.heroContainer {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 2rem;
+  background: linear-gradient(to bottom right, #ffffff, #f8f9fa);
+  overflow: hidden;
+}
+
+.contentWrapper {
+  max-width: 1200px;
+  width: 100%;
+  z-index: 1;
+  padding: 2rem;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(120deg, #2D3436, #000000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.highlight {
+  display: block;
+  font-size: 2.5rem;
+  background: linear-gradient(120deg, #0070f3, #00c9ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: #666;
+  max-width: 800px;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+}
+
+.ctaContainer {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.primaryButton, .secondaryButton {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.primaryButton {
+  background: linear-gradient(135deg, #0070f3, #00c9ff);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 14px rgba(0, 118, 255, 0.2);
+}
+
+.primaryButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 118, 255, 0.3);
+}
+
+.secondaryButton {
+  background: transparent;
+  color: #0070f3;
+  border: 2px solid #0070f3;
+}
+
+.secondaryButton:hover {
+  background: rgba(0, 112, 243, 0.1);
+  transform: translateY(-2px);
+}
+
+.decorativeElement {
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  background: linear-gradient(135deg, #0070f3, #00c9ff);
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.1;
+  top: -200px;
+  right: -200px;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 3rem;
+  }
+
+  .highlight {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+  }
+
+  .ctaContainer {
+    flex-direction: column;
+  }
+
+  .decorativeElement {
+    width: 400px;
+    height: 400px;
+  }
+} 
