@@ -4,6 +4,7 @@ import Layout from '../../components/Layout';
 import { posts } from '../../data/posts';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import TableOfContents from '../../components/blog/TableOfContents';
 
 // Custom components for MDX
 const components = {
@@ -17,10 +18,18 @@ const components = {
       />
     </div>
   ),
+  h2: ({ children, ...props }) => {
+    const id = children.toLowerCase().replace(/\s+/g, '-');
+    return <h2 id={id} {...props}>{children}</h2>;
+  },
+  h3: ({ children, ...props }) => {
+    const id = children.toLowerCase().replace(/\s+/g, '-');
+    return <h3 id={id} {...props}>{children}</h3>;
+  },
   // Add other custom components here
 };
 
-export default function BlogPost({ post, mdxSource }) {
+export default function BlogPost({ post, mdxSource, headings }) {
   if (!post) return null; // Add error handling
 
   return (
@@ -61,15 +70,34 @@ export default function BlogPost({ post, mdxSource }) {
           </div>
         </div>
 
-        {/* Main Content */}
-        <div className="max-w-3xl mx-auto px-8 py-16">
-          <div className="prose prose-lg dark:prose-invert">
-            <MDXRemote {...mdxSource} components={components} />
+        {/* Main Content with Table of Contents */}
+        <div className="max-w-7xl mx-auto px-8 py-16">
+          <div className="flex justify-between items-start">
+            <div className="prose prose-lg dark:prose-invert max-w-3xl">
+              <MDXRemote {...mdxSource} components={components} />
+            </div>
+            <TableOfContents headings={headings} />
           </div>
         </div>
       </article>
     </Layout>
   );
+}
+
+// Helper function to extract headings from MDX content
+function extractHeadings(content) {
+  const headings = [];
+  const headingRegex = /^(#{2,3})\s+(.+)$/gm;
+  let match;
+
+  while ((match = headingRegex.exec(content)) !== null) {
+    const level = match[1].length;
+    const text = match[2];
+    const id = text.toLowerCase().replace(/\s+/g, '-');
+    headings.push({ level, text, id });
+  }
+
+  return headings;
 }
 
 // Server-side code
@@ -101,12 +129,16 @@ export async function getStaticProps({ params }) {
     
     const { content, data } = matter(source);
     
+    // Extract headings before serializing
+    const headings = extractHeadings(content);
+    
     const mdxSource = await serialize(content);
 
     return { 
       props: { 
         post: postData,
-        mdxSource 
+        mdxSource,
+        headings
       } 
     };
   } catch (error) {
