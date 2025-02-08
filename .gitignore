@@ -13,6 +13,7 @@
 .env.test.local
 .env.production.local
 backend/.env
+.prompt.management.md
 
 # Python
 __pycache__/

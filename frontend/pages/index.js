@@ -1,7 +1,7 @@
 import Navigation from '../components/Navigation';
 import Hero from '../components/Hero';
 import About from '../components/About';
-import ChatBubble from '../components/ChatBubble';
+import FloatingChat from '../components/FloatingChat';
 
 export default function Home() {
   return (
@@ -9,7 +9,7 @@ export default function Home() {
       <Navigation />
       <Hero />
       <About />
-      <ChatBubble />
+      <FloatingChat />
     </main>
   );
 } 
