@@ -1,21 +1,20 @@
 .chatContainer {
   width: 100%;
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 1rem;
+  height: 100%;
+  background: white;
+  dark:background-gray-900;
 }
 
 .chatBox {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  overflow: hidden;
 }
 
 .messages {
-  height: 400px;
+  flex: 1;
   overflow-y: auto;
   padding: 1rem;
 }
@@ -70,10 +69,9 @@
 }
 
 .inputForm {
-  display: flex;
-  gap: 1rem;
   padding: 1rem;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .input {
