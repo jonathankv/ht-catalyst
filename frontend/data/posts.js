@@ -9,10 +9,10 @@ export const posts = [
     category: 'Product Management',
     author: {
       name: 'Jonathan Vu',
-      avatar: '/images/avatar/default-avatar.svg'
+      avatar: '/images/avatar/avatar.jpg'
     },
     excerpt: 'Learn how to build products that make a real difference in people\'s lives.',
-    coverImage: '/images/blog/default-cover.svg'
+    coverImage: '/images/blog/product-management.jpg'
   },
   // Add more posts here
 ]; 
