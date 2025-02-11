@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'next-i18next';
 
 const Newsletter = () => {
+  const { t } = useTranslation('common');
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState('idle'); // idle, loading, success, error
   const [message, setMessage] = useState('');
@@ -24,15 +26,15 @@ const Newsletter = () => {
       // Handle non-JSON responses
       const contentType = response.headers.get('content-type');
       if (!contentType || !contentType.includes('application/json')) {
-        throw new Error('Server error: Expected JSON response but got HTML. Please try again.');
+        throw new Error(t('newsletter.error'));
       }
 
       const data = await response.json();
 
-      if (!response.ok) throw new Error(data.detail || data.message || 'Something went wrong');
+      if (!response.ok) throw new Error(data.detail || data.message || t('newsletter.error'));
 
       setStatus('success');
-      setMessage('Thank you for subscribing! 🎉');
+      setMessage(t('newsletter.success'));
       setEmail('');
     } catch (error) {
       setStatus('error');
@@ -45,10 +47,9 @@ const Newsletter = () => {
     <div className="bg-gradient-to-r from-indigo-500/5 to-purple-500/5 dark:from-indigo-900/20 dark:to-purple-900/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center">
-          <h2 className="text-3xl font-bold mb-4">Join My Newsletter</h2>
+          <h2 className="text-3xl font-bold mb-4">{t('newsletter.title')}</h2>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8">
-            Get weekly insights on product management, personal growth, and making a positive impact.
-            No spam, unsubscribe at any time.
+            {t('newsletter.description')}
           </p>
 
           <form onSubmit={handleSubmit} className="max-w-md mx-auto">
@@ -57,7 +58,7 @@ const Newsletter = () => {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
+                placeholder={t('newsletter.placeholder')}
                 className="flex-1 px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-800 dark:text-white"
                 disabled={status === 'loading'}
               />
@@ -75,7 +76,7 @@ const Newsletter = () => {
                 {status === 'loading' ? (
                   <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
                 ) : (
-                  'Subscribe'
+                  t('newsletter.button')
                 )}
               </motion.button>
             </div>

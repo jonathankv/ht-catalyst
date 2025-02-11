@@ -1,12 +1,13 @@
-import ThemeProvider from '../components/ThemeProvider';
 import '../styles/globals.css';
+import { appWithTranslation } from 'next-i18next';
+import { LanguageProvider } from '../contexts/LanguageContext';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ThemeProvider>
+    <LanguageProvider>
       <Component {...pageProps} />
-    </ThemeProvider>
+    </LanguageProvider>
   );
 }
 
-export default MyApp; 
+export default appWithTranslation(MyApp); 

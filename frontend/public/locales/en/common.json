@@ -1,0 +1,29 @@
+{
+  "site": {
+    "title": "Knowledge Hub",
+    "description": "Discover insights on technology, personal growth, and making a positive impact"
+  },
+  "nav": {
+    "home": "Home",
+    "blog": "Blog",
+    "resources": "Resources",
+    "about": "About"
+  },
+  "hero": {
+    "title": "Welcome to My Knowledge Hub",
+    "subtitle": "Discover insights on technology, personal growth, and making a positive impact",
+    "description": "Exploring the intersection of technology and social impact through thoughtful analysis and practical insights",
+    "cta": {
+      "primary": "Explore Resources",
+      "secondary": "View Blog"
+    }
+  },
+  "newsletter": {
+    "title": "Subscribe to Newsletter",
+    "description": "Get the latest insights delivered to your inbox",
+    "placeholder": "Enter your email",
+    "button": "Subscribe",
+    "success": "Thank you for subscribing!",
+    "error": "Something went wrong. Please try again."
+  }
+} 

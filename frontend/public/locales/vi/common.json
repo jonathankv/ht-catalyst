@@ -1,0 +1,29 @@
+{
+  "site": {
+    "title": "Kho Kiến Thức",
+    "description": "Khám phá những hiểu biết về công nghệ, phát triển bản thân và tạo tác động tích cực"
+  },
+  "nav": {
+    "home": "Trang Chủ",
+    "blog": "Blog",
+    "resources": "Tài Nguyên",
+    "about": "Giới Thiệu"
+  },
+  "hero": {
+    "title": "Chào Mừng Đến Với Kho Kiến Thức",
+    "subtitle": "Khám phá những hiểu biết về công nghệ, phát triển bản thân và tạo tác động tích cực",
+    "description": "Khám phá sự giao thoa giữa công nghệ và tác động xã hội thông qua phân tích sâu sắc và những hiểu biết thực tế",
+    "cta": {
+      "primary": "Khám Phá Tài Nguyên",
+      "secondary": "Xem Blog"
+    }
+  },
+  "newsletter": {
+    "title": "Đăng Ký Nhận Bản Tin",
+    "description": "Nhận những thông tin mới nhất qua email",
+    "placeholder": "Nhập email của bạn",
+    "button": "Đăng Ký",
+    "success": "Cảm ơn bạn đã đăng ký!",
+    "error": "Đã xảy ra lỗi. Vui lòng thử lại."
+  }
+} 

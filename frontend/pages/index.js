@@ -1,12 +1,21 @@
 import { motion } from 'framer-motion';
+import Head from 'next/head';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Navigation from '../components/Navigation';
 import KnowledgeHub from '../components/KnowledgeHub';
 import Newsletter from '../components/Newsletter';
 import FloatingChat from '../components/FloatingChat';
 
 export default function Home() {
+  const { t } = useTranslation('common');
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+      <Head>
+        <title>{t('site.title')} - {t('site.description')}</title>
+      </Head>
+
       <Navigation />
       
       {/* Hero Section */}
@@ -22,7 +31,7 @@ export default function Home() {
             transition={{ delay: 0.2 }}
             className="text-4xl md:text-5xl font-bold mb-8 leading-tight py-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600"
           >
-            Welcome to My Knowledge Hub
+            {t('hero.title')}
           </motion.h1>
           <motion.p 
             initial={{ y: 20, opacity: 0 }}
@@ -30,7 +39,7 @@ export default function Home() {
             transition={{ delay: 0.3 }}
             className="text-xl text-gray-600 leading-relaxed"
           >
-            Discover insights on technology, personal growth, and making a positive impact
+            {t('hero.subtitle')}
           </motion.p>
         </div>
       </motion.section>
@@ -44,4 +53,13 @@ export default function Home() {
       <FloatingChat />
     </div>
   );
+}
+
+// This is crucial for translations to work
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
+  };
 } 

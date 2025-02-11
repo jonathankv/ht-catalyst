@@ -3,8 +3,11 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useTheme } from './ThemeProvider';
+import { useTranslation } from 'next-i18next';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const Navigation = () => {
+  const { t } = useTranslation('common');
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isDarkMode, toggleDarkMode } = useTheme();
@@ -12,7 +15,7 @@ const Navigation = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 0);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -20,11 +23,10 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    { name: 'Library', href: '/library' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Finance', href: '/finance' },
-    { name: 'Impact', href: '/impact' },
-    { name: 'About', href: '/about' }
+    { name: t('nav.home'), href: '/' },
+    { name: t('nav.blog'), href: '/blog' },
+    { name: t('nav.resources'), href: '/resources' },
+    { name: t('nav.about'), href: '/about' }
   ];
 
   const isActive = (path) => router.pathname === path;
@@ -55,7 +57,7 @@ const Navigation = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              PM
+              {t('site.title')}
               <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all group-hover:w-full duration-300 ${
                 isScrolled ? 'bg-white/80' : 'bg-gray-800 dark:bg-white/80'
               }`} />
@@ -110,6 +112,7 @@ const Navigation = () => {
                 </svg>
               )}
             </motion.button>
+            <LanguageSwitcher />
           </div>
 
           <motion.button
@@ -170,6 +173,7 @@ const Navigation = () => {
           >
             {isDarkMode ? 'Light Mode' : 'Dark Mode'}
           </button>
+          <LanguageSwitcher />
         </div>
       </motion.div>
     </motion.nav>
