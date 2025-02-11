@@ -1,6 +1,6 @@
 {
   "site": {
-    "title": "Kho Kiến Thức",
+    "title": "PM",
     "description": "Khám phá những hiểu biết về công nghệ, phát triển bản thân và tạo tác động tích cực"
   },
   "nav": {
@@ -26,4 +26,4 @@
     "success": "Cảm ơn bạn đã đăng ký!",
     "error": "Đã xảy ra lỗi. Vui lòng thử lại."
   }
-} 
+}

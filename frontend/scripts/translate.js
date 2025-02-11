@@ -20,13 +20,22 @@ function flatToNested(obj) {
 // Function to process translations
 function processTranslations() {
   try {
+    console.log('🔍 Reading translations file...');
+    const excelPath = path.join(__dirname, '../translations/translations.xlsx');
+    
+    if (!fs.existsSync(excelPath)) {
+      console.error('❌ translations.xlsx not found at:', excelPath);
+      process.exit(1);
+    }
+
     // Read the Excel file
-    const workbook = xlsx.readFile(path.join(__dirname, '../translations/translations.xlsx'));
+    const workbook = xlsx.readFile(excelPath);
     const sheetName = workbook.SheetNames[0];
     const worksheet = workbook.Sheets[sheetName];
     
     // Convert to JSON
     const data = xlsx.utils.sheet_to_json(worksheet);
+    console.log(`📖 Found ${data.length} translation entries`);
     
     // Create translation objects
     const en = {};
@@ -39,12 +48,13 @@ function processTranslations() {
           vi[row.key] = row.vi;
         } else {
           vi[row.key] = row.en; // Fallback to English if Vietnamese translation is missing
-          console.warn(`Warning: Missing Vietnamese translation for key: ${row.key}`);
+          console.warn(`⚠️  Missing Vietnamese translation for key: ${row.key}`);
         }
       }
     });
     
     // Convert flat objects to nested
+    console.log('🔧 Converting to nested structure...');
     const enNested = flatToNested(en);
     const viNested = flatToNested(vi);
     
@@ -55,23 +65,31 @@ function processTranslations() {
     
     [enPath, viPath].forEach(dir => {
       if (!fs.existsSync(dir)) {
+        console.log(`📁 Creating directory: ${dir}`);
         fs.mkdirSync(dir, { recursive: true });
       }
     });
     
     // Write JSON files
+    console.log('💾 Writing translation files...');
+    const enFile = path.join(enPath, 'common.json');
+    const viFile = path.join(viPath, 'common.json');
+
     fs.writeFileSync(
-      path.join(enPath, 'common.json'),
+      enFile,
       JSON.stringify(enNested, null, 2),
       'utf8'
     );
+    console.log(`✅ English translations written to: ${enFile}`);
+
     fs.writeFileSync(
-      path.join(viPath, 'common.json'),
+      viFile,
       JSON.stringify(viNested, null, 2),
       'utf8'
     );
+    console.log(`✅ Vietnamese translations written to: ${viFile}`);
     
-    console.log('✅ Translations updated successfully!');
+    console.log('🎉 Translations updated successfully!');
     
   } catch (error) {
     console.error('❌ Error processing translations:', error);

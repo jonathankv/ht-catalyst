@@ -1,6 +1,6 @@
 {
   "site": {
-    "title": "Knowledge Hub",
+    "title": "PM",
     "description": "Discover insights on technology, personal growth, and making a positive impact"
   },
   "nav": {
@@ -26,4 +26,4 @@
     "success": "Thank you for subscribing!",
     "error": "Something went wrong. Please try again."
   }
-} 
+}
