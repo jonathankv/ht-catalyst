@@ -23,9 +23,10 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    { name: t('nav.home'), href: '/' },
+    { name: t('nav.library'), href: '/library' },
     { name: t('nav.blog'), href: '/blog' },
-    { name: t('nav.resources'), href: '/resources' },
+    { name: t('nav.finance'), href: '/finance' },
+    { name: t('nav.impact'), href: '/impact' },
     { name: t('nav.about'), href: '/about' }
   ];
 

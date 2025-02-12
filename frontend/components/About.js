@@ -1,33 +1,35 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { useTranslation } from 'next-i18next';
 import styles from '../styles/About.module.css';
 
 const About = () => {
+  const { t } = useTranslation('common');
   const [activeTab, setActiveTab] = useState('background');
 
   const tabs = {
     background: {
-      title: 'Background',
-      content: `As a Product Manager with a passion for technology and social impact, 
+      title: t('about.background.title', 'Background'),
+      content: t('about.background.content', `As a Product Manager with a passion for technology and social impact, 
       I bridge the gap between innovative solutions and human needs. My journey in 
       product management has been driven by a commitment to creating meaningful 
-      digital experiences that make a difference.`
+      digital experiences that make a difference.`)
     },
     expertise: {
-      title: 'Expertise',
+      title: t('about.expertise.title', 'Expertise'),
       skills: [
-        { name: 'Product Strategy', level: 90 },
-        { name: 'User Research', level: 85 },
-        { name: 'Agile Management', level: 88 },
-        { name: 'Data Analytics', level: 82 },
-        { name: 'Technical Leadership', level: 85 }
+        { name: t('about.expertise.skills.product_strategy', 'Product Strategy'), level: 90 },
+        { name: t('about.expertise.skills.user_research', 'User Research'), level: 85 },
+        { name: t('about.expertise.skills.agile', 'Agile Management'), level: 88 },
+        { name: t('about.expertise.skills.analytics', 'Data Analytics'), level: 82 },
+        { name: t('about.expertise.skills.technical', 'Technical Leadership'), level: 85 }
       ]
     },
     vision: {
-      title: 'Vision',
-      content: `I believe in leveraging technology to create products that not only 
+      title: t('about.vision.title', 'Vision'),
+      content: t('about.vision.content', `I believe in leveraging technology to create products that not only 
       solve problems but also contribute positively to society. My goal is to lead 
-      product initiatives that combine innovation with social responsibility.`
+      product initiatives that combine innovation with social responsibility.`)
     }
   };
 
@@ -64,7 +66,7 @@ const About = () => {
           className={styles.title}
           variants={itemVariants}
         >
-          About Me
+          {t('about.title')}
         </motion.h2>
 
         <div className={styles.tabsContainer}>
@@ -130,23 +132,23 @@ const About = () => {
         >
           <div className={styles.timelineItem}>
             <div className={styles.timelineContent}>
-              <h3>2023 - Present</h3>
-              <p>Senior Product Manager</p>
-              <p>Leading innovative product initiatives</p>
+              <h3>{t('about.timeline.present.year', '2023 - Present')}</h3>
+              <p>{t('about.timeline.present.title', 'Senior Product Manager')}</p>
+              <p>{t('about.timeline.present.description', 'Leading innovative product initiatives')}</p>
             </div>
           </div>
           <div className={styles.timelineItem}>
             <div className={styles.timelineContent}>
-              <h3>2020 - 2023</h3>
-              <p>Product Manager</p>
-              <p>Driving user-centered product development</p>
+              <h3>{t('about.timeline.past_1.year', '2020 - 2023')}</h3>
+              <p>{t('about.timeline.past_1.title', 'Product Manager')}</p>
+              <p>{t('about.timeline.past_1.description', 'Driving user-centered product development')}</p>
             </div>
           </div>
           <div className={styles.timelineItem}>
             <div className={styles.timelineContent}>
-              <h3>2018 - 2020</h3>
-              <p>Associate Product Manager</p>
-              <p>Building foundation in product management</p>
+              <h3>{t('about.timeline.past_2.year', '2018 - 2020')}</h3>
+              <p>{t('about.timeline.past_2.title', 'Associate Product Manager')}</p>
+              <p>{t('about.timeline.past_2.description', 'Building foundation in product management')}</p>
             </div>
           </div>
         </motion.div>

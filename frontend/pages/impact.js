@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Layout from '../components/Layout';
 import CharityProject from '../components/impact/CharityProject';
 import ProjectFilter from '../components/impact/ProjectFilter';
@@ -43,6 +45,7 @@ const projects = [
 
 export default function Impact() {
   const [activeFilter, setActiveFilter] = useState('all');
+  const { t } = useTranslation('common');
 
   const filteredProjects = activeFilter === 'all'
     ? projects
@@ -58,9 +61,9 @@ export default function Impact() {
             transition={{ duration: 0.5 }}
             className="text-center mb-16"
           >
-            <h1 className="text-4xl font-bold mb-4">Social Impact</h1>
+            <h1 className="text-4xl font-bold mb-4">{t('impact.title')}</h1>
             <p className="text-xl text-gray-600 dark:text-gray-400">
-              Supporting projects that make a difference in the world
+              {t('impact.description')}
             </p>
           </motion.div>
 
@@ -78,7 +81,7 @@ export default function Impact() {
           {filteredProjects.length === 0 && (
             <div className="text-center py-12">
               <p className="text-gray-600 dark:text-gray-400">
-                No projects found in this category.
+                {t('impact.no_projects')}
               </p>
             </div>
           )}
@@ -86,4 +89,12 @@ export default function Impact() {
       </div>
     </Layout>
   );
+}
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
+  };
 } 

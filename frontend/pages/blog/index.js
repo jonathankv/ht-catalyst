@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Layout from '../../components/Layout';
 import BlogCard from '../../components/blog/BlogCard';
 import CategoryFilter from '../../components/blog/CategoryFilter';
@@ -12,6 +14,7 @@ export default function Blog() {
   const [activeCategory, setActiveCategory] = useState('all');
   const [filteredPosts, setFilteredPosts] = useState(posts.slice(1));
   const featuredPost = posts[0];
+  const { t } = useTranslation('common');
 
   const handleCategoryChange = (category) => {
     setActiveCategory(category);
@@ -26,9 +29,9 @@ export default function Blog() {
       <Layout>
         <div className="min-h-screen flex items-center justify-center">
           <div className="text-center">
-            <h1 className="text-3xl font-bold mb-4">No Posts Yet</h1>
+            <h1 className="text-3xl font-bold mb-4">{t('blog.no_posts_title')}</h1>
             <p className="text-gray-600 dark:text-gray-400">
-              Check back soon for new content!
+              {t('blog.no_posts_description')}
             </p>
           </div>
         </div>
@@ -46,9 +49,9 @@ export default function Blog() {
             transition={{ duration: 0.5 }}
             className="text-center mb-16"
           >
-            <h1 className="text-4xl font-bold mb-4">Blog</h1>
+            <h1 className="text-4xl font-bold mb-4">{t('blog.title')}</h1>
             <p className="text-xl text-gray-600 dark:text-gray-400">
-              Thoughts on product management, technology, and social impact
+              {t('blog.description')}
             </p>
           </motion.div>
 
@@ -89,4 +92,12 @@ export default function Blog() {
       </div>
     </Layout>
   );
+}
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
+  };
 } 

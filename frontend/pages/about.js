@@ -1,7 +1,11 @@
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Navigation from '../components/Navigation';
 import About from '../components/About';
 
 export default function AboutPage() {
+  const { t } = useTranslation('common');
+  
   return (
     <>
       <Navigation />
@@ -10,4 +14,13 @@ export default function AboutPage() {
       </main>
     </>
   );
+}
+
+// This is crucial for translations to work
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
+  };
 } 

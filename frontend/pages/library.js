@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import BookCard from '../components/library/BookCard';
 import BookFilter from '../components/library/BookFilter';
 import { books } from '../data/books';
@@ -7,6 +9,7 @@ import Image from 'next/image';
 import Layout from '../components/Layout';
 
 export default function Library() {
+  const { t } = useTranslation('common');
   const [activeFilter, setActiveFilter] = useState('all');
   const [filteredBooks, setFilteredBooks] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -37,11 +40,11 @@ export default function Library() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div className="space-y-6">
-                  <span className="text-sm font-semibold uppercase tracking-wider">Latest Read</span>
+                  <span className="text-sm font-semibold uppercase tracking-wider">{t('library.latest_read')}</span>
                   <h1 className="text-4xl md:text-5xl font-bold">{featuredBook.title}</h1>
                   <p className="text-lg text-gray-700">{featuredBook.summary}</p>
                   <button className="bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800 transition-colors">
-                    Read My Notes
+                    {t('library.read_notes')}
                   </button>
                 </div>
                 <div className="relative h-[500px]">
@@ -61,9 +64,9 @@ export default function Library() {
         {/* Main Content */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">My Book Notes</h2>
+            <h2 className="text-3xl font-bold mb-4">{t('library.section_title')}</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Here are the books I've read and my key takeaways from each one. I hope these notes inspire you to pick up one of these books.
+              {t('library.section_description')}
             </p>
           </div>
 
@@ -92,6 +95,15 @@ export default function Library() {
       </div>
     </Layout>
   );
+}
+
+// This is crucial for translations to work
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
+  };
 }
 
 const LoadingCards = () => {
