@@ -13,7 +13,46 @@ export const books = [
       ],
       summary: "Salman Khan presents an inspiring picture of AI's role in the classroom, showcasing how technology can revolutionize education and enhance learning experiences.",
       dateRead: "2024-05-22",
-      rating: 4.8
+      rating: 4.8,
+      chapters: [
+        {
+          title: "The Fundamentals",
+          content: [
+            {
+              title: "The Power of Atomic Habits",
+              text: "Your detailed notes about this section...",
+              keyTakeaways: [
+                "Small habits compound over time",
+                "Focus on systems instead of goals",
+                "The power of 1% improvements"
+              ]
+            },
+            {
+              title: "How Habits Shape Your Identity",
+              text: "Your detailed notes about identity-based habits...",
+              keyTakeaways: [
+                "Identity drives behavior",
+                "Focus on who you want to become",
+                "Build habits that reinforce your desired identity"
+              ]
+            }
+          ]
+        },
+        {
+          title: "The Four Laws of Behavior Change",
+          content: [
+            {
+              title: "Make it Obvious",
+              text: "Your detailed notes about implementation intentions...",
+              keyTakeaways: [
+                "Use implementation intentions",
+                "Stack your habits",
+                "Design your environment"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       id: 2,

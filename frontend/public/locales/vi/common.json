@@ -32,7 +32,17 @@
     "latest_read": "Sách Mới Nhất",
     "read_notes": "Xem Ghi Chú",
     "section_title": "Ghi Chú Sách",
-    "section_description": "Đây là những cuốn sách tôi đã đọc và những điểm chính tôi rút ra từ mỗi cuốn. Hy vọng những ghi chú này sẽ truyền cảm hứng cho bạn đọc những cuốn sách này."
+    "section_description": "Đây là những cuốn sách tôi đã đọc và những điểm chính tôi rút ra từ mỗi cuốn. Hy vọng những ghi chú này sẽ truyền cảm hứng cho bạn đọc những cuốn sách này.",
+    "table_of_contents": "Mục Lục",
+    "key_takeaways": "Điểm Chính",
+    "book_not_found": "Không tìm thấy sách",
+    "book_not_found_description": "Xin lỗi, chúng tôi không thể tìm thấy cuốn sách bạn đang tìm kiếm.",
+    "reading_time": "{{minutes}} phút đọc",
+    "chapter": "Chương {{number}}",
+    "previous_chapter": "Chương Trước",
+    "next_chapter": "Chương Tiếp Theo",
+    "by": "bởi",
+    "last_updated": "Cập nhật lần cuối {{date}}"
   },
   "blog": {
     "title": "Blog",
@@ -136,5 +146,9 @@
         "description": "Cách đóng góp và hợp tác"
       }
     }
+  },
+  "common": {
+    "back_to_library": "Quay Lại Thư Viện",
+    "published_on": "Xuất bản ngày {{date}}"
   }
 }

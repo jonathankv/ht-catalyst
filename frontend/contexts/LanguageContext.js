@@ -6,21 +6,11 @@ const LanguageContext = createContext();
 export const languages = {
   en: {
     name: 'English',
-    locale: 'en-US',
-    fonts: {
-      heading: 'Space Grotesk',
-      body: 'Inter',
-      code: 'JetBrains Mono'
-    }
+    locale: 'en-US'
   },
   vi: {
     name: 'Tiếng Việt',
-    locale: 'vi-VN',
-    fonts: {
-      heading: 'Be Vietnam Pro',
-      body: 'Inter',
-      code: 'JetBrains Mono'
-    }
+    locale: 'vi-VN'
   }
 };
 
@@ -33,20 +23,6 @@ export function LanguageProvider({ children }) {
     const path = router.asPath;
     const locale = router.locale || 'en';
     setCurrentLanguage(locale);
-
-    // Apply language-specific fonts
-    document.documentElement.style.setProperty(
-      '--font-heading',
-      languages[locale].fonts.heading
-    );
-    document.documentElement.style.setProperty(
-      '--font-body',
-      languages[locale].fonts.body
-    );
-    document.documentElement.style.setProperty(
-      '--font-code',
-      languages[locale].fonts.code
-    );
   }, [router.locale]);
 
   const changeLanguage = async (locale) => {

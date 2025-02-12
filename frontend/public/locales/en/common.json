@@ -32,7 +32,17 @@
     "latest_read": "Latest Read",
     "read_notes": "Read My Notes",
     "section_title": "My Book Notes",
-    "section_description": "Here are the books I've read and my key takeaways from each one. I hope these notes inspire you to pick up one of these books."
+    "section_description": "Here are the books I've read and my key takeaways from each one. I hope these notes inspire you to pick up one of these books.",
+    "table_of_contents": "Table of Contents",
+    "key_takeaways": "Key Takeaways",
+    "book_not_found": "Book not found",
+    "book_not_found_description": "Sorry, we couldn't find the book you're looking for.",
+    "reading_time": "{{minutes}} min read",
+    "chapter": "Chapter {{number}}",
+    "previous_chapter": "Previous Chapter",
+    "next_chapter": "Next Chapter",
+    "by": "by",
+    "last_updated": "Last updated {{date}}"
   },
   "blog": {
     "title": "Blog",
@@ -136,5 +146,9 @@
         "description": "Ways to contribute and collaborate"
       }
     }
+  },
+  "common": {
+    "back_to_library": "Back to Library",
+    "published_on": "Published on {{date}}"
   }
 }
