@@ -33,8 +33,32 @@ module.exports = {
         extrabold: '800',
       },
       colors: {
-        primary: '#2D3436',
-        secondary: '#A4B0BE',
+        primary: {
+          50: '#f0f9ff',
+          100: '#e0f2fe',
+          200: '#bae6fd',
+          300: '#7dd3fc',
+          400: '#38bdf8',
+          500: '#0ea5e9',
+          600: '#0284c7',
+          700: '#0369a1',
+          800: '#075985',
+          900: '#0c4a6e',
+          950: '#082f49',
+        },
+        secondary: {
+          50: '#f8fafc',
+          100: '#f1f5f9',
+          200: '#e2e8f0',
+          300: '#cbd5e1',
+          400: '#94a3b8',
+          500: '#64748b',
+          600: '#475569',
+          700: '#334155',
+          800: '#1e293b',
+          900: '#0f172a',
+          950: '#020617',
+        },
         accent: '#0984E3',
         highlight: '#00D2D3',
       },
@@ -95,6 +119,31 @@ module.exports = {
                 color: theme('colors.primary.600'),
               },
             },
+            h1: {
+              color: theme('colors.gray.900'),
+            },
+            h2: {
+              color: theme('colors.gray.900'),
+            },
+            h3: {
+              color: theme('colors.gray.900'),
+            },
+            h4: {
+              color: theme('colors.gray.900'),
+            },
+            code: {
+              color: theme('colors.primary.500'),
+              backgroundColor: theme('colors.gray.100'),
+              padding: '0.25rem',
+              borderRadius: '0.25rem',
+              fontWeight: '500',
+            },
+            'code::before': {
+              content: '""',
+            },
+            'code::after': {
+              content: '""',
+            },
           },
         },
         dark: {
@@ -104,6 +153,41 @@ module.exports = {
               color: theme('colors.primary.400'),
               '&:hover': {
                 color: theme('colors.primary.300'),
+              },
+            },
+            h1: {
+              color: theme('colors.white'),
+            },
+            h2: {
+              color: theme('colors.white'),
+            },
+            h3: {
+              color: theme('colors.white'),
+            },
+            h4: {
+              color: theme('colors.white'),
+            },
+            code: {
+              color: theme('colors.primary.400'),
+              backgroundColor: theme('colors.gray.800'),
+            },
+            blockquote: {
+              color: theme('colors.gray.400'),
+              borderLeftColor: theme('colors.gray.700'),
+            },
+            hr: {
+              borderColor: theme('colors.gray.700'),
+            },
+            strong: {
+              color: theme('colors.white'),
+            },
+            thead: {
+              color: theme('colors.white'),
+              borderBottomColor: theme('colors.gray.700'),
+            },
+            tbody: {
+              tr: {
+                borderBottomColor: theme('colors.gray.700'),
               },
             },
           },

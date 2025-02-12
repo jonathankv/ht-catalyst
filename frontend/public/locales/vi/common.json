@@ -50,7 +50,15 @@
     "read_more": "Đọc Thêm",
     "latest_posts": "Bài Viết Mới Nhất",
     "no_posts_title": "Chưa Có Bài Viết",
-    "no_posts_description": "Vui lòng quay lại sau để xem nội dung mới!"
+    "no_posts_description": "Vui lòng quay lại sau để xem nội dung mới!",
+    "categories": {
+      "all": "Tất Cả Bài Viết",
+      "product": "Quản Lý Sản Phẩm",
+      "impact": "Tác Động Xã Hội",
+      "projects": "Dự Án Cá Nhân",
+      "family": "Gia Đình",
+      "growth": "Phát Triển Bản Thân"
+    }
   },
   "resources": {
     "title": "Tài Nguyên",

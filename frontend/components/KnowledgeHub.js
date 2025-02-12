@@ -1,40 +1,43 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { FaBook, FaBlog, FaPiggyBank, FaHeart } from 'react-icons/fa';
+import { useTranslation } from 'next-i18next';
 
 const KnowledgeHub = () => {
+  const { t } = useTranslation('common');
+
   const sections = [
     {
-      title: 'Library',
-      description: 'Explore my curated collection of books and key insights',
+      title: t('nav.library'),
+      description: t('library.section_description'),
       icon: <FaBook className="w-8 h-8" />,
       href: '/library',
-      color: 'bg-amber-50 hover:bg-amber-100',
-      iconColor: 'text-amber-600'
+      color: 'bg-amber-50 dark:bg-amber-950/30 hover:bg-amber-100 dark:hover:bg-amber-950/50',
+      iconColor: 'text-amber-600 dark:text-amber-500'
     },
     {
-      title: 'Blog',
-      description: 'Thoughts on product, impact, and personal growth',
+      title: t('nav.blog'),
+      description: t('blog.description'),
       icon: <FaBlog className="w-8 h-8" />,
       href: '/blog',
-      color: 'bg-blue-50 hover:bg-blue-100',
-      iconColor: 'text-blue-600'
+      color: 'bg-blue-50 dark:bg-blue-950/30 hover:bg-blue-100 dark:hover:bg-blue-950/50',
+      iconColor: 'text-blue-600 dark:text-blue-500'
     },
     {
-      title: 'Personal Finance',
-      description: 'AI-powered tools for better financial management',
+      title: t('nav.finance'),
+      description: t('finance.description'),
       icon: <FaPiggyBank className="w-8 h-8" />,
       href: '/finance',
-      color: 'bg-green-50 hover:bg-green-100',
-      iconColor: 'text-green-600'
+      color: 'bg-green-50 dark:bg-green-950/30 hover:bg-green-100 dark:hover:bg-green-950/50',
+      iconColor: 'text-green-600 dark:text-green-500'
     },
     {
-      title: 'Impact',
-      description: 'Discover and support meaningful charity projects',
+      title: t('nav.impact'),
+      description: t('impact.description'),
       icon: <FaHeart className="w-8 h-8" />,
       href: '/impact',
-      color: 'bg-rose-50 hover:bg-rose-100',
-      iconColor: 'text-rose-600'
+      color: 'bg-rose-50 dark:bg-rose-950/30 hover:bg-rose-100 dark:hover:bg-rose-950/50',
+      iconColor: 'text-rose-600 dark:text-rose-500'
     }
   ];
 
@@ -49,12 +52,12 @@ const KnowledgeHub = () => {
             transition={{ delay: index * 0.1 }}
           >
             <Link href={section.href}>
-              <div className={`p-8 rounded-2xl ${section.color} transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg cursor-pointer`}>
+              <div className={`p-8 rounded-2xl ${section.color} transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg dark:hover:shadow-lg/30 cursor-pointer`}>
                 <div className={`${section.iconColor} mb-6`}>
                   {section.icon}
                 </div>
-                <h3 className="text-2xl font-semibold mb-3">{section.title}</h3>
-                <p className="text-gray-600 text-lg">{section.description}</p>
+                <h3 className="text-2xl font-semibold mb-3 text-gray-900 dark:text-white">{section.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-lg">{section.description}</p>
               </div>
             </Link>
           </motion.div>

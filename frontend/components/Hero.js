@@ -1,11 +1,14 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'next-i18next';
+import Link from 'next/link';
 
 const Hero = () => {
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
   const y = useTransform(scrollY, [0, 300], [0, 100]);
   const [isVisible, setIsVisible] = useState(false);
+  const { t } = useTranslation('common');
 
   useEffect(() => {
     setIsVisible(true);
@@ -40,9 +43,9 @@ const Hero = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            Product Manager
-            <span className="block text-3xl md:text-4xl mt-2 bg-gradient-to-r from-primary-500 to-primary-700 bg-clip-text text-transparent">
-              Bridging Technology & Social Impact
+            {t('hero.title')}
+            <span className="block text-3xl md:text-4xl mt-2 bg-gradient-to-r from-primary-500 to-primary-700 dark:from-primary-400 dark:to-primary-600 bg-clip-text text-transparent">
+              {t('hero.subtitle')}
             </span>
           </motion.h1>
 
@@ -52,7 +55,7 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.8 }}
           >
-            Creating meaningful solutions at the intersection of innovation and human-centered design
+            {t('hero.description')}
           </motion.p>
 
           <motion.div 
@@ -61,8 +64,12 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.8 }}
           >
-            <button className="btn-primary">View Projects</button>
-            <button className="btn-secondary">Get in Touch</button>
+            <Link href="/library">
+              <button className="btn-primary">{t('hero.cta.primary')}</button>
+            </Link>
+            <Link href="/blog">
+              <button className="btn-secondary">{t('hero.cta.secondary')}</button>
+            </Link>
           </motion.div>
         </motion.div>
       </div>

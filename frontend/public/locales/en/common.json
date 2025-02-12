@@ -50,7 +50,15 @@
     "read_more": "Read More",
     "latest_posts": "Latest Posts",
     "no_posts_title": "No Posts Yet",
-    "no_posts_description": "Check back soon for new content!"
+    "no_posts_description": "Check back soon for new content!",
+    "categories": {
+      "all": "All Posts",
+      "product": "Product Management",
+      "impact": "Social Impact",
+      "projects": "Side Projects",
+      "family": "Family",
+      "growth": "Personal Growth"
+    }
   },
   "resources": {
     "title": "Resources",

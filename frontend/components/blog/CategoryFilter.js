@@ -1,19 +1,21 @@
 import { useState } from 'react';
+import { useTranslation } from 'next-i18next';
 
 const CategoryFilter = ({ onCategoryChange }) => {
   const [activeCategory, setActiveCategory] = useState('all');
+  const { t } = useTranslation('common');
 
   const categories = [
-    { id: 'all', label: 'All Posts' },
-    { id: 'product', label: 'Product Management' },
-    { id: 'impact', label: 'Social Impact' },
-    { id: 'projects', label: 'Side Projects' },
-    { id: 'family', label: 'Family' },
-    { id: 'growth', label: 'Personal Growth' }
+    { id: 'all', label: t('blog.categories.all') },
+    { id: 'product', label: t('blog.categories.product') },
+    { id: 'impact', label: t('blog.categories.impact') },
+    { id: 'projects', label: t('blog.categories.projects') },
+    { id: 'family', label: t('blog.categories.family') },
+    { id: 'growth', label: t('blog.categories.growth') }
   ];
 
   return (
-    <div className="border-b border-gray-200">
+    <div className="border-b border-gray-200 dark:border-gray-700">
       <div className="flex overflow-x-auto py-4 gap-8 no-scrollbar">
         {categories.map((category) => (
           <button
@@ -25,8 +27,8 @@ const CategoryFilter = ({ onCategoryChange }) => {
             className={`
               whitespace-nowrap text-base font-medium pb-4 border-b-2 transition-colors
               ${activeCategory === category.id 
-                ? 'border-blue-600 text-blue-600' 
-                : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'}
+                ? 'border-primary-500 text-primary-500 dark:border-primary-400 dark:text-primary-400' 
+                : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-600'}
             `}
           >
             {category.label}

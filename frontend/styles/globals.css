@@ -7,7 +7,7 @@
 @layer base {
   /* Default font settings */
   html {
-    @apply font-sans;
+    @apply font-sans antialiased;
   }
 
   /* Typography hierarchy */
@@ -20,36 +20,52 @@
   }
 
   body {
-    @apply bg-white text-primary dark:bg-gray-900 dark:text-white transition-colors duration-200;
+    @apply bg-white text-gray-900 dark:bg-gray-900 dark:text-white;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply px-4 py-2 bg-accent text-white rounded-button hover:bg-accent/90 transition-colors duration-200;
+    @apply px-4 py-2 bg-primary-500 text-white rounded-button 
+    hover:bg-primary-600 dark:bg-primary-400 dark:hover:bg-primary-500 
+    transition-colors duration-200;
   }
 
   .btn-secondary {
-    @apply px-4 py-2 border-2 border-accent text-accent rounded-button hover:bg-accent/10 transition-colors duration-200;
+    @apply px-4 py-2 border-2 border-primary-500 text-primary-500 
+    rounded-button hover:bg-primary-50 dark:border-primary-400 
+    dark:text-primary-400 dark:hover:bg-primary-900/10 
+    transition-colors duration-200;
   }
 
   .card {
-    @apply bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-xl
-    border border-gray-200/50 dark:border-gray-700/50
-    shadow-xl hover:shadow-2xl transition-all duration-300
+    @apply bg-white dark:bg-gray-800 rounded-xl
+    border border-gray-200 dark:border-gray-700
+    shadow-lg hover:shadow-xl dark:shadow-gray-900/30
+    transition-all duration-300
     hover:-translate-y-1;
   }
 
   .input {
-    @apply w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-200;
+    @apply w-full px-4 py-2 rounded-lg 
+    border border-gray-300 dark:border-gray-600 
+    bg-white dark:bg-gray-800 
+    text-gray-900 dark:text-white
+    placeholder-gray-500 dark:placeholder-gray-400
+    focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 
+    focus:border-transparent
+    transition-all duration-200;
   }
 
   .section-title {
-    @apply font-space text-3xl md:text-4xl font-bold text-primary dark:text-white mb-8;
+    @apply font-space text-3xl md:text-4xl font-bold 
+    text-gray-900 dark:text-white mb-8;
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-accent to-highlight bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary-500 to-primary-700 
+    dark:from-primary-400 dark:to-primary-600 
+    bg-clip-text text-transparent;
   }
 }
 
@@ -64,9 +80,7 @@
 
 /* Dark mode transition */
 * {
-  transition-property: background-color, border-color, color, fill, stroke;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 200ms;
+  @apply transition-colors duration-200;
 }
 
 * {
@@ -94,7 +108,7 @@ a {
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  @apply w-2;
 }
 
 ::-webkit-scrollbar-track {
@@ -102,13 +116,64 @@ a {
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+  @apply bg-gray-300 dark:bg-gray-600 rounded-full 
+  hover:bg-gray-400 dark:hover:bg-gray-500;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-gray-400 dark:bg-gray-500;
+/* Prose Dark Mode Overrides */
+.prose {
+  @apply text-gray-900 dark:text-gray-100;
 }
 
+.prose a {
+  @apply text-primary-500 dark:text-primary-400 
+  hover:text-primary-600 dark:hover:text-primary-300;
+}
+
+.prose strong {
+  @apply text-gray-900 dark:text-white;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-gray-300 dark:border-gray-700;
+}
+
+.prose code {
+  @apply text-primary-500 dark:text-primary-400 
+  bg-gray-100 dark:bg-gray-800 
+  px-1 py-0.5 rounded;
+}
+
+.prose pre {
+  @apply bg-gray-100 dark:bg-gray-800 
+  border border-gray-200 dark:border-gray-700;
+}
+
+.prose img {
+  @apply rounded-lg shadow-lg dark:shadow-gray-900/30;
+}
+
+.prose table {
+  @apply border-gray-300 dark:border-gray-700;
+}
+
+.prose thead {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+.prose thead th {
+  @apply text-gray-900 dark:text-white;
+}
+
+.prose tbody tr {
+  @apply border-gray-200 dark:border-gray-700;
+}
+
+.prose tbody td {
+  @apply text-gray-700 dark:text-gray-300;
+}
+
+/* Animation utilities */
 @layer utilities {
   .animate-gradient {
     background-size: 200% 200%;
@@ -120,7 +185,20 @@ a {
   }
 }
 
+@keyframes gradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+  0%, 100% { 
+    transform: translateY(0); 
+  }
+  50% { 
+    transform: translateY(-20px); 
+  }
 } 
