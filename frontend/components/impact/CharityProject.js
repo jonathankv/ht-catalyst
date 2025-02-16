@@ -6,7 +6,7 @@ export default function CharityProject({ project, isActive }) {
 
   return (
     <div
-      className={`p-6 rounded-xl transition-all duration-300 ${
+      className={`p-6 bg-white border border-neutral-200 dark:bg-neutral-900 rounded-xl transition-all duration-300 ${
         isActive
           ? 'bg-primary-50 dark:bg-primary-900/30 ring-2 ring-primary-500 dark:ring-primary-400'
           : 'bg-white dark:bg-neutral-900 hover:bg-neutral-50 dark:hover:bg-neutral-800 shadow-sm'

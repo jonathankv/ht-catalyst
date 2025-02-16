@@ -99,13 +99,13 @@ export default function BlogPost({ post, mdxSource, headings }) {
 
   return (
     <Layout>
-      <div className="min-h-screen bg-white dark:bg-neutral-900">
+      <div className="min-h-screen bg-neutral-25 dark:bg-neutral-900">
         <div className="grid grid-cols-[1fr,minmax(auto,1000px),1fr]">
           {/* Left background */}
-          <div className="bg-white dark:bg-neutral-900" />
+          <div className="bg-neutral-25 dark:bg-neutral-900" />
 
           {/* Main content column */}
-          <div className="col-start-2 bg-white dark:bg-neutral-900">
+          <div className="col-start-2 bg-white border rounded-xl overflow-hidden border-neutral-200 dark:bg-neutral-900">
             {/* Hero Section */}
             <div className="px-8">
               {post.coverImage && (
@@ -172,7 +172,7 @@ export default function BlogPost({ post, mdxSource, headings }) {
           </div>
 
           {/* Right background */}
-          <div className="bg-white dark:bg-neutral-900" />
+          <div className="bg-neutral-25 dark:bg-neutral-900" />
         </div>
       </div>
     </Layout>

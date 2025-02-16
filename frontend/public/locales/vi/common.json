@@ -58,6 +58,9 @@
       "projects": "Dự Án Cá Nhân",
       "family": "Gia Đình",
       "growth": "Phát Triển Bản Thân"
+    },
+    "metadata": {
+      "separator": "•"
     }
   },
   "resources": {

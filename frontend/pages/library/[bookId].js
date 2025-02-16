@@ -68,8 +68,8 @@ export default function BookNotes({ frontMatter, mdxSource }) {
   return (
     <Layout>
       <ReadingProgress target={contentRef} />
-      
-      <div className="min-h-screen bg-white dark:bg-gray-900" ref={contentRef}>
+
+      <div className="min-h-screen bg-neutral-25 dark:bg-neutral-900" ref={contentRef}>
         {/* Hero Section */}
         <div className="relative bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20">
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-24">

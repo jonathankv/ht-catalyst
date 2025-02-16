@@ -50,7 +50,7 @@ export default function Impact() {
 
   return (
     <Layout>
-      <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-neutral-900">
+      <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-8 bg-neutral-25 dark:bg-neutral-900">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

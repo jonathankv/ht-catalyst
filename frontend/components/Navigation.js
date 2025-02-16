@@ -106,7 +106,7 @@ const Navigation = () => {
                   </svg>
                 )}
               </motion.button>
-              <LanguageSwitcher />
+              <LanguageSwitcher isScrolled={isScrolled} />
             </div>
           </div>
 
@@ -168,7 +168,7 @@ const Navigation = () => {
           >
             {isDarkMode ? t('theme.light') : t('theme.dark')}
           </button>
-          <LanguageSwitcher />
+          <LanguageSwitcher isScrolled={isScrolled} />
         </div>
       </motion.div>
     </motion.nav>

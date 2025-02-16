@@ -19,11 +19,18 @@ export function LanguageProvider({ children }) {
   const [currentLanguage, setCurrentLanguage] = useState('en');
 
   useEffect(() => {
-    // Get language from URL or browser
-    const path = router.asPath;
-    const locale = router.locale || 'en';
-    setCurrentLanguage(locale);
-  }, [router.locale]);
+    // Check browser language
+    const browserLang = navigator.language.split('-')[0];
+    const supportedLangs = ['en', 'vi'];
+    const defaultLang = supportedLangs.includes(browserLang) ? browserLang : 'en';
+    
+    // Get saved language preference
+    const savedLang = localStorage.getItem('language');
+    const initialLang = savedLang || defaultLang;
+    
+    setCurrentLanguage(initialLang);
+    router.push(router.pathname, router.asPath, { locale: initialLang });
+  }, []);
 
   const changeLanguage = async (locale) => {
     const { pathname, asPath, query } = router;
