@@ -20,7 +20,7 @@ const Hero = () => {
         style={{ opacity, y }}
         className="absolute inset-0 -z-10"
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800" />
+        <div className="absolute inset-0 bg-gradient-to-br from-white to-neutral-50 dark:from-neutral-900 dark:to-neutral-950" />
         <div 
           className="absolute inset-0 opacity-[0.03] dark:opacity-[0.1]" 
           style={{ 
@@ -43,16 +43,16 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            <span className="text-gray-900 dark:text-white">
+            <span className="text-neutral-900 dark:text-white">
               {t('hero.title')}
             </span>
-            <span className="block mt-4 text-2xl sm:text-3xl md:text-4xl text-primary-600 dark:text-primary-400">
+            <span className="block mt-4 text-2xl sm:text-3xl md:text-4xl text-primary-700 dark:text-primary-300">
               {t('hero.subtitle')}
             </span>
           </motion.h1>
 
           <motion.p 
-            className="text-lg sm:text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-12 max-w-3xl mx-auto"
+            className="text-lg sm:text-xl md:text-2xl text-neutral-700 dark:text-neutral-100 mb-12 max-w-3xl mx-auto"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.8 }}
@@ -67,12 +67,12 @@ const Hero = () => {
             transition={{ delay: 0.9, duration: 0.8 }}
           >
             <Link href="/library">
-              <button className="px-8 py-4 bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 text-white font-medium rounded-xl transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-primary-500/20 dark:hover:shadow-primary-400/20">
+              <button className="px-8 py-4 bg-primary-700 hover:bg-primary-800 dark:bg-primary-600 dark:hover:bg-primary-700 text-white font-medium rounded-xl transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-primary-500/20 dark:hover:shadow-primary-400/20">
                 {t('hero.cta.primary')}
               </button>
             </Link>
             <Link href="/blog">
-              <button className="px-8 py-4 border-2 border-primary-600 dark:border-primary-500 text-primary-600 dark:text-primary-400 font-medium rounded-xl hover:bg-primary-50 dark:hover:bg-primary-900/10 transform hover:scale-105 transition-all duration-200">
+              <button className="px-8 py-4 border-2 border-primary-700 dark:border-primary-500 text-primary-700 dark:text-primary-300 font-medium rounded-xl hover:bg-primary-50 dark:hover:bg-primary-900/10 transform hover:scale-105 transition-all duration-200">
                 {t('hero.cta.secondary')}
               </button>
             </Link>

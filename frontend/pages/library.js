@@ -35,17 +35,17 @@ export default function Library() {
 
   return (
     <Layout>
-      <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
+      <div className="min-h-screen bg-gradient-to-b from-neutral-25 to-neutral-50 dark:from-neutral-900 dark:to-neutral-800">
         {/* Hero Section with Featured Book */}
         {featuredBook && (
-          <div className="relative bg-gradient-to-r from-yellow-300 to-yellow-200 dark:from-yellow-400 dark:to-yellow-300">
+          <div className="relative bg-gradient-to-r from-primary-300 to-primary-200 dark:from-primary-400 dark:to-primary-300">
             <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-24">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                 <div className="space-y-8">
                   <motion.span 
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="inline-block text-sm font-semibold uppercase tracking-wider bg-black text-white px-4 py-2 rounded-full"
+                    className="inline-block text-sm font-semibold uppercase tracking-wider bg-neutral-900 dark:bg-neutral-800 text-neutral-50 px-4 py-2 rounded-full"
                   >
                     {t('library.latest_read')}
                   </motion.span>
@@ -53,7 +53,7 @@ export default function Library() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
-                    className="text-4xl md:text-6xl font-bold leading-tight"
+                    className="text-4xl md:text-6xl font-bold leading-tight text-neutral-900 dark:text-neutral-50"
                   >
                     {featuredBook.title}
                   </motion.h1>
@@ -61,7 +61,7 @@ export default function Library() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
-                    className="text-xl text-gray-700 leading-relaxed"
+                    className="text-xl text-neutral-700 dark:text-neutral-200 leading-relaxed"
                   >
                     {featuredBook.summary}
                   </motion.p>
@@ -69,7 +69,7 @@ export default function Library() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
-                    className="bg-black text-white px-8 py-4 rounded-full hover:bg-gray-800 transition-colors transform hover:scale-105 duration-200 shadow-lg"
+                    className="bg-neutral-900 dark:bg-neutral-800 text-neutral-50 px-8 py-4 rounded-full hover:bg-neutral-800 dark:hover:bg-neutral-700 transition-colors transform hover:scale-105 duration-200 shadow-lg"
                     onClick={() => router.push(`/library/${featuredBook.id}`)}
                   >
                     {t('library.read_notes')}
@@ -101,8 +101,8 @@ export default function Library() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-6">{t('library.section_title')}</h2>
-            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
+            <h2 className="text-4xl font-bold mb-6 text-neutral-900 dark:text-neutral-50">{t('library.section_title')}</h2>
+            <p className="text-xl text-neutral-600 dark:text-neutral-300 max-w-3xl mx-auto leading-relaxed">
               {t('library.section_description')}
             </p>
           </motion.div>
@@ -155,14 +155,14 @@ const LoadingCards = () => {
       key={index}
       className="card p-8 animate-pulse"
     >
-      <div className="aspect-w-3 aspect-h-4 mb-6 bg-gray-200 dark:bg-gray-700 rounded-xl" />
-      <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded-lg w-3/4 mb-4" />
-      <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded-lg w-1/2 mb-6" />
+      <div className="aspect-w-3 aspect-h-4 mb-6 bg-neutral-200 dark:bg-neutral-700 rounded-xl" />
+      <div className="h-6 bg-neutral-200 dark:bg-neutral-700 rounded-lg w-3/4 mb-4" />
+      <div className="h-4 bg-neutral-200 dark:bg-neutral-700 rounded-lg w-1/2 mb-6" />
       <div className="space-y-3">
-        <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded-lg w-1/4" />
+        <div className="h-4 bg-neutral-200 dark:bg-neutral-700 rounded-lg w-1/4" />
         <div className="space-y-2">
           {Array(3).fill(null).map((_, i) => (
-            <div key={i} className="h-3 bg-gray-200 dark:bg-gray-700 rounded-lg w-full" />
+            <div key={i} className="h-3 bg-neutral-200 dark:bg-neutral-700 rounded-lg w-full" />
           ))}
         </div>
       </div>

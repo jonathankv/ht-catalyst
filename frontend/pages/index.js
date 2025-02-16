@@ -12,7 +12,7 @@ export default function Index() {
   const { t } = useTranslation('common');
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen bg-gradient-to-b from-neutral-25 to-neutral-50 dark:from-neutral-900 dark:to-neutral-800">
       <Head>
         <title>{t('site.title')} - {t('site.description')}</title>
       </Head>
@@ -30,7 +30,7 @@ export default function Index() {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="text-4xl md:text-6xl font-bold mb-8 leading-tight py-2 bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-primary-400 dark:from-primary-400 dark:to-primary-200"
+            className="text-4xl md:text-6xl font-bold mb-8 leading-tight py-2 bg-clip-text text-transparent bg-gradient-to-r from-primary-700 to-primary-500 dark:from-primary-400 dark:to-primary-200"
           >
             {t('hero.title')}
           </motion.h1>
@@ -38,7 +38,7 @@ export default function Index() {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed"
+            className="text-xl text-neutral-700 dark:text-neutral-200 leading-relaxed"
           >
             {t('hero.subtitle')}
           </motion.p>

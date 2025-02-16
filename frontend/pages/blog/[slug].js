@@ -1,6 +1,8 @@
 import React from 'react';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Layout from '../../components/Layout';
 import { posts } from '../../data/posts';
 import Image from 'next/image';
@@ -11,13 +13,13 @@ import TableOfContents from '../../components/blog/TableOfContents';
 const components = {
   h1: props => (
     <h1
-      className="text-3xl font-bold mt-12 mb-6 text-neutral-900 dark:text-neutral-50 pb-2 border-b border-neutral-200 dark:border-neutral-700"
+      className="text-3xl font-bold mt-12 mb-6 text-neutral-900 dark:text-white pb-2 border-b border-neutral-200 dark:border-neutral-700"
       {...props}
     />
   ),
   h2: props => (
     <h2
-      className="text-2xl font-semibold mt-8 mb-4 text-neutral-800 dark:text-neutral-100"
+      className="text-2xl font-semibold mt-8 mb-4 text-neutral-900 dark:text-white"
       {...props}
     />
   ),
@@ -26,7 +28,7 @@ const components = {
     return (
       <h3 
         id={id} 
-        className="text-2xl font-semibold mt-8 mb-4 text-neutral-800 dark:text-neutral-100"
+        className="text-2xl font-semibold mt-8 mb-4 text-neutral-900 dark:text-white"
         {...props}
       >
         {children}
@@ -35,41 +37,41 @@ const components = {
   },
   p: props => (
     <p
-      className="text-lg leading-relaxed text-neutral-700 dark:text-neutral-300 mb-6 selection:bg-primary-100 dark:selection:bg-primary-900/30 selection:text-primary-900 dark:selection:text-primary-100"
+      className="text-lg leading-relaxed text-neutral-800 dark:text-neutral-100 mb-6 selection:bg-primary-100 dark:selection:bg-primary-900/30 selection:text-primary-900 dark:selection:text-primary-100"
       {...props}
     />
   ),
   strong: props => (
     <strong
-      className="font-semibold text-neutral-900 dark:text-neutral-50 bg-primary-50 dark:bg-primary-900/20 px-1 rounded"
+      className="font-semibold text-neutral-900 dark:text-white bg-primary-50 dark:bg-primary-900/30 px-1 rounded"
       {...props}
     />
   ),
   em: (props) => (
-    <em className="italic text-primary-600 dark:text-primary-400" {...props} />
+    <em className="text-primary-700 dark:text-primary-300 italic" {...props} />
   ),
   blockquote: props => (
     <blockquote
-      className="my-8 pl-6 border-l-4 border-primary-500 bg-primary-50 dark:bg-primary-900/20 py-4 pr-4 rounded-r-lg italic text-neutral-800 dark:text-neutral-200"
+      className="my-8 pl-6 border-l-4 border-primary-600 dark:border-primary-400 bg-primary-50/50 dark:bg-primary-900/20 py-4 pr-4 rounded-r-lg italic text-neutral-800 dark:text-neutral-100"
       {...props}
     />
   ),
   ul: props => (
-    <ul className="list-none ml-6 space-y-3 text-neutral-700 dark:text-neutral-300">
+    <ul className="list-none ml-6 space-y-3 text-neutral-800 dark:text-neutral-100">
       {props.children}
     </ul>
   ),
   ol: props => (
-    <ol className="list-none ml-6 space-y-3 text-neutral-700 dark:text-neutral-300 counter-reset-item">
+    <ol className="list-none ml-6 space-y-3 text-neutral-800 dark:text-neutral-100 counter-reset-item">
       {props.children}
     </ol>
   ),
   li: (props) => (
-    <li className="relative pl-8 text-lg leading-relaxed before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-primary-500 dark:before:bg-primary-400 before:rounded-full" {...props} />
+    <li className="relative pl-8 text-lg leading-relaxed before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-primary-600 dark:before:bg-primary-400 before:rounded-full" {...props} />
   ),
   a: (props) => (
     <a 
-      className="text-primary-600 dark:text-primary-400 font-medium hover:underline decoration-2 underline-offset-2 transition-colors" 
+      className="text-primary-700 dark:text-primary-300 font-medium hover:underline decoration-2 underline-offset-2 transition-colors" 
       target={props.href?.startsWith('http') ? '_blank' : undefined}
       rel={props.href?.startsWith('http') ? 'noopener noreferrer' : undefined}
       {...props} 
@@ -78,9 +80,9 @@ const components = {
   // Add a new component for callouts
   Callout: ({ children, type = 'info' }) => {
     const styles = {
-      info: 'bg-primary-50 dark:bg-primary-900/20 border-primary-500 text-primary-900 dark:text-primary-100',
-      warning: 'bg-secondary-50 dark:bg-secondary-900/20 border-secondary-500 text-secondary-900 dark:text-secondary-100',
-      tip: 'bg-tertiary-50 dark:bg-tertiary-900/20 border-tertiary-500 text-tertiary-900 dark:text-tertiary-100',
+      info: 'bg-primary-50 dark:bg-primary-900/30 border-primary-600 dark:border-primary-400 text-primary-900 dark:text-primary-100',
+      warning: 'bg-secondary-50 dark:bg-secondary-900/30 border-secondary-600 dark:border-secondary-400 text-secondary-900 dark:text-secondary-100',
+      tip: 'bg-tertiary-50 dark:bg-tertiary-900/30 border-tertiary-600 dark:border-tertiary-400 text-tertiary-900 dark:text-tertiary-100',
     };
     return (
       <div className={`my-8 p-4 border-l-4 rounded-r-lg ${styles[type]}`}>
@@ -91,17 +93,19 @@ const components = {
 };
 
 export default function BlogPost({ post, mdxSource, headings }) {
+  const { t } = useTranslation('common');
+  
   if (!post) return null;
 
   return (
     <Layout>
-      <div className="min-h-screen bg-neutral-50 dark:bg-neutral-950">
+      <div className="min-h-screen bg-white dark:bg-neutral-900">
         <div className="grid grid-cols-[1fr,minmax(auto,1000px),1fr]">
           {/* Left background */}
-          <div className="bg-neutral-50 dark:bg-neutral-900" />
+          <div className="bg-white dark:bg-neutral-900" />
 
           {/* Main content column */}
-          <div className="col-start-2 bg-neutral-25 dark:bg-neutral-900">
+          <div className="col-start-2 bg-white dark:bg-neutral-900">
             {/* Hero Section */}
             <div className="px-8">
               {post.coverImage && (
@@ -119,24 +123,24 @@ export default function BlogPost({ post, mdxSource, headings }) {
               <div className="py-6">
                 <div className="space-y-4">
                   <div className="inline-block">
-                    <span className="px-3 py-1 text-sm font-medium bg-primary-100 text-primary-800 dark:bg-primary-900/30 dark:text-primary-200 rounded-full">
-                      {post.category}
+                    <span className="px-3 py-1 text-sm font-medium bg-primary-100 text-primary-800 dark:bg-primary-900/40 dark:text-primary-200 rounded-full">
+                      {t(`blog.categories.${post.category}`)}
                     </span>
                   </div>
 
-                  <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-neutral-50 leading-tight">
+                  <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white leading-tight">
                     {post.title}
                   </h1>
                   
                   {post.subtitle && (
-                    <p className="text-xl text-neutral-600 dark:text-neutral-300 leading-relaxed">
+                    <p className="text-xl text-neutral-700 dark:text-neutral-200 leading-relaxed">
                       {post.subtitle}
                     </p>
                   )}
 
-                  <div className="flex items-center gap-4 text-sm text-neutral-600 pt-2">
+                  <div className="flex items-center gap-4 text-sm text-neutral-700 dark:text-neutral-200 pt-2">
                     <div className="flex items-center gap-2">
-                      <div className="w-10 h-10 relative overflow-hidden rounded-full ring-2 ring-neutral-25 dark:ring-neutral-800">
+                      <div className="w-10 h-10 relative overflow-hidden rounded-full ring-2 ring-neutral-200 dark:ring-neutral-700">
                         <Image
                           src={post.author.avatar}
                           alt={post.author.name}
@@ -144,14 +148,14 @@ export default function BlogPost({ post, mdxSource, headings }) {
                           className="object-cover"
                         />
                       </div>
-                      <span className="font-medium">{post.author.name}</span>
+                      <span className="font-medium text-neutral-900 dark:text-white">{post.author.name}</span>
                     </div>
                     <span>•</span>
                     <span>{post.date}</span>
                     {post.readTime && (
                       <>
                         <span>•</span>
-                        <span>{post.readTime}</span>
+                        <span>{t('library.reading_time', { minutes: post.readTime })}</span>
                       </>
                     )}
                   </div>
@@ -168,7 +172,7 @@ export default function BlogPost({ post, mdxSource, headings }) {
           </div>
 
           {/* Right background */}
-          <div className="bg-neutral-50 dark:bg-neutral-900" />
+          <div className="bg-white dark:bg-neutral-900" />
         </div>
       </div>
     </Layout>
@@ -192,16 +196,24 @@ function extractHeadings(content) {
 }
 
 // Server-side code
-export async function getStaticPaths() {
-  const paths = posts.map((post) => ({
-    params: { slug: post.slug },
-  }));
+export async function getStaticPaths({ locales }) {
+  const paths = [];
+  
+  // Generate paths for all locales
+  for (const locale of locales) {
+    posts.forEach((post) => {
+      paths.push({
+        params: { slug: post.slug },
+        locale,
+      });
+    });
+  }
 
   return { paths, fallback: false };
 }
 
 // Server-side code
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params, locale }) {
   try {
     const fs = require('fs');
     const path = require('path');
@@ -227,6 +239,7 @@ export async function getStaticProps({ params }) {
 
     return { 
       props: { 
+        ...(await serverSideTranslations(locale, ['common'])),
         post: postData,
         mdxSource,
         headings

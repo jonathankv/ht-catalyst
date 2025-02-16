@@ -58,6 +58,9 @@
       "projects": "Side Projects",
       "family": "Family",
       "growth": "Personal Growth"
+    },
+    "metadata": {
+      "separator": "•"
     }
   },
   "resources": {

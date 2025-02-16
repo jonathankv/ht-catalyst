@@ -50,7 +50,7 @@ export default function Impact() {
 
   return (
     <Layout>
-      <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-8 bg-neutral-50 dark:bg-neutral-950">
+      <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-neutral-900">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -58,10 +58,10 @@ export default function Impact() {
             transition={{ duration: 0.5 }}
             className="text-center mb-16"
           >
-            <h1 className="text-4xl font-bold mb-4 text-neutral-900 dark:text-neutral-50">
+            <h1 className="text-4xl font-bold mb-4 text-neutral-900 dark:text-white">
               {t('impact.title')}
             </h1>
-            <p className="text-xl text-neutral-600 dark:text-neutral-400">
+            <p className="text-xl text-neutral-700 dark:text-neutral-100 max-w-3xl mx-auto">
               {t('impact.description')}
             </p>
           </motion.div>
@@ -84,7 +84,7 @@ export default function Impact() {
 
           {filteredProjects.length === 0 && (
             <div className="text-center py-12">
-              <p className="text-neutral-600 dark:text-neutral-400">
+              <p className="text-neutral-700 dark:text-neutral-100">
                 {t('impact.no_projects')}
               </p>
             </div>

@@ -7,7 +7,7 @@ const BlogCard = ({ post }) => {
     <Link href={`/blog/${post.slug}`}>
       <article className="group space-y-4">
         {/* Category Label */}
-        <div className="text-sm font-semibold uppercase tracking-wider text-gray-600">
+        <div className="text-sm font-semibold uppercase tracking-wider text-neutral-700 dark:text-neutral-300">
           {post.category}
         </div>
 
@@ -28,16 +28,16 @@ const BlogCard = ({ post }) => {
 
         {/* Title and Excerpt */}
         <div className="space-y-2">
-          <h2 className="text-2xl font-bold group-hover:text-blue-600 transition-colors">
+          <h2 className="text-2xl font-bold text-neutral-900 dark:text-neutral-50 group-hover:text-primary-700 dark:group-hover:text-primary-300 transition-colors">
             {post.title}
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 line-clamp-2">
+          <p className="text-neutral-700 dark:text-neutral-300 line-clamp-2">
             {post.excerpt}
           </p>
         </div>
 
         {/* Metadata */}
-        <div className="flex items-center gap-4 text-sm text-gray-500">
+        <div className="flex items-center gap-4 text-sm text-neutral-600 dark:text-neutral-400">
           <span>{post.date}</span>
           <span>•</span>
           <span>{post.readTime}</span>
