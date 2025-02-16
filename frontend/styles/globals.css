@@ -11,6 +11,8 @@
   --color-input: theme('colors.neutral.100');
   --color-accent: theme('colors.primary.500');
   --color-accent-hover: theme('colors.primary.600');
+  --color-accent-rgb: 26, 204, 171; /* RGB values for primary-500 */
+  --color-accent-hover-rgb: 22, 179, 150; /* RGB values for primary-600 */
   
   /* Component-specific colors */
   --color-header-bg: var(--color-surface);
@@ -21,6 +23,10 @@
   --color-button-primary-hover: var(--color-accent-hover);
   --color-button-secondary: transparent;
   --color-button-secondary-hover: theme('colors.primary.50');
+  
+  /* Text Gradients */
+  --gradient-text-primary: linear-gradient(120deg, var(--color-accent), var(--color-accent-hover));
+  --gradient-text-secondary: linear-gradient(120deg, var(--color-text), var(--color-text-secondary));
 }
 
 /* Dark mode adjustments */
@@ -34,6 +40,8 @@
   --color-input: theme('colors.neutral.800');
   --color-accent: theme('colors.primary.400');
   --color-accent-hover: theme('colors.primary.300');
+  --color-accent-rgb: 51, 214, 184; /* RGB values for primary-400 */
+  --color-accent-hover-rgb: 77, 224, 197; /* RGB values for primary-300 */
   
   /* Component-specific colors - dark mode */
   --color-header-bg: var(--color-surface);

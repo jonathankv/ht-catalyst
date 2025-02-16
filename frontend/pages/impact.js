@@ -13,47 +13,44 @@ const projects = [
     title: 'Education for All',
     description: 'Providing quality education to underprivileged children through technology.',
     category: 'education',
-    status: 'active',
-    progress: 75,
-    raised: 15000,
-    goal: 20000,
-    image: '/images/blog/default-cover.svg'
+    currentAmount: 15000,
+    goalAmount: 20000,
+    image: '/images/projects/education.jpg'
   },
   {
     id: 2,
     title: 'Clean Ocean Initiative',
     description: 'Developing innovative solutions to clean and protect our oceans.',
     category: 'environment',
-    status: 'active',
-    progress: 60,
-    raised: 30000,
-    goal: 50000,
-    image: '/images/blog/default-cover.svg'
+    currentAmount: 30000,
+    goalAmount: 50000,
+    image: '/images/projects/ocean.jpg'
   },
   {
     id: 3,
     title: 'Healthcare Access',
     description: 'Bringing healthcare services to remote communities through telemedicine.',
     category: 'healthcare',
-    status: 'active',
-    progress: 40,
-    raised: 20000,
-    goal: 50000,
-    image: '/images/blog/default-cover.svg'
+    currentAmount: 20000,
+    goalAmount: 50000,
+    image: '/images/projects/healthcare.jpg'
   }
 ];
 
+// Extract unique categories from projects
+const categories = [...new Set(projects.map(project => project.category))];
+
 export default function Impact() {
-  const [activeFilter, setActiveFilter] = useState('all');
+  const [activeCategory, setActiveCategory] = useState('all');
   const { t } = useTranslation('common');
 
-  const filteredProjects = activeFilter === 'all'
+  const filteredProjects = activeCategory === 'all'
     ? projects
-    : projects.filter(project => project.category === activeFilter);
+    : projects.filter(project => project.category === activeCategory);
 
   return (
     <Layout>
-      <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-8 bg-neutral-50 dark:bg-neutral-950">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -61,26 +58,33 @@ export default function Impact() {
             transition={{ duration: 0.5 }}
             className="text-center mb-16"
           >
-            <h1 className="text-4xl font-bold mb-4">{t('impact.title')}</h1>
-            <p className="text-xl text-gray-600 dark:text-gray-400">
+            <h1 className="text-4xl font-bold mb-4 text-neutral-900 dark:text-neutral-50">
+              {t('impact.title')}
+            </h1>
+            <p className="text-xl text-neutral-600 dark:text-neutral-400">
               {t('impact.description')}
             </p>
           </motion.div>
 
           <ProjectFilter
-            activeFilter={activeFilter}
-            onFilterChange={setActiveFilter}
+            categories={categories}
+            activeCategory={activeCategory}
+            onCategoryChange={setActiveCategory}
           />
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {filteredProjects.map((project) => (
-              <CharityProject key={project.id} project={project} />
+              <CharityProject 
+                key={project.id} 
+                project={project}
+                isActive={activeCategory === project.category} 
+              />
             ))}
           </div>
 
           {filteredProjects.length === 0 && (
             <div className="text-center py-12">
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-neutral-600 dark:text-neutral-400">
                 {t('impact.no_projects')}
               </p>
             </div>

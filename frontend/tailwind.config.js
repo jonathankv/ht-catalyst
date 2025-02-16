@@ -89,8 +89,15 @@ module.exports = {
           900: 'hsl(150, 70%, 24%)',
           950: 'hsl(150, 70%, 16%)',
         },
-        accent: '#0984E3',
-        highlight: '#00D2D3',
+        accent: {
+          light: 'var(--color-accent)',
+          hover: 'var(--color-accent-hover)',
+          dark: 'var(--color-accent-dark)',
+        },
+        highlight: {
+          light: 'var(--color-highlight)',
+          dark: 'var(--color-highlight-dark)',
+        },
       },
       spacing: {
         '128': '32rem',

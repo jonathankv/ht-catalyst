@@ -5,7 +5,7 @@
   justify-content: center;
   position: relative;
   padding: 2rem;
-  background: linear-gradient(to bottom right, #ffffff, #f8f9fa);
+  background: linear-gradient(to bottom right, var(--color-surface), var(--color-background));
   overflow: hidden;
 }
 
@@ -21,7 +21,7 @@
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 1.5rem;
-  background: linear-gradient(120deg, #2D3436, #000000);
+  background: linear-gradient(120deg, var(--color-text), var(--color-text-secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -29,7 +29,7 @@
 .highlight {
   display: block;
   font-size: 2.5rem;
-  background: linear-gradient(120deg, #0070f3, #00c9ff);
+  background: linear-gradient(120deg, var(--color-accent), var(--color-accent-hover));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-top: 0.5rem;
@@ -37,7 +37,7 @@
 
 .subtitle {
   font-size: 1.5rem;
-  color: #666;
+  color: var(--color-text-secondary);
   max-width: 800px;
   line-height: 1.6;
   margin-bottom: 2.5rem;
@@ -49,43 +49,42 @@
   margin-top: 2rem;
 }
 
-.primaryButton, .secondaryButton {
-  padding: 1rem 2rem;
-  font-size: 1.1rem;
-  border-radius: 8px;
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
   font-weight: 500;
-  transition: all 0.3s ease;
-  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.primaryButton {
-  background: linear-gradient(135deg, #0070f3, #00c9ff);
-  color: white;
-  border: none;
-  box-shadow: 0 4px 14px rgba(0, 118, 255, 0.2);
+.ctaPrimary {
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-hover));
+  color: var(--color-surface);
+  box-shadow: 0 4px 14px rgba(var(--color-accent-rgb), 0.2);
 }
 
-.primaryButton:hover {
+.ctaPrimary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 118, 255, 0.3);
+  box-shadow: 0 6px 20px rgba(var(--color-accent-rgb), 0.3);
 }
 
-.secondaryButton {
+.ctaSecondary {
+  color: var(--color-accent);
+  border: 2px solid var(--color-accent);
   background: transparent;
-  color: #0070f3;
-  border: 2px solid #0070f3;
 }
 
-.secondaryButton:hover {
-  background: rgba(0, 112, 243, 0.1);
-  transform: translateY(-2px);
+.ctaSecondary:hover {
+  background: color-mix(in srgb, var(--color-accent) 10%, transparent);
 }
 
 .decorativeElement {
   position: absolute;
   width: 800px;
   height: 800px;
-  background: linear-gradient(135deg, #0070f3, #00c9ff);
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-hover));
   border-radius: 50%;
   filter: blur(100px);
   opacity: 0.1;

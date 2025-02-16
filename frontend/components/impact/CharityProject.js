@@ -1,61 +1,53 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
-const CharityProject = ({ project }) => {
+export default function CharityProject({ project, isActive }) {
+  const progressPercentage = (project.currentAmount / project.goalAmount) * 100;
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="card overflow-hidden"
+    <div
+      className={`p-6 rounded-xl transition-all duration-300 ${
+        isActive
+          ? 'bg-primary-50 dark:bg-primary-900/30 ring-2 ring-primary-500 dark:ring-primary-400'
+          : 'bg-white dark:bg-neutral-900 hover:bg-neutral-50 dark:hover:bg-neutral-800 shadow-sm'
+      }`}
     >
-      <div className="relative h-48">
-        <Image
-          src={project.image || '/images/blog/default-cover.svg'}
-          alt={project.title}
-          fill
-          className="object-cover"
-        />
-      </div>
-      <div className="p-6">
-        <div className="flex justify-between items-start mb-4">
-          <h3 className="text-xl font-semibold">{project.title}</h3>
-          <span className={`px-3 py-1 rounded-full text-sm ${
-            project.status === 'active' 
-              ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
-              : 'bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200'
-          }`}>
-            {project.status}
-          </span>
+      <h3 className="text-xl font-semibold mb-2 text-neutral-900 dark:text-neutral-50">{project.title}</h3>
+      <p className="text-neutral-700 dark:text-neutral-300 mb-4">{project.description}</p>
+      
+      <div className="space-y-4">
+        <div className="flex justify-between text-sm">
+          <span className="text-neutral-700 dark:text-neutral-300">Progress</span>
+          <span className="text-neutral-700 dark:text-neutral-300">{progressPercentage.toFixed(1)}%</span>
         </div>
-        <p className="text-gray-600 dark:text-gray-400 mb-4">
-          {project.description}
-        </p>
-        <div className="space-y-4">
-          <div className="flex justify-between text-sm text-gray-600 dark:text-gray-400">
-            <span>Progress</span>
-            <span>{project.progress}%</span>
-          </div>
-          <div className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+        
+        <div className="relative">
+          <div className="w-full h-2 bg-neutral-200 dark:bg-neutral-700 rounded-full overflow-hidden">
             <div
-              className="h-full bg-primary-500"
-              style={{ width: `${project.progress}%` }}
+              className="h-full bg-primary-500 dark:bg-primary-400 transition-all duration-300"
+              style={{ width: `${progressPercentage}%` }}
             />
           </div>
-          <div className="flex justify-between text-sm">
-            <span className="text-gray-600 dark:text-gray-400">
-              Raised: ${project.raised.toLocaleString()}
-            </span>
-            <span className="font-medium">
-              Goal: ${project.goal.toLocaleString()}
-            </span>
-          </div>
         </div>
-        <div className="mt-6">
-          <button className="btn-primary w-full">Support Project</button>
+
+        <div className="flex justify-between items-center">
+          <span className="text-neutral-700 dark:text-neutral-300">
+            ${project.currentAmount.toLocaleString()} raised
+          </span>
+          <span className="font-medium text-primary-600 dark:text-primary-300">
+            Goal: ${project.goalAmount.toLocaleString()}
+          </span>
         </div>
       </div>
-    </motion.div>
-  );
-};
 
-export default CharityProject; 
+      <div className="mt-6 flex gap-4">
+        <button className="flex-1 px-4 py-2 bg-primary-800 hover:bg-primary-900 dark:bg-primary-600 dark:hover:bg-primary-700 text-white font-medium rounded-lg transition-colors">
+          Donate Now
+        </button>
+        <button className="flex-1 px-4 py-2 border-2 border-primary-700 dark:border-primary-600 text-primary-700 dark:text-primary-200 hover:bg-primary-50 dark:hover:bg-primary-900/20 font-medium rounded-lg transition-colors">
+          Learn More
+        </button>
+      </div>
+    </div>
+  );
+}

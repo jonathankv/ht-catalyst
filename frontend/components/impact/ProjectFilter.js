@@ -1,35 +1,38 @@
 import { motion } from 'framer-motion';
 
-const ProjectFilter = ({ activeFilter, onFilterChange }) => {
-  const filters = [
-    { id: 'all', name: 'All Projects' },
-    { id: 'education', name: 'Education' },
-    { id: 'environment', name: 'Environment' },
-    { id: 'healthcare', name: 'Healthcare' },
-    { id: 'technology', name: 'Technology' }
-  ];
+export default function ProjectFilter({ 
+  categories = [], // Provide default empty array
+  activeCategory = 'all', 
+  onCategoryChange 
+}) {
+  // Ensure categories is always an array
+  const categoryList = Array.isArray(categories) ? categories : [];
 
   return (
-    <div className="mb-8">
-      <div className="flex flex-wrap gap-4 justify-center">
-        {filters.map((filter) => (
-          <motion.button
-            key={filter.id}
-            onClick={() => onFilterChange(filter.id)}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
-              activeFilter === filter.id
-                ? 'bg-primary-500 text-white'
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700'
-            }`}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            {filter.name}
-          </motion.button>
-        ))}
-      </div>
+    <div className="flex flex-wrap gap-2 mb-8">
+      <button
+        onClick={() => onCategoryChange('all')}
+        className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+          activeCategory === 'all'
+            ? 'bg-primary-500 text-white dark:bg-primary-400'
+            : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-700'
+        }`}
+      >
+        All Projects
+      </button>
+      {categoryList.map((category) => (
+        <button
+          key={category}
+          onClick={() => onCategoryChange(category)}
+          className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+            activeCategory === category
+              ? 'bg-primary-500 text-white dark:bg-primary-400'
+              : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-700'
+          }`}
+        >
+          {category}
+        </button>
+      ))}
     </div>
   );
-};
-
-export default ProjectFilter; 
+} 

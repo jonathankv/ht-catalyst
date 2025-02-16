@@ -9,84 +9,59 @@ import TableOfContents from '../../components/blog/TableOfContents';
 
 // Custom components for MDX
 const components = {
-  h1: () => null,
-  img: (props) => (
-    <div className="my-12">
-      <div className="relative w-full h-[500px] rounded-lg overflow-hidden shadow-lg">
-        <Image
-          {...props}
-          fill
-          className="object-cover"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-        />
-      </div>
-      {props.alt && (
-        <p className="mt-3 text-sm text-gray-600 dark:text-gray-400 text-center italic">
-          {props.alt}
-        </p>
-      )}
-    </div>
+  h1: props => (
+    <h1
+      className="text-3xl font-bold mt-12 mb-6 text-neutral-900 dark:text-neutral-50 pb-2 border-b border-neutral-200 dark:border-neutral-700"
+      {...props}
+    />
   ),
-  h2: ({ children, ...props }) => {
-    const id = children.toLowerCase().replace(/\s+/g, '-');
-    return (
-      <h2 
-        id={id} 
-        className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-white pb-2 border-b border-gray-200 dark:border-gray-700"
-        {...props}
-      >
-        {children}
-      </h2>
-    );
-  },
+  h2: props => (
+    <h2
+      className="text-2xl font-semibold mt-8 mb-4 text-neutral-800 dark:text-neutral-100"
+      {...props}
+    />
+  ),
   h3: ({ children, ...props }) => {
     const id = children.toLowerCase().replace(/\s+/g, '-');
     return (
       <h3 
         id={id} 
-        className="text-2xl font-semibold mt-8 mb-4 text-gray-800 dark:text-gray-100"
+        className="text-2xl font-semibold mt-8 mb-4 text-neutral-800 dark:text-neutral-100"
         {...props}
       >
         {children}
       </h3>
     );
   },
-  p: ({ children, ...props }) => {
-    // Check if this is the first paragraph
-    const isFirstParagraph = props.className?.includes('first-paragraph');
-    if (isFirstParagraph) {
-      return (
-        <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6" {...props}>
-          <span className="float-left text-5xl font-serif leading-tight mr-2 mt-1 text-primary-600 dark:text-primary-400">
-            {children.charAt(0)}
-          </span>
-          {children.slice(1)}
-        </p>
-      );
-    }
-    return (
-      <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6 selection:bg-primary-100 dark:selection:bg-primary-900/30 selection:text-primary-900 dark:selection:text-primary-100" {...props}>
-        {children}
-      </p>
-    );
-  },
-  strong: (props) => (
-    <strong className="font-semibold text-gray-900 dark:text-white bg-primary-50 dark:bg-primary-900/20 px-1 rounded" {...props} />
+  p: props => (
+    <p
+      className="text-lg leading-relaxed text-neutral-700 dark:text-neutral-300 mb-6 selection:bg-primary-100 dark:selection:bg-primary-900/30 selection:text-primary-900 dark:selection:text-primary-100"
+      {...props}
+    />
+  ),
+  strong: props => (
+    <strong
+      className="font-semibold text-neutral-900 dark:text-neutral-50 bg-primary-50 dark:bg-primary-900/20 px-1 rounded"
+      {...props}
+    />
   ),
   em: (props) => (
     <em className="italic text-primary-600 dark:text-primary-400" {...props} />
   ),
-  blockquote: (props) => (
-    <blockquote className="my-8 pl-6 border-l-4 border-primary-500 bg-primary-50 dark:bg-primary-900/20 py-4 pr-4 rounded-r-lg italic text-gray-800 dark:text-gray-200" {...props} />
+  blockquote: props => (
+    <blockquote
+      className="my-8 pl-6 border-l-4 border-primary-500 bg-primary-50 dark:bg-primary-900/20 py-4 pr-4 rounded-r-lg italic text-neutral-800 dark:text-neutral-200"
+      {...props}
+    />
   ),
-  ul: ({ children }) => (
-    <ul className="list-none ml-6 space-y-3 text-gray-700 dark:text-gray-300">
-      {children}
+  ul: props => (
+    <ul className="list-none ml-6 space-y-3 text-neutral-700 dark:text-neutral-300">
+      {props.children}
     </ul>
   ),
-  ol: ({ children }) => (
-    <ol className="list-none ml-6 space-y-3 text-gray-700 dark:text-gray-300 counter-reset-item">
-      {children}
+  ol: props => (
+    <ol className="list-none ml-6 space-y-3 text-neutral-700 dark:text-neutral-300 counter-reset-item">
+      {props.children}
     </ol>
   ),
   li: (props) => (
@@ -103,9 +78,9 @@ const components = {
   // Add a new component for callouts
   Callout: ({ children, type = 'info' }) => {
     const styles = {
-      info: 'bg-blue-50 dark:bg-blue-900/20 border-blue-500 text-blue-900 dark:text-blue-100',
-      warning: 'bg-yellow-50 dark:bg-yellow-900/20 border-yellow-500 text-yellow-900 dark:text-yellow-100',
-      tip: 'bg-green-50 dark:bg-green-900/20 border-green-500 text-green-900 dark:text-green-100',
+      info: 'bg-primary-50 dark:bg-primary-900/20 border-primary-500 text-primary-900 dark:text-primary-100',
+      warning: 'bg-secondary-50 dark:bg-secondary-900/20 border-secondary-500 text-secondary-900 dark:text-secondary-100',
+      tip: 'bg-tertiary-50 dark:bg-tertiary-900/20 border-tertiary-500 text-tertiary-900 dark:text-tertiary-100',
     };
     return (
       <div className={`my-8 p-4 border-l-4 rounded-r-lg ${styles[type]}`}>
@@ -120,13 +95,13 @@ export default function BlogPost({ post, mdxSource, headings }) {
 
   return (
     <Layout>
-      <div className="min-h-screen">
+      <div className="min-h-screen bg-neutral-50 dark:bg-neutral-950">
         <div className="grid grid-cols-[1fr,minmax(auto,1000px),1fr]">
-          {/* Left gray background */}
-          <div className="bg-gray-50" />
+          {/* Left background */}
+          <div className="bg-neutral-50 dark:bg-neutral-900" />
 
           {/* Main content column */}
-          <div className="col-start-2 bg-white">
+          <div className="col-start-2 bg-neutral-25 dark:bg-neutral-900">
             {/* Hero Section */}
             <div className="px-8">
               {post.coverImage && (
@@ -149,19 +124,19 @@ export default function BlogPost({ post, mdxSource, headings }) {
                     </span>
                   </div>
 
-                  <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
+                  <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-neutral-50 leading-tight">
                     {post.title}
                   </h1>
                   
                   {post.subtitle && (
-                    <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
+                    <p className="text-xl text-neutral-600 dark:text-neutral-300 leading-relaxed">
                       {post.subtitle}
                     </p>
                   )}
 
-                  <div className="flex items-center gap-4 text-sm text-gray-600 pt-2">
+                  <div className="flex items-center gap-4 text-sm text-neutral-600 pt-2">
                     <div className="flex items-center gap-2">
-                      <div className="w-10 h-10 relative overflow-hidden rounded-full ring-2 ring-white dark:ring-gray-800">
+                      <div className="w-10 h-10 relative overflow-hidden rounded-full ring-2 ring-neutral-25 dark:ring-neutral-800">
                         <Image
                           src={post.author.avatar}
                           alt={post.author.name}
@@ -186,14 +161,14 @@ export default function BlogPost({ post, mdxSource, headings }) {
 
             {/* Main Content */}
             <div className="max-w-[720px] mx-auto px-8 py-12">
-              <article className="prose prose-lg dark:prose-invert selection:bg-primary-100 dark:selection:bg-primary-900/30 selection:text-primary-900 dark:selection:text-primary-100">
+              <article className="prose prose-lg dark:prose-dark mx-auto">
                 <MDXRemote {...mdxSource} components={components} />
               </article>
             </div>
           </div>
 
-          {/* Right gray background */}
-          <div className="bg-gray-50" />
+          {/* Right background */}
+          <div className="bg-neutral-50 dark:bg-neutral-900" />
         </div>
       </div>
     </Layout>
