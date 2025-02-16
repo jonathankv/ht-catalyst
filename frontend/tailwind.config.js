@@ -136,7 +136,7 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            color: theme('colors.gray.700'),
+            color: theme('colors.neutral.700'),
             maxWidth: '65ch',
             h1: {
               backgroundClip: 'text',
@@ -150,20 +150,20 @@ module.exports = {
               },
             },
             h1: {
-              color: theme('colors.gray.900'),
+              color: theme('colors.neutral.900'),
             },
             h2: {
-              color: theme('colors.gray.900'),
+              color: theme('colors.neutral.900'),
             },
             h3: {
-              color: theme('colors.gray.900'),
+              color: theme('colors.neutral.900'),
             },
             h4: {
-              color: theme('colors.gray.900'),
+              color: theme('colors.neutral.900'),
             },
             code: {
               color: theme('colors.primary.500'),
-              backgroundColor: theme('colors.gray.100'),
+              backgroundColor: theme('colors.neutral.100'),
               padding: '0.25rem',
               borderRadius: '0.25rem',
               fontWeight: '500',
@@ -178,7 +178,7 @@ module.exports = {
         },
         dark: {
           css: {
-            color: theme('colors.gray.300'),
+            color: theme('colors.neutral.300'),
             a: {
               color: theme('colors.primary.400'),
               '&:hover': {
@@ -186,38 +186,38 @@ module.exports = {
               },
             },
             h1: {
-              color: theme('colors.white'),
+              color: theme('colors.neutral.50'),
             },
             h2: {
-              color: theme('colors.white'),
+              color: theme('colors.neutral.50'),
             },
             h3: {
-              color: theme('colors.white'),
+              color: theme('colors.neutral.50'),
             },
             h4: {
-              color: theme('colors.white'),
+              color: theme('colors.neutral.50'),
             },
             code: {
               color: theme('colors.primary.400'),
-              backgroundColor: theme('colors.gray.800'),
+              backgroundColor: theme('colors.neutral.800'),
             },
             blockquote: {
-              color: theme('colors.gray.400'),
-              borderLeftColor: theme('colors.gray.700'),
+              color: theme('colors.neutral.400'),
+              borderLeftColor: theme('colors.neutral.700'),
             },
             hr: {
-              borderColor: theme('colors.gray.700'),
+              borderColor: theme('colors.neutral.700'),
             },
             strong: {
-              color: theme('colors.white'),
+              color: theme('colors.neutral.50'),
             },
             thead: {
-              color: theme('colors.white'),
-              borderBottomColor: theme('colors.gray.700'),
+              color: theme('colors.neutral.50'),
+              borderBottomColor: theme('colors.neutral.700'),
             },
             tbody: {
               tr: {
-                borderBottomColor: theme('colors.gray.700'),
+                borderBottomColor: theme('colors.neutral.700'),
               },
             },
           },
