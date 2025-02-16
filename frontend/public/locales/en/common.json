@@ -157,6 +157,7 @@
   },
   "common": {
     "back_to_library": "Back to Library",
-    "published_on": "Published on {{date}}"
+    "published_on": "Published on {{date}}",
+    "explore": "Explore Section"
   }
 }

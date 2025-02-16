@@ -157,6 +157,7 @@
   },
   "common": {
     "back_to_library": "Quay Lại Thư Viện",
-    "published_on": "Xuất bản ngày {{date}}"
+    "published_on": "Xuất bản ngày {{date}}",
+    "explore": "Khám Phá"
   }
 }
