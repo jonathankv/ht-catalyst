@@ -30,9 +30,9 @@ const ReadingProgress = ({ target }) => {
   }, [target]);
 
   return (
-    <div className="fixed top-0 left-0 w-full h-1 bg-gray-200 z-50">
+    <div className="fixed top-0 left-0 w-full h-0.5 bg-transparent z-50">
       <div 
-        className="h-full bg-primary transition-all duration-200"
+        className="h-full bg-primary-500/30 dark:bg-primary-400/30 transition-all duration-200"
         style={{ width: `${readingProgress}%` }}
       />
     </div>
@@ -49,8 +49,8 @@ export default function BookNotes({ frontMatter, mdxSource }) {
       <Layout>
         <div className="min-h-screen flex items-center justify-center">
           <div className="text-center">
-            <h1 className="text-3xl font-bold mb-4">{t('library.book_not_found')}</h1>
-            <p className="text-gray-600 dark:text-gray-400 mb-8">
+            <h1 className="section-title">{t('library.book_not_found')}</h1>
+            <p className="text-text-secondary mb-8">
               {t('library.book_not_found_description')}
             </p>
             <button
@@ -69,22 +69,22 @@ export default function BookNotes({ frontMatter, mdxSource }) {
     <Layout>
       <ReadingProgress target={contentRef} />
 
-      <div className="min-h-screen bg-neutral-25 dark:bg-neutral-900" ref={contentRef}>
+      <div className="min-h-screen bg-background" ref={contentRef}>
         {/* Hero Section */}
-        <div className="relative bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20">
+        <div className="relative bg-surface">
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-24">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
               <div className="lg:col-span-4">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="relative h-[500px] w-full"
+                  className="card relative h-[500px] w-full overflow-hidden"
                 >
                   <Image
                     src={frontMatter.coverImage}
                     alt={frontMatter.title}
                     fill
-                    className="object-contain drop-shadow-2xl"
+                    className="object-contain"
                     priority
                   />
                 </motion.div>
@@ -97,8 +97,8 @@ export default function BookNotes({ frontMatter, mdxSource }) {
                   transition={{ delay: 0.1 }}
                   className="space-y-4"
                 >
-                  <h1 className="text-4xl lg:text-6xl font-bold">{frontMatter.title}</h1>
-                  <p className="text-xl text-gray-600 dark:text-gray-400">
+                  <h1 className="section-title">{frontMatter.title}</h1>
+                  <p className="text-text-secondary text-xl">
                     {t('library.by')} {frontMatter.author}
                   </p>
                 </motion.div>
@@ -107,9 +107,8 @@ export default function BookNotes({ frontMatter, mdxSource }) {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
-                  className="prose dark:prose-invert lg:prose-lg max-w-none"
                 >
-                  <p>{frontMatter.summary}</p>
+                  <p className="text-text-secondary">{frontMatter.summary}</p>
                 </motion.div>
                 
                 <motion.div
@@ -121,7 +120,8 @@ export default function BookNotes({ frontMatter, mdxSource }) {
                   {frontMatter.tags?.map(tag => (
                     <span
                       key={tag}
-                      className="px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-full text-sm"
+                      className="px-4 py-2 bg-surface-elevated rounded-full text-sm
+                        text-text-secondary border border-border"
                     >
                       {tag}
                     </span>
@@ -134,7 +134,7 @@ export default function BookNotes({ frontMatter, mdxSource }) {
 
         {/* Main Content */}
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 py-24">
-          <article className="prose dark:prose-invert lg:prose-lg max-w-none">
+          <article className="prose">
             <MDXRemote {...mdxSource} />
           </article>
         </div>

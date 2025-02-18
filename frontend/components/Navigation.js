@@ -48,14 +48,14 @@ const Navigation = () => {
           <Link href="/" className="relative group">
             <motion.div 
               className={`text-2xl font-bold transition-colors duration-300 ${
-                isScrolled ? 'text-neutral-50' : 'text-neutral-900 dark:text-neutral-50'
+                isScrolled ? 'text-white' : 'text-neutral-900 dark:text-neutral-50'
               }`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               {t('site.title')}
               <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all group-hover:w-full duration-300 ${
-                isScrolled ? 'bg-neutral-50' : 'bg-neutral-900 dark:bg-neutral-50'
+                isScrolled ? 'bg-white' : 'bg-neutral-900 dark:bg-neutral-50'
               }`} />
             </motion.div>
           </Link>
@@ -73,7 +73,7 @@ const Navigation = () => {
                   href={item.href}
                   className={`relative group ${
                     isScrolled 
-                      ? 'text-neutral-50 hover:text-neutral-100' 
+                      ? 'text-white hover:text-neutral-100' 
                       : 'text-neutral-800 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-50'
                   } transition-colors duration-200`}
                 >
@@ -97,11 +97,11 @@ const Navigation = () => {
                 aria-label="Toggle dark mode"
               >
                 {isDarkMode ? (
-                  <svg className={`w-5 h-5 ${isScrolled ? 'text-neutral-50' : 'text-primary-500 dark:text-primary-400'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className={`w-5 h-5 ${isScrolled ? 'text-white' : 'text-primary-500 dark:text-primary-400'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                   </svg>
                 ) : (
-                  <svg className={`w-5 h-5 ${isScrolled ? 'text-neutral-50' : 'text-neutral-900 dark:text-neutral-50'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className={`w-5 h-5 ${isScrolled ? 'text-white' : 'text-neutral-900 dark:text-neutral-50'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                   </svg>
                 )}
@@ -120,13 +120,13 @@ const Navigation = () => {
           >
             <div className={`w-6 h-5 flex flex-col justify-between transition-transform duration-200 ${isMenuOpen ? 'transform' : ''}`}>
               <span className={`h-0.5 w-full transition-transform duration-200 ${
-                isScrolled ? 'bg-neutral-50' : 'bg-neutral-900 dark:bg-neutral-50'
+                isScrolled ? 'bg-white' : 'bg-neutral-900 dark:bg-neutral-50'
               } ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
               <span className={`h-0.5 w-full transition-opacity duration-200 ${
-                isScrolled ? 'bg-neutral-50' : 'bg-neutral-900 dark:bg-neutral-50'
+                isScrolled ? 'bg-white' : 'bg-neutral-900 dark:bg-neutral-50'
               } ${isMenuOpen ? 'opacity-0' : ''}`} />
               <span className={`h-0.5 w-full transition-transform duration-200 ${
-                isScrolled ? 'bg-neutral-50' : 'bg-neutral-900 dark:bg-neutral-50'
+                isScrolled ? 'bg-white' : 'bg-neutral-900 dark:bg-neutral-50'
               } ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
             </div>
           </motion.button>

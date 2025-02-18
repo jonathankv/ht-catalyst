@@ -7,30 +7,25 @@ module.exports = {
   ],
   darkMode: 'class',
   theme: {
+    fontFamily: {
+      // Main text font
+      sans: ['DM Sans', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+      // Headings and display text
+      space: ['Space Grotesk', 'Azeret Mono', 'sans-serif'],
+      // Code blocks and technical content
+      mono: ['JetBrains Mono', 'monospace'],
+    },
     extend: {
-      fontFamily: {
-        // Main text font
-        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
-        // Headings and display text
-        space: ['Space Grotesk', 'sans-serif'],
-        // Code blocks and technical content
-        mono: ['JetBrains Mono', 'monospace'],
-      },
       fontSize: {
-        // Custom font sizes if needed
-        '2xs': '0.625rem',
-        '3xs': '0.5rem',
-      },
-      fontWeight: {
-        // Custom font weights if needed
-        thin: '100',
-        extralight: '200',
-        light: '300',
-        normal: '400',
-        medium: '500',
-        semibold: '600',
-        bold: '700',
-        extrabold: '800',
+        // Thêm các custom sizes cho heading nếu cần
+        'h1': ['2.5rem', { lineHeight: '1.2', fontWeight: '700' }],  /* 40px */
+        'h2': ['2rem', { lineHeight: '1.25', fontWeight: '700' }],   /* 32px */
+        'h3': ['1.5rem', { lineHeight: '1.3', fontWeight: '600' }],  /* 24px */
+        'h4': ['1.25rem', { lineHeight: '1.4', fontWeight: '600' }], /* 20px */
+        'h5': ['1.1rem', { lineHeight: '1.5', fontWeight: '600' }],  /* 16px */
+        // Giữ nguyên các sizes hiện tại
+        '2xs': '0.625rem',  /* 10px */
+        '3xs': '0.5rem',  /* 8px */
       },
       colors: {
         neutral: {
@@ -47,7 +42,7 @@ module.exports = {
           900: 'hsl(180, 10%, 16%)',
           950: 'hsl(180, 10%, 10%)',
         },
-        primary: {
+        primary: { // Forest Teal
           25: 'hsl(170, 80%, 97%)',
           50: 'hsl(170, 80%, 94%)',
           100: 'hsl(170, 80%, 88%)',
@@ -61,7 +56,7 @@ module.exports = {
           900: 'hsl(170, 80%, 28%)',
           950: 'hsl(170, 80%, 20%)',
         },
-        secondary: {
+        secondary: { // Sage Blue
           25: 'hsl(190, 75%, 97%)',
           50: 'hsl(190, 75%, 94%)',
           100: 'hsl(190, 75%, 88%)',
@@ -75,7 +70,7 @@ module.exports = {
           900: 'hsl(190, 75%, 28%)',
           950: 'hsl(190, 75%, 20%)',
         },
-        tertiary: {
+        tertiary: { // Deep Green
           25: 'hsl(150, 70%, 97%)',
           50: 'hsl(150, 70%, 94%)',
           100: 'hsl(150, 70%, 88%)',

@@ -55,24 +55,68 @@
 @tailwind utilities;
 
 @layer base {
-  /* Default font settings */
+  /* Root settings */
   html {
     @apply font-sans antialiased bg-neutral-25 dark:bg-neutral-950;
   }
 
-  /* Typography hierarchy */
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-space text-neutral-900 dark:text-neutral-50;
-  }
-
-  code, pre {
-    @apply font-mono;
-  }
-
+  /* Body text */
   body {
-    @apply text-neutral-900 dark:text-neutral-50 bg-neutral-25 dark:bg-neutral-950;
+    @apply text-neutral-900 dark:text-neutral-50 
+           bg-neutral-25 dark:bg-neutral-950
+           text-base font-normal; /* base font size & weight */
+  }
+
+  /* Heading system */
+  h1 {
+    @apply font-space text-h1 
+           text-neutral-900 dark:text-neutral-50
+           mb-6;
+  }
+
+  h2 {
+    @apply font-space text-h2 
+           text-neutral-900 dark:text-neutral-50
+           mb-5;
+  }
+
+  h3 {
+    @apply font-space text-h3 
+           text-neutral-900 dark:text-neutral-50
+           mb-4;
+  }
+
+  h4 {
+    @apply font-space text-h4 
+           text-neutral-900 dark:text-neutral-50
+           mb-3;
+  }
+
+  h5 {
+    @apply font-space text-h5 
+           text-neutral-900 dark:text-neutral-50
+           mb-2;
+  }
+
+  /* Code elements */
+  code, pre {
+    @apply font-mono text-sm;
+  }
+
+  /* Optional: Common text utilities */
+  .text-body-lg {
+    @apply text-lg leading-relaxed;
+  }
+
+  .text-body {
+    @apply text-base leading-normal;
+  }
+
+  .text-body-sm {
+    @apply text-sm leading-normal;
   }
 }
+
 
 @layer components {
   .btn-primary {
