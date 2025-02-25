@@ -5,14 +5,15 @@
   },
   "nav": {
     "home": "Trang Chủ",
-    "library": "Library",
+    "library": "Thư viện",
     "blog": "Blog",
     "about": "Giới Thiệu",
     "finance": "Tài Chính Cá Nhân",
     "impact": "Tác Động Xã Hội",
     "login": "Đăng nhập",
     "signup": "Đăng ký",
-    "logout": "Đăng xuất"
+    "logout": "Đăng xuất",
+    "profile": "Tài khoản của bạn"
   },
   "hero": {
     "title": "Chào Mừng Đến Với Kho Kiến Thức",

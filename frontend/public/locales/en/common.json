@@ -12,7 +12,8 @@
     "impact": "Impact",
     "login": "Login",
     "signup": "Sign up",
-    "logout": "Log Out"
+    "logout": "Log Out",
+    "profile": "Profile"
   },
   "hero": {
     "title": "Welcome to My Knowledge Hub",
