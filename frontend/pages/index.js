@@ -1,20 +1,20 @@
 import { motion } from 'framer-motion';
 import Head from 'next/head';
 import { useTranslation } from 'next-i18next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Navigation from '../components/Navigation';
-// import KnowledgeHub from '../components/KnowledgeHub';
 import Home from '../components/Home';
 import Newsletter from '../components/Newsletter';
 import FloatingChat from '../components/FloatingChat';
+import { getTranslatedStaticProps } from '../utils/translationUtils';
 
-export default function Index() {
+export default function Index({ locale }) {
   const { t } = useTranslation('common');
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-neutral-25 to-neutral-50 dark:from-neutral-900 dark:to-neutral-800">
       <Head>
         <title>{t('site.title')} - {t('site.description')}</title>
+        <meta name="description" content={t('site.description')} />
       </Head>
 
       <Navigation />
@@ -46,21 +46,17 @@ export default function Index() {
       </motion.section>
 
       {/* Main Content */}
-      <Home />
+      <Home locale={locale} />
 
       {/* Newsletter Section */}
-      <Newsletter />
+      <Newsletter locale={locale} />
 
-      <FloatingChat />
+      <FloatingChat locale={locale} />
     </div>
   );
 }
 
 // This is crucial for translations to work
 export async function getStaticProps({ locale }) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ['common'])),
-    },
-  };
+  return getTranslatedStaticProps(locale);
 } 

@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import Head from 'next/head';
 import Layout from '../../components/Layout';
 import Image from 'next/image';
 import { MDXRemote } from 'next-mdx-remote';
@@ -10,6 +10,7 @@ import { serialize } from 'next-mdx-remote/serialize';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { getTranslatedStaticProps } from '../../utils/translationUtils';
 
 // Reading progress indicator component
 const ReadingProgress = ({ target }) => {
@@ -39,7 +40,7 @@ const ReadingProgress = ({ target }) => {
   );
 };
 
-export default function BookNotes({ frontMatter, mdxSource }) {
+export default function BookNotes({ frontMatter, mdxSource, locale }) {
   const { t } = useTranslation('common');
   const router = useRouter();
   const contentRef = useRef(null);
@@ -47,6 +48,10 @@ export default function BookNotes({ frontMatter, mdxSource }) {
   if (!frontMatter) {
     return (
       <Layout>
+        <Head>
+          <title>{t('library.book_not_found')} | {t('site.title')}</title>
+          <meta name="description" content={t('library.book_not_found_description')} />
+        </Head>
         <div className="min-h-screen flex items-center justify-center">
           <div className="text-center">
             <h1 className="section-title">{t('library.book_not_found')}</h1>
@@ -67,6 +72,10 @@ export default function BookNotes({ frontMatter, mdxSource }) {
 
   return (
     <Layout>
+      <Head>
+        <title>{frontMatter.title} | {t('site.title')}</title>
+        <meta name="description" content={frontMatter.summary} />
+      </Head>
       <ReadingProgress target={contentRef} />
 
       <div className="min-h-screen bg-background" ref={contentRef}>
@@ -143,19 +152,23 @@ export default function BookNotes({ frontMatter, mdxSource }) {
   );
 }
 
-export async function getStaticPaths() {
+export async function getStaticPaths({ locales }) {
   const booksDirectory = path.join(process.cwd(), 'content/books');
   const filenames = fs.readdirSync(booksDirectory);
   
-  const paths = filenames.map(filename => {
+  // Create paths for all books in all locales
+  const paths = filenames.flatMap(filename => {
     const fileContent = fs.readFileSync(
       path.join(booksDirectory, filename),
       'utf8'
     );
     const { data } = matter(fileContent);
-    return {
-      params: { bookId: data.id.toString() }
-    };
+    
+    // Generate a path for each locale
+    return locales.map(locale => ({
+      params: { bookId: data.id.toString() },
+      locale
+    }));
   });
 
   return {
@@ -179,13 +192,10 @@ export async function getStaticProps({ params, locale }) {
   });
 
   if (!bookFile) {
-    return {
-      props: {
-        ...(await serverSideTranslations(locale, ['common'])),
-        frontMatter: null,
-        mdxSource: null
-      }
-    };
+    return getTranslatedStaticProps(locale, ['common'], {
+      frontMatter: null,
+      mdxSource: null
+    });
   }
 
   const source = fs.readFileSync(
@@ -196,11 +206,8 @@ export async function getStaticProps({ params, locale }) {
   const { data: frontMatter, content } = matter(source);
   const mdxSource = await serialize(content);
 
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ['common'])),
-      frontMatter,
-      mdxSource
-    }
-  };
+  return getTranslatedStaticProps(locale, ['common'], {
+    frontMatter,
+    mdxSource
+  });
 } 

@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { useTranslation } from 'next-i18next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import Head from 'next/head';
 import Layout from '../components/Layout';
 import CharityProject from '../components/impact/CharityProject';
 import ProjectFilter from '../components/impact/ProjectFilter';
 import { motion } from 'framer-motion';
+import { getTranslatedStaticProps } from '../utils/translationUtils';
 
 // Sample projects data (in a real app, this would come from an API or database)
 const projects = [
@@ -40,7 +41,7 @@ const projects = [
 // Extract unique categories from projects
 const categories = [...new Set(projects.map(project => project.category))];
 
-export default function Impact() {
+export default function Impact({ locale }) {
   const [activeCategory, setActiveCategory] = useState('all');
   const { t } = useTranslation('common');
 
@@ -50,6 +51,10 @@ export default function Impact() {
 
   return (
     <Layout>
+      <Head>
+        <title>{t('impact.title')} | {t('site.title')}</title>
+        <meta name="description" content={t('impact.description')} />
+      </Head>
       <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-8 bg-neutral-25 dark:bg-neutral-900">
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -70,6 +75,7 @@ export default function Impact() {
             categories={categories}
             activeCategory={activeCategory}
             onCategoryChange={setActiveCategory}
+            locale={locale}
           />
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -77,7 +83,8 @@ export default function Impact() {
               <CharityProject 
                 key={project.id} 
                 project={project}
-                isActive={activeCategory === project.category} 
+                isActive={activeCategory === project.category}
+                locale={locale}
               />
             ))}
           </div>
@@ -96,9 +103,5 @@ export default function Impact() {
 }
 
 export async function getStaticProps({ locale }) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ['common'])),
-    },
-  };
+  return getTranslatedStaticProps(locale);
 } 

@@ -14,9 +14,26 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
 };
 
+// Check for missing required configuration
+const requiredFields = ['apiKey', 'authDomain', 'projectId', 'appId'];
+const missingFields = requiredFields.filter(field => !firebaseConfig[field]);
+
+if (missingFields.length > 0) {
+  console.error(`Missing required Firebase configuration: ${missingFields.join(', ')}`);
+  console.error('Please check your .env.local file and make sure all required Firebase configuration values are set.');
+}
+
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+let app;
+let auth;
+
+try {
+  app = initializeApp(firebaseConfig);
+  auth = getAuth(app);
+  console.log('Firebase initialized successfully');
+} catch (error) {
+  console.error('Error initializing Firebase:', error);
+}
 
 export { auth };
 export default app; 

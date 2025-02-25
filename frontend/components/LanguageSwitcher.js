@@ -1,14 +1,14 @@
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export default function LanguageSwitcher({ isScrolled }) {
   const router = useRouter();
-  const { pathname, asPath, query } = router;
+  const { changeLanguage } = useLanguage();
 
-  const toggleLanguage = async () => {
+  const toggleLanguage = () => {
     const newLocale = router.locale === 'en' ? 'vi' : 'en';
-    localStorage.setItem('language', newLocale);
-    await router.push({ pathname, query }, asPath, { locale: newLocale });
+    changeLanguage(newLocale);
   };
 
   return (

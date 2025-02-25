@@ -162,5 +162,56 @@
     "back_to_library": "Back to Library",
     "published_on": "Published on {{date}}",
     "explore": "Explore Section"
+  },
+  "auth": {
+    "login": {
+      "title": "Sign in to your account",
+      "email_label": "Email address",
+      "email_placeholder": "Email address",
+      "password_label": "Password",
+      "password_placeholder": "Password",
+      "forgot_password": "Forgot your password?",
+      "submit_button": "Sign in",
+      "submitting": "Signing in...",
+      "need_account": "Need an account?",
+      "sign_up_link": "Sign up",
+      "error": "Failed to log in: {{message}}"
+    },
+    "signup": {
+      "title": "Create your account",
+      "email_label": "Email address",
+      "email_placeholder": "Email address",
+      "password_label": "Password",
+      "password_placeholder": "Password",
+      "confirm_password_label": "Confirm Password",
+      "confirm_password_placeholder": "Confirm Password",
+      "submit_button": "Sign up",
+      "submitting": "Creating account...",
+      "have_account": "Already have an account?",
+      "login_link": "Log in",
+      "error": "Failed to create an account: {{message}}",
+      "passwords_not_match": "Passwords do not match"
+    },
+    "forgot_password": {
+      "title": "Reset your password",
+      "email_label": "Email address",
+      "email_placeholder": "Email address",
+      "submit_button": "Reset Password",
+      "submitting": "Processing...",
+      "back_to_login": "Back to login",
+      "error": "Failed to reset password: {{message}}",
+      "success_message": "Check your inbox for further instructions"
+    },
+    "profile": {
+      "title": "Profile",
+      "user_info_title": "User Information",
+      "user_info_description": "Personal details and account settings.",
+      "email_label": "Email",
+      "email_verified_label": "Email verified",
+      "yes": "Yes",
+      "no": "No",
+      "logout_button": "Log Out",
+      "error": "Failed to log out"
+    }
   }
 }

@@ -162,5 +162,56 @@
     "back_to_library": "Quay Lại Thư Viện",
     "published_on": "Xuất bản ngày {{date}}",
     "explore": "Khám Phá"
+  },
+  "auth": {
+    "login": {
+      "title": "Đăng nhập vào tài khoản của bạn",
+      "email_label": "Địa chỉ email",
+      "email_placeholder": "Địa chỉ email",
+      "password_label": "Mật khẩu",
+      "password_placeholder": "Mật khẩu",
+      "forgot_password": "Quên mật khẩu?",
+      "submit_button": "Đăng nhập",
+      "submitting": "Đang đăng nhập...",
+      "need_account": "Chưa có tài khoản?",
+      "sign_up_link": "Đăng ký",
+      "error": "Đăng nhập thất bại: {{message}}"
+    },
+    "signup": {
+      "title": "Tạo tài khoản của bạn",
+      "email_label": "Địa chỉ email",
+      "email_placeholder": "Địa chỉ email",
+      "password_label": "Mật khẩu",
+      "password_placeholder": "Mật khẩu",
+      "confirm_password_label": "Xác nhận mật khẩu",
+      "confirm_password_placeholder": "Xác nhận mật khẩu",
+      "submit_button": "Đăng ký",
+      "submitting": "Đang tạo tài khoản...",
+      "have_account": "Đã có tài khoản?",
+      "login_link": "Đăng nhập",
+      "error": "Tạo tài khoản thất bại: {{message}}",
+      "passwords_not_match": "Mật khẩu không khớp"
+    },
+    "forgot_password": {
+      "title": "Đặt lại mật khẩu của bạn",
+      "email_label": "Địa chỉ email",
+      "email_placeholder": "Địa chỉ email",
+      "submit_button": "Đặt lại mật khẩu",
+      "submitting": "Đang xử lý...",
+      "back_to_login": "Quay lại đăng nhập",
+      "error": "Đặt lại mật khẩu thất bại: {{message}}",
+      "success_message": "Kiểm tra hộp thư của bạn để biết hướng dẫn tiếp theo"
+    },
+    "profile": {
+      "title": "Hồ sơ",
+      "user_info_title": "Thông tin người dùng",
+      "user_info_description": "Thông tin cá nhân và cài đặt tài khoản.",
+      "email_label": "Email",
+      "email_verified_label": "Email đã xác minh",
+      "yes": "Có",
+      "no": "Không",
+      "logout_button": "Đăng xuất",
+      "error": "Đăng xuất thất bại"
+    }
   }
 }

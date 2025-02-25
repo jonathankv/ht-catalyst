@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import Head from 'next/head';
 import BookCard from '../components/library/BookCard';
 import BookFilter from '../components/library/BookFilter';
 import { books } from '../data/books';
 import Image from 'next/image';
 import Layout from '../components/Layout';
 import { useRouter } from 'next/router';
+import { getTranslatedStaticProps } from '../utils/translationUtils';
 
-export default function Library() {
+export default function Library({ locale }) {
   const { t } = useTranslation('common');
   const [activeFilter, setActiveFilter] = useState('all');
   const [filteredBooks, setFilteredBooks] = useState([]);
@@ -35,6 +36,10 @@ export default function Library() {
 
   return (
     <Layout>
+      <Head>
+        <title>{t('library.section_title')} | {t('site.title')}</title>
+        <meta name="description" content={t('library.section_description')} />
+      </Head>
       <div className="min-h-screen bg-gradient-to-b from-neutral-25 to-neutral-50 dark:from-neutral-900 dark:to-neutral-800">
         {/* Hero Section with Featured Book */}
         {featuredBook && (
@@ -112,7 +117,7 @@ export default function Library() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            <BookFilter onFilterChange={setActiveFilter} />
+            <BookFilter onFilterChange={setActiveFilter} locale={locale} />
           </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-16">
@@ -128,7 +133,7 @@ export default function Library() {
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
                   >
-                    <BookCard book={book} />
+                    <BookCard book={book} locale={locale} />
                   </motion.div>
                 ))
               )}
@@ -142,11 +147,7 @@ export default function Library() {
 
 // This is crucial for translations to work
 export async function getStaticProps({ locale }) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ['common'])),
-    },
-  };
+  return getTranslatedStaticProps(locale);
 }
 
 const LoadingCards = () => {

@@ -19,22 +19,37 @@ export function LanguageProvider({ children }) {
   const [currentLanguage, setCurrentLanguage] = useState('en');
 
   useEffect(() => {
+    // Only run on client-side
+    if (typeof window === 'undefined') return;
+    
     // Check browser language
     const browserLang = navigator.language.split('-')[0];
     const supportedLangs = ['en', 'vi'];
     const defaultLang = supportedLangs.includes(browserLang) ? browserLang : 'en';
     
-    // Get saved language preference
+    // Get saved language preference or use router locale
     const savedLang = localStorage.getItem('language');
-    const initialLang = savedLang || defaultLang;
+    const initialLang = savedLang || router.locale || defaultLang;
     
     setCurrentLanguage(initialLang);
-    router.push(router.pathname, router.asPath, { locale: initialLang });
-  }, []);
+    
+    // Only set in localStorage if it doesn't exist
+    if (!savedLang) {
+      localStorage.setItem('language', initialLang);
+    }
+  }, [router.locale]);
 
-  const changeLanguage = async (locale) => {
-    const { pathname, asPath, query } = router;
-    await router.push({ pathname, query }, asPath, { locale });
+  const changeLanguage = (locale) => {
+    // Update state
+    setCurrentLanguage(locale);
+    
+    // Save to localStorage
+    localStorage.setItem('language', locale);
+    
+    // Force a hard reload to ensure translations are properly applied
+    window.location.href = router.asPath.startsWith('/') 
+      ? `/${locale}${router.asPath}` 
+      : `/${locale}/${router.asPath}`;
   };
 
   return (

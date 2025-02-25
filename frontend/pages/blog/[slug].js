@@ -2,12 +2,13 @@ import React from 'react';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import { useTranslation } from 'next-i18next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import Head from 'next/head';
 import Layout from '../../components/Layout';
 import { posts } from '../../data/posts';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import TableOfContents from '../../components/blog/TableOfContents';
+import { getTranslatedStaticProps } from '../../utils/translationUtils';
 
 // Custom components for MDX
 const components = {
@@ -92,13 +93,17 @@ const components = {
   },
 };
 
-export default function BlogPost({ post, mdxSource, headings }) {
+export default function BlogPost({ post, mdxSource, headings, locale }) {
   const { t } = useTranslation('common');
   
   if (!post) return null;
 
   return (
     <Layout>
+      <Head>
+        <title>{post.title} | {t('site.title')}</title>
+        <meta name="description" content={post.subtitle || post.excerpt} />
+      </Head>
       <div className="min-h-screen bg-neutral-25 dark:bg-neutral-900">
         <div className="grid grid-cols-[1fr,minmax(auto,1000px),1fr]">
           {/* Left background */}
@@ -237,14 +242,11 @@ export async function getStaticProps({ params, locale }) {
     
     const mdxSource = await serialize(content);
 
-    return { 
-      props: { 
-        ...(await serverSideTranslations(locale, ['common'])),
-        post: postData,
-        mdxSource,
-        headings
-      } 
-    };
+    return getTranslatedStaticProps(locale, ['common'], {
+      post: postData,
+      mdxSource,
+      headings
+    });
   } catch (error) {
     console.error('Error in getStaticProps:', error);
     return {

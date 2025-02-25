@@ -1,16 +1,21 @@
 import { useTranslation } from 'next-i18next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import Head from 'next/head';
 import Navigation from '../components/Navigation';
 import About from '../components/About';
+import { getTranslatedStaticProps } from '../utils/translationUtils';
 
-export default function AboutPage() {
+export default function AboutPage({ locale }) {
   const { t } = useTranslation('common');
   
   return (
     <>
+      <Head>
+        <title>{t('about.title')} | {t('site.title')}</title>
+        <meta name="description" content={t('about.intro')} />
+      </Head>
       <Navigation />
       <main className="pt-16"> {/* Add padding-top to account for fixed navigation */}
-        <About />
+        <About locale={locale} />
       </main>
     </>
   );
@@ -18,9 +23,5 @@ export default function AboutPage() {
 
 // This is crucial for translations to work
 export async function getStaticProps({ locale }) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ['common'])),
-    },
-  };
+  return getTranslatedStaticProps(locale);
 } 

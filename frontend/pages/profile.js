@@ -4,8 +4,12 @@ import { useAuth } from '../contexts/AuthContext';
 import Layout from '../components/Layout';
 import ProtectedRoute from '../components/ProtectedRoute';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import Head from 'next/head';
 
-export default function Profile() {
+export default function Profile({ locale }) {
+  const { t } = useTranslation('common');
   const { currentUser, logout } = useAuth();
   const [error, setError] = useState('');
   const router = useRouter();
@@ -17,13 +21,16 @@ export default function Profile() {
       await logout();
       router.push('/login');
     } catch {
-      setError('Failed to log out');
+      setError(t('auth.profile.error'));
     }
   }
 
   return (
     <ProtectedRoute>
       <Layout>
+        <Head>
+          <title>{t('auth.profile.title')}</title>
+        </Head>
         <div className="flex min-h-screen flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="w-full max-w-md space-y-8"
@@ -33,7 +40,7 @@ export default function Profile() {
           >
             <div>
               <h2 className="mt-6 text-center text-3xl font-bold tracking-tight">
-                Profile
+                {t('auth.profile.title')}
               </h2>
             </div>
             {error && (
@@ -48,24 +55,24 @@ export default function Profile() {
             <div className="bg-white shadow overflow-hidden sm:rounded-lg">
               <div className="px-4 py-5 sm:px-6">
                 <h3 className="text-lg leading-6 font-medium text-gray-900">
-                  User Information
+                  {t('auth.profile.user_info_title')}
                 </h3>
                 <p className="mt-1 max-w-2xl text-sm text-gray-500">
-                  Personal details and account settings.
+                  {t('auth.profile.user_info_description')}
                 </p>
               </div>
               <div className="border-t border-gray-200">
                 <dl>
                   <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt className="text-sm font-medium text-gray-500">Email</dt>
+                    <dt className="text-sm font-medium text-gray-500">{t('auth.profile.email_label')}</dt>
                     <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                       {currentUser?.email}
                     </dd>
                   </div>
                   <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt className="text-sm font-medium text-gray-500">Email verified</dt>
+                    <dt className="text-sm font-medium text-gray-500">{t('auth.profile.email_verified_label')}</dt>
                     <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                      {currentUser?.emailVerified ? 'Yes' : 'No'}
+                      {currentUser?.emailVerified ? t('auth.profile.yes') : t('auth.profile.no')}
                     </dd>
                   </div>
                 </dl>
@@ -76,7 +83,7 @@ export default function Profile() {
                 onClick={handleLogout}
                 className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
-                Log Out
+                {t('auth.profile.logout_button')}
               </button>
             </div>
           </motion.div>
@@ -84,4 +91,13 @@ export default function Profile() {
       </Layout>
     </ProtectedRoute>
   );
+}
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      locale,
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
+  };
 } 
