@@ -39,62 +39,37 @@ const Home = () => {
   ];
 
   return (
-    <section className="py-16 px-4 max-w-7xl mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {sections.map((section, index) => (
-          <motion.div
-            key={section.title}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1 }}
-            whileHover={{ scale: 1.02 }}
-            className="group relative"
-          >
-            <Link href={section.href}>
-              <div className="relative overflow-hidden rounded-2xl h-[300px]">
-                {/* Background Image */}
-                <div className="absolute inset-0">
+    <section className="py-24 bg-surface">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {sections.map((section, index) => (
+            <motion.div
+              key={section.title}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              className="group"
+            >
+              <Link href={section.href}>
+                <div className="card overflow-hidden h-[300px] relative">
                   <Image
                     src={section.image}
                     alt={section.title}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  {/* Gradient overlay for better text contrast */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30 group-hover:from-black/90 group-hover:via-black/60 group-hover:to-black/40 transition-colors duration-300" />
-                </div>
-
-                {/* Content */}
-                <div className="relative h-full p-8 flex flex-col justify-between">
-                  <div>
-                    <div className="text-white mb-6 transform group-hover:scale-110 transition-transform duration-300">
-                      {section.icon}
-                    </div>
-                    <h3 className="text-2xl font-bold mb-3 text-white">{section.title}</h3>
-                    <p className="text-white/90 text-lg max-w-sm line-clamp-2">{section.description}</p>
-                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/80 to-neutral-900/20 
+                    group-hover:from-neutral-900/90 group-hover:to-neutral-900/30 transition-colors duration-300" />
                   
-                  {/* Arrow indicator */}
-                  <div className="flex items-center text-white group-hover:text-white/90 transition-colors">
-                    <span className="text-sm font-medium mr-2">{t('common.explore')}</span>
-                    <motion.span
-                      initial={{ x: 0 }}
-                      animate={{ x: 5 }}
-                      transition={{ 
-                        repeat: Infinity, 
-                        repeatType: "reverse", 
-                        duration: 0.8 
-                      }}
-                      className="font-medium"
-                    >
-                      →
-                    </motion.span>
+                  <div className="absolute bottom-0 left-0 right-0 p-8">
+                    <h3 className="text-2xl font-bold text-white mb-2">{section.title}</h3>
+                    <p className="text-neutral-200">{section.description}</p>
                   </div>
                 </div>
-              </div>
-            </Link>
-          </motion.div>
-        ))}
+              </Link>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

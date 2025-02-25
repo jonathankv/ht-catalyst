@@ -5,74 +5,52 @@ import Link from 'next/link';
 
 const Hero = () => {
   const { scrollY } = useScroll();
-  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
-  const y = useTransform(scrollY, [0, 300], [0, 100]);
-  const [isVisible, setIsVisible] = useState(false);
   const { t } = useTranslation('common');
 
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
-
   return (
-    <section className="min-h-screen relative overflow-hidden">
-      <motion.div 
-        style={{ opacity, y }}
-        className="absolute inset-0 -z-10"
-      >
-        <div className="absolute inset-0 bg-gradient-to-br from-white to-neutral-50 dark:from-neutral-900 dark:to-neutral-950" />
-        <div 
-          className="absolute inset-0 opacity-[0.03] dark:opacity-[0.1]" 
-          style={{ 
-            backgroundImage: `radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)`,
-            backgroundSize: '48px 48px'
-          }} 
-        />
-      </motion.div>
-      
-      <div className="container mx-auto px-4 h-screen flex items-center justify-center">
-        <motion.div
-          className="text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+    <section className="min-h-screen bg-gradient-to-b from-neutral-25 to-neutral-50 dark:from-neutral-900 dark:to-neutral-800">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-32 pb-24">
+        <motion.div 
+          className="text-center space-y-12"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
         >
-          <motion.h1 
-            className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6"
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
+            transition={{ delay: 0.3 }}
+            className="space-y-6"
           >
-            <span className="text-neutral-900 dark:text-white">
+            <span className="inline-block px-4 py-2 bg-primary-100 dark:bg-primary-900/40 
+              text-primary-800 dark:text-primary-200 rounded-full text-sm font-medium">
+              {t('hero.badge')}
+            </span>
+            
+            <h1 className="text-4xl md:text-6xl font-bold text-neutral-900 dark:text-neutral-50 
+              max-w-4xl mx-auto leading-tight">
               {t('hero.title')}
-            </span>
-            <span className="block mt-4 text-2xl sm:text-3xl md:text-4xl text-primary-700 dark:text-primary-300">
-              {t('hero.subtitle')}
-            </span>
-          </motion.h1>
-
-          <motion.p 
-            className="text-lg sm:text-xl md:text-2xl text-neutral-700 dark:text-neutral-100 mb-12 max-w-3xl mx-auto"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-          >
-            {t('hero.description')}
-          </motion.p>
+            </h1>
+            
+            <p className="text-xl text-neutral-700 dark:text-neutral-200 max-w-2xl mx-auto leading-relaxed">
+              {t('hero.description')}
+            </p>
+          </motion.div>
 
           <motion.div 
             className="flex flex-col sm:flex-row gap-6 justify-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9, duration: 0.8 }}
+            transition={{ delay: 0.6 }}
           >
             <Link href="/library">
-              <button className="px-8 py-4 bg-primary-700 hover:bg-primary-800 dark:bg-primary-600 dark:hover:bg-primary-700 text-white font-medium rounded-xl transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-primary-500/20 dark:hover:shadow-primary-400/20">
+              <button className="btn-primary px-8 py-4 transform hover:scale-105 
+                shadow-lg hover:shadow-primary-500/20 dark:hover:shadow-primary-400/20">
                 {t('hero.cta.primary')}
               </button>
             </Link>
             <Link href="/blog">
-              <button className="px-8 py-4 border-2 border-primary-700 dark:border-primary-500 text-primary-700 dark:text-primary-300 font-medium rounded-xl hover:bg-primary-50 dark:hover:bg-primary-900/10 transform hover:scale-105 transition-all duration-200">
+              <button className="btn-secondary px-8 py-4 transform hover:scale-105">
                 {t('hero.cta.secondary')}
               </button>
             </Link>

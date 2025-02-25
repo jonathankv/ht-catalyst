@@ -5,12 +5,14 @@ import { useRouter } from 'next/router';
 import { useTheme } from './ThemeProvider';
 import { useTranslation } from 'next-i18next';
 import LanguageSwitcher from './LanguageSwitcher';
+import { useAuth } from '../contexts/AuthContext';
 
 const Navigation = () => {
   const { t } = useTranslation('common');
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isDarkMode, toggleDarkMode } = useTheme();
+  const { currentUser, logout } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
@@ -31,6 +33,15 @@ const Navigation = () => {
   ];
 
   const isActive = (path) => router.pathname === path;
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      router.push('/login');
+    } catch (error) {
+      console.error('Failed to log out', error);
+    }
+  };
 
   return (
     <motion.nav 
@@ -86,6 +97,58 @@ const Navigation = () => {
             ))}
             
             <div className="flex items-center space-x-4 ml-4">
+              {/* Auth Links */}
+              {currentUser ? (
+                <div className="relative group">
+                  <Link 
+                    href="/profile"
+                    className={`relative group ${
+                      isScrolled 
+                        ? 'text-white hover:text-neutral-100' 
+                        : 'text-neutral-800 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-50'
+                    } transition-colors duration-200`}
+                  >
+                    Profile
+                    <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all group-hover:w-full duration-300 ${
+                      isScrolled ? 'bg-neutral-50' : 'bg-neutral-900 dark:bg-neutral-50'
+                    }`} />
+                  </Link>
+                </div>
+              ) : (
+                <>
+                  <div className="relative group">
+                    <Link 
+                      href="/login"
+                      className={`relative group ${
+                        isScrolled 
+                          ? 'text-white hover:text-neutral-100' 
+                          : 'text-neutral-800 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-50'
+                      } transition-colors duration-200`}
+                    >
+                      Login
+                      <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all group-hover:w-full duration-300 ${
+                        isScrolled ? 'bg-neutral-50' : 'bg-neutral-900 dark:bg-neutral-50'
+                      }`} />
+                    </Link>
+                  </div>
+                  <div className="relative group">
+                    <Link 
+                      href="/signup"
+                      className={`relative group ${
+                        isScrolled 
+                          ? 'text-white hover:text-neutral-100' 
+                          : 'text-neutral-800 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-50'
+                      } transition-colors duration-200`}
+                    >
+                      Sign Up
+                      <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all group-hover:w-full duration-300 ${
+                        isScrolled ? 'bg-neutral-50' : 'bg-neutral-900 dark:bg-neutral-50'
+                      }`} />
+                    </Link>
+                  </div>
+                </>
+              )}
+
               {/* Theme Toggle Button */}
               <motion.button
                 onClick={toggleDarkMode}
@@ -159,6 +222,61 @@ const Navigation = () => {
               {item.name}
             </Link>
           ))}
+          
+          {/* Auth Links for Mobile */}
+          {currentUser ? (
+            <>
+              <Link
+                href="/profile"
+                className={`block px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200
+                  ${isActive('/profile')
+                    ? 'text-neutral-50 bg-primary-600/50'
+                    : 'text-neutral-100 hover:text-neutral-50 hover:bg-primary-600/30'
+                  }
+                `}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Profile
+              </Link>
+              <button
+                onClick={() => {
+                  handleLogout();
+                  setIsMenuOpen(false);
+                }}
+                className="w-full text-left px-3 py-2 rounded-md text-sm font-medium text-neutral-100 hover:text-neutral-50 hover:bg-primary-600/30 transition-colors duration-200"
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <Link
+                href="/login"
+                className={`block px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200
+                  ${isActive('/login')
+                    ? 'text-neutral-50 bg-primary-600/50'
+                    : 'text-neutral-100 hover:text-neutral-50 hover:bg-primary-600/30'
+                  }
+                `}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Login
+              </Link>
+              <Link
+                href="/signup"
+                className={`block px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200
+                  ${isActive('/signup')
+                    ? 'text-neutral-50 bg-primary-600/50'
+                    : 'text-neutral-100 hover:text-neutral-50 hover:bg-primary-600/30'
+                  }
+                `}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Sign Up
+              </Link>
+            </>
+          )}
+          
           <button
             onClick={() => {
               toggleDarkMode();

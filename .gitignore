@@ -76,3 +76,6 @@ dist/
 
 # OS
 Thumbs.db 
+
+# AI assistance files
+*.mdc
