@@ -9,7 +9,10 @@
     "blog": "Blog",
     "about": "About",
     "finance": "Finance",
-    "impact": "Impact"
+    "impact": "Impact",
+    "login": "Login",
+    "signup": "Sign up",
+    "logout": "Log Out"
   },
   "hero": {
     "title": "Welcome to My Knowledge Hub",

@@ -62,29 +62,8 @@ export default function Blog() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="card group"
               >
-                <Link href={`/blog/${post.slug}`} className="block">
-                  <div className="relative h-48 mb-4 overflow-hidden rounded-t-lg">
-                    <Image
-                      src={post.coverImage}
-                      alt={post.title}
-                      fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <div className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                      {post.date} · {post.readTime}
-                    </div>
-                    <h2 className="text-xl font-semibold mb-2 group-hover:text-primary-500 transition-colors">
-                      {post.title}
-                    </h2>
-                    <p className="text-gray-600 dark:text-gray-400 line-clamp-2">
-                      {post.excerpt}
-                    </p>
-                  </div>
-                </Link>
+                <BlogCard post={post} />
               </motion.div>
             ))}
           </div>

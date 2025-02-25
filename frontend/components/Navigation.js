@@ -108,7 +108,7 @@ const Navigation = () => {
                         : 'text-neutral-800 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-50'
                     } transition-colors duration-200`}
                   >
-                    Profile
+                    {t('nav.profile')}
                     <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all group-hover:w-full duration-300 ${
                       isScrolled ? 'bg-neutral-50' : 'bg-neutral-900 dark:bg-neutral-50'
                     }`} />
@@ -125,7 +125,7 @@ const Navigation = () => {
                           : 'text-neutral-800 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-50'
                       } transition-colors duration-200`}
                     >
-                      Login
+                      {t('nav.login')}
                       <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all group-hover:w-full duration-300 ${
                         isScrolled ? 'bg-neutral-50' : 'bg-neutral-900 dark:bg-neutral-50'
                       }`} />
@@ -140,7 +140,7 @@ const Navigation = () => {
                           : 'text-neutral-800 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-50'
                       } transition-colors duration-200`}
                     >
-                      Sign Up
+                      {t('nav.signup')}
                       <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all group-hover:w-full duration-300 ${
                         isScrolled ? 'bg-neutral-50' : 'bg-neutral-900 dark:bg-neutral-50'
                       }`} />
@@ -236,7 +236,7 @@ const Navigation = () => {
                 `}
                 onClick={() => setIsMenuOpen(false)}
               >
-                Profile
+                {t('nav.profile')}
               </Link>
               <button
                 onClick={() => {
@@ -245,7 +245,7 @@ const Navigation = () => {
                 }}
                 className="w-full text-left px-3 py-2 rounded-md text-sm font-medium text-neutral-100 hover:text-neutral-50 hover:bg-primary-600/30 transition-colors duration-200"
               >
-                Logout
+                {t('nav.logout')}
               </button>
             </>
           ) : (
@@ -260,7 +260,7 @@ const Navigation = () => {
                 `}
                 onClick={() => setIsMenuOpen(false)}
               >
-                Login
+                {t('nav.login')}
               </Link>
               <Link
                 href="/signup"
@@ -272,7 +272,7 @@ const Navigation = () => {
                 `}
                 onClick={() => setIsMenuOpen(false)}
               >
-                Sign Up
+                {t('nav.signup')}
               </Link>
             </>
           )}

@@ -9,7 +9,10 @@
     "blog": "Blog",
     "about": "Giới Thiệu",
     "finance": "Tài Chính Cá Nhân",
-    "impact": "Tác Động Xã Hội"
+    "impact": "Tác Động Xã Hội",
+    "login": "Đăng nhập",
+    "signup": "Đăng ký",
+    "logout": "Đăng xuất"
   },
   "hero": {
     "title": "Chào Mừng Đến Với Kho Kiến Thức",
