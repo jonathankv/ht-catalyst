@@ -78,6 +78,19 @@ const components = {
       {...props} 
     />
   ),
+  // Add image component for MDX content
+  img: ({ src, alt, ...props }) => (
+    <div className="my-8 relative">
+      <Image 
+        src={src} 
+        alt={alt || "Image"} 
+        width={800} 
+        height={450} 
+        className="rounded-lg shadow-lg dark:shadow-neutral-950/30 w-full h-auto"
+        {...props}
+      />
+    </div>
+  ),
   // Add a new component for callouts
   Callout: ({ children, type = 'info' }) => {
     const styles = {
@@ -89,6 +102,22 @@ const components = {
       <div className={`my-8 p-4 border-l-4 rounded-r-lg ${styles[type]}`}>
         {children}
       </div>
+    );
+  },
+  // Add or update the code component with better contrast
+  code: props => (
+    <code
+      className="bg-neutral-100 dark:bg-neutral-800 text-primary-700 dark:text-primary-300 px-1.5 py-0.5 rounded font-mono text-sm"
+      {...props}
+    />
+  ),
+  // Add or update the pre component for code blocks with better contrast
+  pre: props => {
+    return (
+      <pre
+        className="my-8 p-4 bg-neutral-800 dark:bg-neutral-900 text-neutral-100 dark:text-neutral-50 rounded-lg overflow-x-auto"
+        {...props}
+      />
     );
   },
 };
