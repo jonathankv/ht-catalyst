@@ -1,6 +1,13 @@
 import { useState } from 'react';
 import { useTranslation } from 'next-i18next';
 
+/**
+ * Category filter component for blog posts
+ * Allows filtering posts by category with visual feedback
+ * @param {Object} props - Component properties
+ * @param {Function} props.onCategoryChange - Callback when category changes
+ * @returns {JSX.Element} Category filter bar
+ */
 const CategoryFilter = ({ onCategoryChange }) => {
   const [activeCategory, setActiveCategory] = useState('all');
   const { t } = useTranslation('common');

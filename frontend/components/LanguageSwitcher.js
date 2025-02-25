@@ -2,6 +2,14 @@ import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
 
+/**
+ * Language switcher component
+ * Allows users to toggle between available languages
+ * Visually adapts based on scroll position
+ * @param {Object} props - Component properties
+ * @param {boolean} props.isScrolled - Whether the page has been scrolled
+ * @returns {JSX.Element} Language toggle button
+ */
 export default function LanguageSwitcher({ isScrolled }) {
   const router = useRouter();
   const { changeLanguage } = useLanguage();

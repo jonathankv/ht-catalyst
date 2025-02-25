@@ -7,7 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "translate": "node scripts/translate.js"
+    "translate:extract": "node scripts/translation-manager.js extract",
+    "translate:generate": "node scripts/translation-manager.js generate",
+    "translate:import": "node scripts/translation-manager.js import",
+    "translate:validate": "node scripts/translation-manager.js validate",
+    "translate": "node scripts/translation-manager.js all",
+    "translate:legacy": "node scripts/translate.js"
   },
   "dependencies": {
     "@mdx-js/react": "^3.0.0",

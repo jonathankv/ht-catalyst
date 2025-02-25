@@ -1,221 +1,242 @@
 {
-  "site": {
-    "title": "KienNotes.AI",
-    "description": "Discover insights on technology, personal growth, and making a positive impact"
-  },
-  "nav": {
-    "home": "Home",
-    "library": "Library",
-    "blog": "Blog",
-    "about": "About",
-    "finance": "Finance",
-    "impact": "Impact",
-    "login": "Login",
-    "signup": "Sign up",
-    "logout": "Log Out",
-    "profile": "Profile"
-  },
-  "hero": {
-    "title": "Welcome to My Knowledge Hub",
-    "subtitle": "Discover insights on technology, personal growth, and making a positive impact",
-    "description": "Exploring the intersection of technology and social impact through thoughtful analysis and practical insights",
-    "cta": {
-      "primary": "Explore Resources",
-      "secondary": "View Blog"
-    }
-  },
-  "newsletter": {
-    "title": "Subscribe to Newsletter",
-    "description": "Get the latest insights delivered to your inbox",
-    "placeholder": "Enter your email",
-    "button": "Subscribe",
-    "success": "Thank you for subscribing!",
-    "error": "Something went wrong. Please try again."
-  },
-  "library": {
-    "latest_read": "Latest Read",
-    "read_notes": "Read My Notes",
-    "section_title": "My Book Notes",
-    "section_description": "Here are the books I've read and my key takeaways from each one. I hope these notes inspire you to pick up one of these books.",
-    "table_of_contents": "Table of Contents",
-    "key_takeaways": "Key Takeaways",
-    "book_not_found": "Book not found",
-    "book_not_found_description": "Sorry, we couldn't find the book you're looking for.",
-    "reading_time": "{{minutes}} min read",
-    "chapter": "Chapter {{number}}",
-    "previous_chapter": "Previous Chapter",
-    "next_chapter": "Next Chapter",
-    "by": "by",
-    "last_updated": "Last updated {{date}}"
-  },
-  "blog": {
-    "title": "Blog",
-    "description": "Thoughts on product management, technology, and social impact",
-    "read_more": "Read More",
-    "latest_posts": "Latest Posts",
-    "no_posts_title": "No Posts Yet",
-    "no_posts_description": "Check back soon for new content!",
-    "categories": {
-      "all": "All Posts",
-      "product": "Product Management",
-      "impact": "Social Impact",
-      "projects": "Side Projects",
-      "family": "Family",
-      "growth": "Personal Growth"
-    },
-    "metadata": {
-      "separator": "•"
-    }
-  },
-  "resources": {
-    "title": "Resources",
-    "description": "A collection of tools, guides, and resources to help you on your journey",
-    "tools": "Tools",
-    "guides": "Guides"
-  },
   "about": {
-    "title": "About Me",
-    "intro": "Hi, I'm Jonathan. I'm passionate about technology and making a positive impact.",
-    "mission": "My mission is to help others leverage technology for positive change.",
-    "contact": "Get in Touch",
     "background": {
-      "title": "Background",
-      "content": "As a Product Manager with a passion for technology and social impact, I bridge the gap between innovative solutions and human needs. My journey in product management has been driven by a commitment to creating meaningful digital experiences that make a difference."
+      "content": "As a Product Manager with a passion for technology and social impact, I bridge the gap between innovative solutions and human needs. My journey in product management has been driven by a commitment to creating meaningful digital experiences that make a difference.",
+      "title": "Background"
     },
+    "contact": "Get in Touch",
     "expertise": {
-      "title": "Expertise",
       "skills": {
-        "product_strategy": "Product Strategy",
-        "user_research": "User Research",
         "agile": "Agile Management",
         "analytics": "Data Analytics",
-        "technical": "Technical Leadership"
-      }
-    },
-    "vision": {
-      "title": "Vision",
-      "content": "I believe in leveraging technology to create products that not only solve problems but also contribute positively to society. My goal is to lead product initiatives that combine innovation with social responsibility."
-    },
-    "timeline": {
-      "present": {
-        "year": "2023 - Present",
-        "title": "Senior Product Manager",
-        "description": "Leading innovative product initiatives"
+        "product_strategy": "Product Strategy",
+        "technical": "Technical Leadership",
+        "user_research": "User Research"
       },
+      "title": "Expertise"
+    },
+    "intro": "Hi, I'm Jonathan. I'm passionate about technology and making a positive impact.",
+    "mission": "My mission is to help others leverage technology for positive change.",
+    "timeline": {
       "past_1": {
-        "year": "2020 - 2023",
+        "description": "Driving user-centered product development",
         "title": "Product Manager",
-        "description": "Driving user-centered product development"
+        "year": "2020 - 2023"
       },
       "past_2": {
-        "year": "2018 - 2020",
+        "description": "Building foundation in product management",
         "title": "Associate Product Manager",
-        "description": "Building foundation in product management"
+        "year": "2018 - 2020"
+      },
+      "present": {
+        "description": "Leading innovative product initiatives",
+        "title": "Senior Product Manager",
+        "year": "2023 - Present"
       }
+    },
+    "title": "About Me",
+    "vision": {
+      "content": "I believe in leveraging technology to create products that not only solve problems but also contribute positively to society. My goal is to lead product initiatives that combine innovation with social responsibility.",
+      "title": "Vision"
     }
   },
-  "contact": {
-    "title": "Get in Touch",
-    "description": "Have a question or want to collaborate? I'd love to hear from you.",
-    "form": {
-      "name": "Your Name",
-      "email": "Your Email",
-      "message": "Your Message",
-      "submit": "Send Message",
-      "success": "Message sent successfully!",
-      "error": "Error sending message. Please try again."
+  "auth": {
+    "forgot_password": {
+      "back_to_login": "Back to login",
+      "email_label": "Email address",
+      "email_placeholder": "Email address",
+      "error": "Failed to reset password: {{message}}",
+      "submit_button": "Reset Password",
+      "submitting": "Processing...",
+      "success_message": "Check your inbox for further instructions",
+      "title": "Reset your password"
+    },
+    "login": {
+      "email_label": "Email address",
+      "email_placeholder": "Email address",
+      "error": "Failed to log in: {{message}}",
+      "forgot_password": "Forgot your password?",
+      "need_account": "Need an account?",
+      "password_label": "Password",
+      "password_placeholder": "Password",
+      "sign_up_link": "Sign up",
+      "submit_button": "Sign in",
+      "submitting": "Signing in...",
+      "title": "Sign in to your account"
+    },
+    "profile": {
+      "email_label": "Email",
+      "email_verified_label": "Email verified",
+      "error": "Failed to log out",
+      "logout_button": "Log Out",
+      "no": "No",
+      "title": "Profile",
+      "user_info_description": "Personal details and account settings.",
+      "user_info_title": "User Information",
+      "yes": "Yes"
+    },
+    "signup": {
+      "confirm_password_label": "Confirm Password",
+      "confirm_password_placeholder": "Confirm Password",
+      "email_label": "Email address",
+      "email_placeholder": "Email address",
+      "error": "Failed to create an account: {{message}}",
+      "have_account": "Already have an account?",
+      "login_link": "Log in",
+      "password_label": "Password",
+      "password_placeholder": "Password",
+      "passwords_not_match": "Passwords do not match",
+      "submit_button": "Sign up",
+      "submitting": "Creating account...",
+      "title": "Create your account"
     }
   },
-  "finance": {
-    "title": "Personal Finance",
-    "description": "Insights and strategies for building financial independence",
-    "sections": {
-      "investments": {
-        "title": "Investment Strategies",
-        "description": "Long-term approaches to wealth building"
-      },
-      "budgeting": {
-        "title": "Smart Budgeting",
-        "description": "Practical tips for effective money management"
-      },
-      "planning": {
-        "title": "Financial Planning",
-        "description": "Setting and achieving financial goals"
-      }
-    }
-  },
-  "impact": {
-    "title": "Social Impact",
-    "description": "Making a positive difference in the world",
-    "sections": {
-      "projects": {
-        "title": "Impact Projects",
-        "description": "Current initiatives and their outcomes"
-      },
-      "metrics": {
-        "title": "Impact Metrics",
-        "description": "Measuring and tracking social impact"
-      },
-      "collaboration": {
-        "title": "Get Involved",
-        "description": "Ways to contribute and collaborate"
-      }
-    }
+  "blog": {
+    "categories": {
+      "all": "All Posts",
+      "family": "Family",
+      "growth": "Personal Growth",
+      "impact": "Social Impact",
+      "product": "Product Management",
+      "projects": "Side Projects"
+    },
+    "description": "Thoughts on product management, technology, and social impact",
+    "latest_posts": "Latest Posts",
+    "metadata": {
+      "separator": "•"
+    },
+    "no_posts_description": "Check back soon for new content!",
+    "no_posts_title": "No Posts Yet",
+    "read_more": "Read More",
+    "title": "Blog"
   },
   "common": {
     "back_to_library": "Back to Library",
-    "published_on": "Published on {{date}}",
-    "explore": "Explore Section"
+    "explore": "Explore Section",
+    "published_on": "Published on {{date}}"
   },
-  "auth": {
-    "login": {
-      "title": "Sign in to your account",
-      "email_label": "Email address",
-      "email_placeholder": "Email address",
-      "password_label": "Password",
-      "password_placeholder": "Password",
-      "forgot_password": "Forgot your password?",
-      "submit_button": "Sign in",
-      "submitting": "Signing in...",
-      "need_account": "Need an account?",
-      "sign_up_link": "Sign up",
-      "error": "Failed to log in: {{message}}"
+  "contact": {
+    "description": "Have a question or want to collaborate? I'd love to hear from you.",
+    "form": {
+      "email": "Your Email",
+      "error": "Error sending message. Please try again.",
+      "message": "Your Message",
+      "name": "Your Name",
+      "submit": "Send Message",
+      "success": "Message sent successfully!"
     },
-    "signup": {
-      "title": "Create your account",
-      "email_label": "Email address",
-      "email_placeholder": "Email address",
-      "password_label": "Password",
-      "password_placeholder": "Password",
-      "confirm_password_label": "Confirm Password",
-      "confirm_password_placeholder": "Confirm Password",
-      "submit_button": "Sign up",
-      "submitting": "Creating account...",
-      "have_account": "Already have an account?",
-      "login_link": "Log in",
-      "error": "Failed to create an account: {{message}}",
-      "passwords_not_match": "Passwords do not match"
+    "title": "Get in Touch"
+  },
+  "finance": {
+    "description": "Insights and strategies for building financial independence",
+    "sections": {
+      "budgeting": {
+        "description": "Practical tips for effective money management",
+        "title": "Smart Budgeting"
+      },
+      "investments": {
+        "description": "Long-term approaches to wealth building",
+        "title": "Investment Strategies"
+      },
+      "planning": {
+        "description": "Setting and achieving financial goals",
+        "title": "Financial Planning"
+      }
     },
-    "forgot_password": {
-      "title": "Reset your password",
-      "email_label": "Email address",
-      "email_placeholder": "Email address",
-      "submit_button": "Reset Password",
-      "submitting": "Processing...",
-      "back_to_login": "Back to login",
-      "error": "Failed to reset password: {{message}}",
-      "success_message": "Check your inbox for further instructions"
+    "title": "Personal Finance"
+  },
+  "footer": {
+    "allRightsReserved": "All rights reserved.",
+    "connect": "Connect",
+    "privacyPolicy": "Privacy Policy",
+    "quickLinks": "Quick access",
+    "stayUpdated": "Stay updated with the latest insights",
+    "termsOfService": "Terms of Service"
+  },
+  "hero": {
+    "cta": {
+      "primary": "Explore Resources",
+      "secondary": "View Blog"
     },
-    "profile": {
-      "title": "Profile",
-      "user_info_title": "User Information",
-      "user_info_description": "Personal details and account settings.",
-      "email_label": "Email",
-      "email_verified_label": "Email verified",
-      "yes": "Yes",
-      "no": "No",
-      "logout_button": "Log Out",
-      "error": "Failed to log out"
+    "description": "Exploring the intersection of technology and social impact through thoughtful analysis and practical insights",
+    "subtitle": "Discover insights on technology, personal growth, and making a positive impact",
+    "title": "Welcome to My Knowledge Hub"
+  },
+  "impact": {
+    "description": "Making a positive difference in the world",
+    "no_projects": "Nothing show here",
+    "sections": {
+      "collaboration": {
+        "description": "Ways to contribute and collaborate",
+        "title": "Get Involved"
+      },
+      "metrics": {
+        "description": "Measuring and tracking social impact",
+        "title": "Impact Metrics"
+      },
+      "projects": {
+        "description": "Current initiatives and their outcomes",
+        "title": "Impact Projects"
+      }
+    },
+    "title": "Social Impact"
+  },
+  "library": {
+    "book_not_found": "Book not found",
+    "book_not_found_description": "Sorry, we couldn't find the book you're looking for.",
+    "by": "by",
+    "chapter": "Chapter {{number}}",
+    "key_takeaways": "Key Takeaways",
+    "last_updated": "Last updated {{date}}",
+    "latest_read": "Latest Read",
+    "next_chapter": "Next Chapter",
+    "previous_chapter": "Previous Chapter",
+    "read_notes": "Read My Notes",
+    "reading_time": "{{minutes}} min read",
+    "section_description": "Here are the books I've read and my key takeaways from each one. I hope these notes inspire you to pick up one of these books.",
+    "section_title": "My Book Notes",
+    "table_of_contents": "Table of Contents"
+  },
+  "meta": {
+    "home": {
+      "description": "My personal website has knowledge about technology, personal growth, and making impacts on society.",
+      "title": "Home | KienNotes.AI"
     }
+  },
+  "nav": {
+    "about": "About",
+    "blog": "Blog",
+    "finance": "Finance",
+    "home": "Home",
+    "impact": "Impact",
+    "library": "Library",
+    "login": "Login",
+    "logout": "Log Out",
+    "profile": "Profile",
+    "signup": "Sign up"
+  },
+  "newsletter": {
+    "button": "Subscribe",
+    "description": "Get the latest insights delivered to your inbox",
+    "error": "Something went wrong. Please try again.",
+    "placeholder": "Enter your email",
+    "success": "Thank you for subscribing!",
+    "title": "Subscribe to Newsletter"
+  },
+  "resources": {
+    "description": "A collection of tools, guides, and resources to help you on your journey",
+    "guides": "Guides",
+    "title": "Resources",
+    "tools": "Tools"
+  },
+  "site": {
+    "author": "John Anderson",
+    "description": "Discover insights on technology, personal growth, and making a positive impact",
+    "tagline": "Building innovative solutions for a better tomorrow",
+    "title": "KienNotes.AI"
+  },
+  "theme": {
+    "dark": "Dark mode",
+    "light": "Light mode"
   }
 }

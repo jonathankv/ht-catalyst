@@ -1,221 +1,242 @@
 {
-  "site": {
-    "title": "KienNotes.AI",
-    "description": "Khám phá những hiểu biết về công nghệ, phát triển bản thân và tạo tác động tích cực"
-  },
-  "nav": {
-    "home": "Trang Chủ",
-    "library": "Thư viện",
-    "blog": "Blog",
-    "about": "Giới Thiệu",
-    "finance": "Tài Chính Cá Nhân",
-    "impact": "Tác Động Xã Hội",
-    "login": "Đăng nhập",
-    "signup": "Đăng ký",
-    "logout": "Đăng xuất",
-    "profile": "Tài khoản của bạn"
-  },
-  "hero": {
-    "title": "Chào Mừng Đến Với Kho Kiến Thức",
-    "subtitle": "Khám phá những hiểu biết về công nghệ, phát triển bản thân và tạo tác động tích cực",
-    "description": "Khám phá sự giao thoa giữa công nghệ và tác động xã hội thông qua phân tích sâu sắc và những hiểu biết thực tế",
-    "cta": {
-      "primary": "Khám Phá Tài Nguyên",
-      "secondary": "Xem Blog"
-    }
-  },
-  "newsletter": {
-    "title": "Đăng Ký Nhận Bản Tin",
-    "description": "Nhận những thông tin mới nhất qua email",
-    "placeholder": "Nhập email của bạn",
-    "button": "Đăng Ký",
-    "success": "Cảm ơn bạn đã đăng ký!",
-    "error": "Đã xảy ra lỗi. Vui lòng thử lại."
-  },
-  "library": {
-    "latest_read": "Sách Mới Nhất",
-    "read_notes": "Xem Ghi Chú",
-    "section_title": "Ghi Chú Sách",
-    "section_description": "Đây là những cuốn sách tôi đã đọc và những điểm chính tôi rút ra từ mỗi cuốn. Hy vọng những ghi chú này sẽ truyền cảm hứng cho bạn đọc những cuốn sách này.",
-    "table_of_contents": "Mục Lục",
-    "key_takeaways": "Điểm Chính",
-    "book_not_found": "Không tìm thấy sách",
-    "book_not_found_description": "Xin lỗi, chúng tôi không thể tìm thấy cuốn sách bạn đang tìm kiếm.",
-    "reading_time": "{{minutes}} phút đọc",
-    "chapter": "Chương {{number}}",
-    "previous_chapter": "Chương Trước",
-    "next_chapter": "Chương Tiếp Theo",
-    "by": "bởi",
-    "last_updated": "Cập nhật lần cuối {{date}}"
-  },
-  "blog": {
-    "title": "Blog",
-    "description": "Suy nghĩ về quản lý sản phẩm, công nghệ và tác động xã hội",
-    "read_more": "Đọc Thêm",
-    "latest_posts": "Bài Viết Mới Nhất",
-    "no_posts_title": "Chưa Có Bài Viết",
-    "no_posts_description": "Vui lòng quay lại sau để xem nội dung mới!",
-    "categories": {
-      "all": "Tất Cả Bài Viết",
-      "product": "Quản Lý Sản Phẩm",
-      "impact": "Tác Động Xã Hội",
-      "projects": "Dự Án Cá Nhân",
-      "family": "Gia Đình",
-      "growth": "Phát Triển Bản Thân"
-    },
-    "metadata": {
-      "separator": "•"
-    }
-  },
-  "resources": {
-    "title": "Tài Nguyên",
-    "description": "Bộ sưu tập công cụ, hướng dẫn và tài nguyên để hỗ trợ bạn trên hành trình của mình",
-    "tools": "Công Cụ",
-    "guides": "Hướng Dẫn"
-  },
   "about": {
-    "title": "Về Tôi",
-    "intro": "Xin chào, tôi là Jonathan. Tôi đam mê công nghệ và tạo ra những tác động tích cực.",
-    "mission": "Sứ mệnh của tôi là giúp mọi người tận dụng công nghệ để tạo ra những thay đổi tích cực.",
-    "contact": "Liên Hệ",
     "background": {
-      "title": "Giới Thiệu",
-      "content": "Là một Product Manager với niềm đam mê về công nghệ và tác động xã hội, tôi kết nối giữa các giải pháp sáng tạo và nhu cầu con người. Hành trình của tôi trong quản lý sản phẩm được thúc đẩy bởi cam kết tạo ra những trải nghiệm kỹ thuật số có ý nghĩa."
+      "content": "Là một Product Manager với niềm đam mê về công nghệ và tác động xã hội, tôi kết nối giữa các giải pháp sáng tạo và nhu cầu con người. Hành trình của tôi trong quản lý sản phẩm được thúc đẩy bởi cam kết tạo ra những trải nghiệm kỹ thuật số có ý nghĩa.",
+      "title": "Giới Thiệu"
     },
+    "contact": "Liên Hệ",
     "expertise": {
-      "title": "Chuyên Môn",
       "skills": {
-        "product_strategy": "Chiến Lược Sản Phẩm",
-        "user_research": "Nghiên Cứu Người Dùng",
         "agile": "Quản Lý Agile",
         "analytics": "Phân Tích Dữ Liệu",
-        "technical": "Lãnh Đạo Kỹ Thuật"
-      }
-    },
-    "vision": {
-      "title": "Tầm Nhìn",
-      "content": "Tôi tin vào việc tận dụng công nghệ để tạo ra những sản phẩm không chỉ giải quyết vấn đề mà còn đóng góp tích cực cho xã hội. Mục tiêu của tôi là dẫn dắt các sáng kiến sản phẩm kết hợp đổi mới với trách nhiệm xã hội."
-    },
-    "timeline": {
-      "present": {
-        "year": "2023 - Hiện tại",
-        "title": "Quản Lý Sản Phẩm Cao Cấp",
-        "description": "Dẫn dắt các sáng kiến sản phẩm sáng tạo"
+        "product_strategy": "Chiến Lược Sản Phẩm",
+        "technical": "Lãnh Đạo Kỹ Thuật",
+        "user_research": "Nghiên Cứu Người Dùng"
       },
+      "title": "Chuyên Môn"
+    },
+    "intro": "Xin chào, tôi là Jonathan. Tôi đam mê công nghệ và tạo ra những tác động tích cực.",
+    "mission": "Sứ mệnh của tôi là giúp mọi người tận dụng công nghệ để tạo ra những thay đổi tích cực.",
+    "timeline": {
       "past_1": {
-        "year": "2020 - 2023",
+        "description": "Thúc đẩy phát triển sản phẩm lấy người dùng làm trung tâm",
         "title": "Quản Lý Sản Phẩm",
-        "description": "Thúc đẩy phát triển sản phẩm lấy người dùng làm trung tâm"
+        "year": "2020 - 2023"
       },
       "past_2": {
-        "year": "2018 - 2020",
+        "description": "Xây dựng nền tảng trong quản lý sản phẩm",
         "title": "Quản Lý Sản Phẩm Phó",
-        "description": "Xây dựng nền tảng trong quản lý sản phẩm"
+        "year": "2018 - 2020"
+      },
+      "present": {
+        "description": "Dẫn dắt các sáng kiến sản phẩm sáng tạo",
+        "title": "Quản Lý Sản Phẩm Cao Cấp",
+        "year": "2023 - Hiện tại"
       }
+    },
+    "title": "Về Tôi",
+    "vision": {
+      "content": "Tôi tin vào việc tận dụng công nghệ để tạo ra những sản phẩm không chỉ giải quyết vấn đề mà còn đóng góp tích cực cho xã hội. Mục tiêu của tôi là dẫn dắt các sáng kiến sản phẩm kết hợp đổi mới với trách nhiệm xã hội.",
+      "title": "Tầm Nhìn"
     }
   },
-  "contact": {
-    "title": "Get in Touch",
-    "description": "Have a question or want to collaborate? I'd love to hear from you.",
-    "form": {
-      "name": "Your Name",
-      "email": "Your Email",
-      "message": "Your Message",
-      "submit": "Send Message",
-      "success": "Message sent successfully!",
-      "error": "Error sending message. Please try again."
+  "auth": {
+    "forgot_password": {
+      "back_to_login": "Quay lại đăng nhập",
+      "email_label": "Địa chỉ email",
+      "email_placeholder": "Địa chỉ email",
+      "error": "Đặt lại mật khẩu thất bại: {{message}}",
+      "submit_button": "Đặt lại mật khẩu",
+      "submitting": "Đang xử lý...",
+      "success_message": "Kiểm tra hộp thư của bạn để biết hướng dẫn tiếp theo",
+      "title": "Đặt lại mật khẩu của bạn"
+    },
+    "login": {
+      "email_label": "Địa chỉ email",
+      "email_placeholder": "Địa chỉ email",
+      "error": "Đăng nhập thất bại: {{message}}",
+      "forgot_password": "Quên mật khẩu?",
+      "need_account": "Chưa có tài khoản?",
+      "password_label": "Mật khẩu",
+      "password_placeholder": "Mật khẩu",
+      "sign_up_link": "Đăng ký",
+      "submit_button": "Đăng nhập",
+      "submitting": "Đang đăng nhập...",
+      "title": "Đăng nhập vào tài khoản của bạn"
+    },
+    "profile": {
+      "email_label": "Email",
+      "email_verified_label": "Email đã xác minh",
+      "error": "Đăng xuất thất bại",
+      "logout_button": "Đăng xuất",
+      "no": "Không",
+      "title": "Hồ sơ",
+      "user_info_description": "Thông tin cá nhân và cài đặt tài khoản.",
+      "user_info_title": "Thông tin người dùng",
+      "yes": "Có"
+    },
+    "signup": {
+      "confirm_password_label": "Xác nhận mật khẩu",
+      "confirm_password_placeholder": "Xác nhận mật khẩu",
+      "email_label": "Địa chỉ email",
+      "email_placeholder": "Địa chỉ email",
+      "error": "Tạo tài khoản thất bại: {{message}}",
+      "have_account": "Đã có tài khoản?",
+      "login_link": "Đăng nhập",
+      "password_label": "Mật khẩu",
+      "password_placeholder": "Mật khẩu",
+      "passwords_not_match": "Mật khẩu không khớp",
+      "submit_button": "Đăng ký",
+      "submitting": "Đang tạo tài khoản...",
+      "title": "Tạo tài khoản của bạn"
     }
   },
-  "finance": {
-    "title": "Quản Lý Tài Chính Cá Nhân",
-    "description": "Những hiểu biết và chiến lược để xây dựng tự do tài chính",
-    "sections": {
-      "investments": {
-        "title": "Chiến Lược Đầu Tư",
-        "description": "Phương pháp xây dựng tài sản dài hạn"
-      },
-      "budgeting": {
-        "title": "Quản Lý Chi Tiêu",
-        "description": "Mẹo thực tế để quản lý tiền hiệu quả"
-      },
-      "planning": {
-        "title": "Kế Hoạch Tài Chính",
-        "description": "Thiết lập và đạt được mục tiêu tài chính"
-      }
-    }
-  },
-  "impact": {
-    "title": "Tác Động Xã Hội",
-    "description": "Tạo ra những thay đổi tích cực cho thế giới",
-    "sections": {
-      "projects": {
-        "title": "Dự Án Tác Động",
-        "description": "Các sáng kiến hiện tại và kết quả"
-      },
-      "metrics": {
-        "title": "Đo Lường Tác Động",
-        "description": "Đo lường và theo dõi tác động xã hội"
-      },
-      "collaboration": {
-        "title": "Tham Gia",
-        "description": "Cách đóng góp và hợp tác"
-      }
-    }
+  "blog": {
+    "categories": {
+      "all": "Tất Cả Bài Viết",
+      "family": "Gia Đình",
+      "growth": "Phát Triển Bản Thân",
+      "impact": "Tác Động Xã Hội",
+      "product": "Quản Lý Sản Phẩm",
+      "projects": "Dự Án Cá Nhân"
+    },
+    "description": "Suy nghĩ về quản lý sản phẩm, công nghệ và tác động xã hội",
+    "latest_posts": "Bài Viết Mới Nhất",
+    "metadata": {
+      "separator": "•"
+    },
+    "no_posts_description": "Vui lòng quay lại sau để xem nội dung mới!",
+    "no_posts_title": "Chưa Có Bài Viết",
+    "read_more": "Đọc Thêm",
+    "title": "Blog"
   },
   "common": {
     "back_to_library": "Quay Lại Thư Viện",
-    "published_on": "Xuất bản ngày {{date}}",
-    "explore": "Khám Phá"
+    "explore": "Khám Phá",
+    "published_on": "Xuất bản ngày {{date}}"
   },
-  "auth": {
-    "login": {
-      "title": "Đăng nhập vào tài khoản của bạn",
-      "email_label": "Địa chỉ email",
-      "email_placeholder": "Địa chỉ email",
-      "password_label": "Mật khẩu",
-      "password_placeholder": "Mật khẩu",
-      "forgot_password": "Quên mật khẩu?",
-      "submit_button": "Đăng nhập",
-      "submitting": "Đang đăng nhập...",
-      "need_account": "Chưa có tài khoản?",
-      "sign_up_link": "Đăng ký",
-      "error": "Đăng nhập thất bại: {{message}}"
+  "contact": {
+    "description": "Have a question or want to collaborate? I'd love to hear from you.",
+    "form": {
+      "email": "Your Email",
+      "error": "Error sending message. Please try again.",
+      "message": "Your Message",
+      "name": "Your Name",
+      "submit": "Send Message",
+      "success": "Message sent successfully!"
     },
-    "signup": {
-      "title": "Tạo tài khoản của bạn",
-      "email_label": "Địa chỉ email",
-      "email_placeholder": "Địa chỉ email",
-      "password_label": "Mật khẩu",
-      "password_placeholder": "Mật khẩu",
-      "confirm_password_label": "Xác nhận mật khẩu",
-      "confirm_password_placeholder": "Xác nhận mật khẩu",
-      "submit_button": "Đăng ký",
-      "submitting": "Đang tạo tài khoản...",
-      "have_account": "Đã có tài khoản?",
-      "login_link": "Đăng nhập",
-      "error": "Tạo tài khoản thất bại: {{message}}",
-      "passwords_not_match": "Mật khẩu không khớp"
+    "title": "Get in Touch"
+  },
+  "finance": {
+    "description": "Những hiểu biết và chiến lược để xây dựng tự do tài chính",
+    "sections": {
+      "budgeting": {
+        "description": "Mẹo thực tế để quản lý tiền hiệu quả",
+        "title": "Quản Lý Chi Tiêu"
+      },
+      "investments": {
+        "description": "Phương pháp xây dựng tài sản dài hạn",
+        "title": "Chiến Lược Đầu Tư"
+      },
+      "planning": {
+        "description": "Thiết lập và đạt được mục tiêu tài chính",
+        "title": "Kế Hoạch Tài Chính"
+      }
     },
-    "forgot_password": {
-      "title": "Đặt lại mật khẩu của bạn",
-      "email_label": "Địa chỉ email",
-      "email_placeholder": "Địa chỉ email",
-      "submit_button": "Đặt lại mật khẩu",
-      "submitting": "Đang xử lý...",
-      "back_to_login": "Quay lại đăng nhập",
-      "error": "Đặt lại mật khẩu thất bại: {{message}}",
-      "success_message": "Kiểm tra hộp thư của bạn để biết hướng dẫn tiếp theo"
+    "title": "Quản Lý Tài Chính Cá Nhân"
+  },
+  "footer": {
+    "allRightsReserved": "All rights reserved.",
+    "connect": "Kết Nối",
+    "privacyPolicy": "Privacy Policy",
+    "quickLinks": "Liên Kết Nhanh",
+    "stayUpdated": "Stay updated with the latest insights",
+    "termsOfService": "Terms of Service"
+  },
+  "hero": {
+    "cta": {
+      "primary": "Khám Phá Tài Nguyên",
+      "secondary": "Xem Blog"
     },
-    "profile": {
-      "title": "Hồ sơ",
-      "user_info_title": "Thông tin người dùng",
-      "user_info_description": "Thông tin cá nhân và cài đặt tài khoản.",
-      "email_label": "Email",
-      "email_verified_label": "Email đã xác minh",
-      "yes": "Có",
-      "no": "Không",
-      "logout_button": "Đăng xuất",
-      "error": "Đăng xuất thất bại"
+    "description": "Khám phá sự giao thoa giữa công nghệ và tác động xã hội thông qua phân tích sâu sắc và những hiểu biết thực tế",
+    "subtitle": "Khám phá những hiểu biết về công nghệ, phát triển bản thân và tạo tác động tích cực",
+    "title": "Chào Mừng Đến Với Kho Kiến Thức"
+  },
+  "impact": {
+    "description": "Tạo ra những thay đổi tích cực cho thế giới",
+    "no_projects": "Chưa có dự án nào",
+    "sections": {
+      "collaboration": {
+        "description": "Cách đóng góp và hợp tác",
+        "title": "Tham Gia"
+      },
+      "metrics": {
+        "description": "Đo lường và theo dõi tác động xã hội",
+        "title": "Đo Lường Tác Động"
+      },
+      "projects": {
+        "description": "Các sáng kiến hiện tại và kết quả",
+        "title": "Dự Án Tác Động"
+      }
+    },
+    "title": "Tác Động Xã Hội"
+  },
+  "library": {
+    "book_not_found": "Không tìm thấy sách",
+    "book_not_found_description": "Xin lỗi, chúng tôi không thể tìm thấy cuốn sách bạn đang tìm kiếm.",
+    "by": "bởi",
+    "chapter": "Chương {{number}}",
+    "key_takeaways": "Điểm Chính",
+    "last_updated": "Cập nhật lần cuối {{date}}",
+    "latest_read": "Sách Mới Nhất",
+    "next_chapter": "Chương Tiếp Theo",
+    "previous_chapter": "Chương Trước",
+    "read_notes": "Xem Ghi Chú",
+    "reading_time": "{{minutes}} phút đọc",
+    "section_description": "Đây là những cuốn sách tôi đã đọc và những điểm chính tôi rút ra từ mỗi cuốn. Hy vọng những ghi chú này sẽ truyền cảm hứng cho bạn đọc những cuốn sách này.",
+    "section_title": "Ghi Chú Sách",
+    "table_of_contents": "Mục Lục"
+  },
+  "meta": {
+    "home": {
+      "description": "Trang web cá nhân với những hiểu biết về công nghệ, phát triển bản thân và tạo tác động tích cực",
+      "title": "Trang Chủ | KienNotes.AI"
     }
+  },
+  "nav": {
+    "about": "Giới Thiệu",
+    "blog": "Blog",
+    "finance": "Tài Chính Cá Nhân",
+    "home": "Trang Chủ",
+    "impact": "Tác Động Xã Hội",
+    "library": "Thư viện",
+    "login": "Đăng nhập",
+    "logout": "Đăng xuất",
+    "profile": "Tài khoản của bạn",
+    "signup": "Đăng ký"
+  },
+  "newsletter": {
+    "button": "Đăng Ký",
+    "description": "Nhận những thông tin mới nhất qua email",
+    "error": "Đã xảy ra lỗi. Vui lòng thử lại.",
+    "placeholder": "Nhập email của bạn",
+    "success": "Cảm ơn bạn đã đăng ký!",
+    "title": "Đăng Ký Nhận Bản Tin"
+  },
+  "resources": {
+    "description": "Bộ sưu tập công cụ, hướng dẫn và tài nguyên để hỗ trợ bạn trên hành trình của mình",
+    "guides": "Hướng Dẫn",
+    "title": "Tài Nguyên",
+    "tools": "Công Cụ"
+  },
+  "site": {
+    "author": "John Anderson",
+    "description": "Khám phá những hiểu biết về công nghệ, phát triển bản thân và tạo tác động tích cực",
+    "tagline": "Building innovative solutions for a better tomorrow",
+    "title": "KienNotes.AI"
+  },
+  "theme": {
+    "dark": "Chế độ tối",
+    "light": "Chế độ sáng"
   }
 }

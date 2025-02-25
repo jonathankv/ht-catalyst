@@ -1,58 +1,43 @@
 import { motion } from 'framer-motion';
 import Head from 'next/head';
 import { useTranslation } from 'next-i18next';
-import Navigation from '../components/Navigation';
+import Layout from '../components/Layout';
+import Hero from '../components/Hero';
 import Home from '../components/Home';
 import Newsletter from '../components/Newsletter';
 import FloatingChat from '../components/FloatingChat';
 import { getTranslatedStaticProps } from '../utils/translationUtils';
 
+/**
+ * Index page (homepage) of the website
+ * Serves as the entry point for visitors
+ * Implements SEO optimization and initial data loading
+ * @param {Object} props - Page properties from getStaticProps
+ * @returns {JSX.Element} Rendered homepage
+ */
 export default function Index({ locale }) {
   const { t } = useTranslation('common');
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-neutral-25 to-neutral-50 dark:from-neutral-900 dark:to-neutral-800">
-      <Head>
-        <title>{t('site.title')} - {t('site.description')}</title>
-        <meta name="description" content={t('site.description')} />
-      </Head>
+    <Layout>
+      <div className="min-h-screen bg-gradient-to-b from-neutral-25 to-neutral-50 dark:from-neutral-900 dark:to-neutral-800">
+        <Head>
+          <title>{t('meta.home.title')}</title>
+          <meta name="description" content={t('meta.home.description')} />
+        </Head>
+        
+        {/* Hero Section */}
+        <Hero />
 
-      <Navigation />
-      
-      {/* Hero Section */}
-      <motion.section 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="pt-32 pb-16 px-4"
-      >
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.h1 
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="text-4xl md:text-6xl font-bold mb-8 leading-tight py-2 bg-clip-text text-transparent bg-gradient-to-r from-primary-700 to-primary-500 dark:from-primary-400 dark:to-primary-200"
-          >
-            {t('hero.title')}
-          </motion.h1>
-          <motion.p 
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="text-xl text-neutral-700 dark:text-neutral-200 leading-relaxed"
-          >
-            {t('hero.subtitle')}
-          </motion.p>
-        </div>
-      </motion.section>
+        {/* Main Content */}
+        <Home locale={locale} />
 
-      {/* Main Content */}
-      <Home locale={locale} />
+        {/* Newsletter Section */}
+        <Newsletter locale={locale} />
 
-      {/* Newsletter Section */}
-      <Newsletter locale={locale} />
-
-      <FloatingChat locale={locale} />
-    </div>
+        <FloatingChat locale={locale} />
+      </div>
+    </Layout>
   );
 }
 

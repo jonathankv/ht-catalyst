@@ -7,6 +7,12 @@ import { useTranslation } from 'next-i18next';
 import LanguageSwitcher from './LanguageSwitcher';
 import { useAuth } from '../contexts/AuthContext';
 
+/**
+ * Main navigation component for the website
+ * Provides links to all major sections and handles mobile/desktop navigation
+ * Integrates with i18next for multilingual support
+ * @returns {JSX.Element} Navigation bar with responsive menu
+ */
 const Navigation = () => {
   const { t } = useTranslation('common');
   const [isScrolled, setIsScrolled] = useState(false);
@@ -58,7 +64,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-full">
           <Link href="/" className="relative group">
             <motion.div 
-              className={`text-2xl font-bold transition-colors duration-300 ${
+              className={`text-3xl font-space font-bold text-primary-700 transition-colors duration-300 ${
                 isScrolled ? 'text-white' : 'text-neutral-900 dark:text-neutral-50'
               }`}
               whileHover={{ scale: 1.05 }}

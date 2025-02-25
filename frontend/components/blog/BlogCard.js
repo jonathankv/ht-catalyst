@@ -2,6 +2,21 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 
+/**
+ * Blog card component
+ * Displays a preview of a blog post with image, title, and excerpt
+ * Features hover animations and responsive design
+ * @param {Object} props - Component properties
+ * @param {Object} props.post - Blog post data
+ * @param {string} props.post.slug - Post URL slug
+ * @param {string} props.post.title - Post title
+ * @param {string} props.post.excerpt - Post excerpt
+ * @param {string} props.post.coverImage - Post cover image URL
+ * @param {string} props.post.date - Formatted post date
+ * @param {string} props.post.readTime - Formatted read time
+ * @param {string} props.post.category - Post category
+ * @returns {JSX.Element} Blog post card
+ */
 const BlogCard = ({ post }) => {
   return (
     <Link href={`/blog/${post.slug}`}>

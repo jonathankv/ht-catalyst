@@ -1,15 +1,23 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { motion, useScroll } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 
-const Hero = () => {
+/**
+ * Hero component for landing pages
+ * Features animated text and background effects using Framer Motion
+ * Supports multilingual content through i18next
+ * @param {Object} props - Component properties
+ * @param {string} props.backgroundImage - Optional background image URL
+ * @param {boolean} props.animated - Whether to enable animations
+ * @returns {JSX.Element} Hero section with title and subtitle
+ */
+function Hero({ backgroundImage, animated = true }) {
   const { scrollY } = useScroll();
   const { t } = useTranslation('common');
 
   return (
-    <section className="min-h-screen bg-gradient-to-b from-neutral-25 to-neutral-50 dark:from-neutral-900 dark:to-neutral-800">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-32 pb-24">
+    <section className="bg-transparent">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-12 pb-24">
         <motion.div 
           className="text-center space-y-12"
           initial={{ opacity: 0 }}
@@ -22,18 +30,12 @@ const Hero = () => {
             transition={{ delay: 0.3 }}
             className="space-y-6"
           >
-            <span className="inline-block px-4 py-2 bg-primary-100 dark:bg-primary-900/40 
-              text-primary-800 dark:text-primary-200 rounded-full text-sm font-medium">
-              {t('hero.badge')}
-            </span>
-            
-            <h1 className="text-4xl md:text-6xl font-bold text-neutral-900 dark:text-neutral-50 
-              max-w-4xl mx-auto leading-tight">
+            <h1 className="text-4xl md:text-6xl font-bold mb-8 leading-tight py-2 bg-clip-text text-transparent bg-gradient-to-r from-primary-700 to-primary-500 dark:from-primary-400 dark:to-primary-200">
               {t('hero.title')}
             </h1>
             
             <p className="text-xl text-neutral-700 dark:text-neutral-200 max-w-2xl mx-auto leading-relaxed">
-              {t('hero.description')}
+              {t('hero.subtitle')}
             </p>
           </motion.div>
 
@@ -44,13 +46,20 @@ const Hero = () => {
             transition={{ delay: 0.6 }}
           >
             <Link href="/library">
-              <button className="btn-primary px-8 py-4 transform hover:scale-105 
-                shadow-lg hover:shadow-primary-500/20 dark:hover:shadow-primary-400/20">
+              <button className="bg-primary-700 hover:bg-primary-800 text-white font-medium px-8 py-4 rounded-lg 
+                transform hover:scale-105 transition-all duration-300
+                shadow-lg hover:shadow-primary-600/30 dark:bg-primary-600 dark:hover:bg-primary-700
+                dark:hover:shadow-primary-500/30 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2
+                dark:focus:ring-offset-neutral-900">
                 {t('hero.cta.primary')}
               </button>
             </Link>
             <Link href="/blog">
-              <button className="btn-secondary px-8 py-4 transform hover:scale-105">
+              <button className="bg-white dark:bg-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-700
+                text-primary-700 dark:text-primary-400 font-medium border-2 border-primary-600 dark:border-primary-500
+                px-8 py-4 rounded-lg transform hover:scale-105 transition-all duration-300
+                shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2
+                dark:focus:ring-offset-neutral-900">
                 {t('hero.cta.secondary')}
               </button>
             </Link>
@@ -59,6 +68,6 @@ const Hero = () => {
       </div>
     </section>
   );
-};
+}
 
 export default Hero; 
