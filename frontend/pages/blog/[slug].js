@@ -107,7 +107,7 @@ const components = {
   // Add or update the code component with better contrast
   code: props => (
     <code
-      className="bg-neutral-100 dark:bg-neutral-800 text-primary-700 dark:text-primary-300 px-1.5 py-0.5 rounded font-mono text-sm"
+      className="bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 px-1.5 py-0.5 rounded font-mono text-sm"
       {...props}
     />
   ),
@@ -115,7 +115,7 @@ const components = {
   pre: props => {
     return (
       <pre
-        className="my-8 p-4 bg-neutral-800 dark:bg-neutral-900 text-neutral-100 dark:text-neutral-50 rounded-lg overflow-x-auto"
+        className="my-8 p-4 bg-neutral-900 dark:bg-neutral-950 text-neutral-200 dark:text-neutral-100 rounded-lg overflow-x-auto font-mono text-sm"
         {...props}
       />
     );
