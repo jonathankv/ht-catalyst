@@ -5,7 +5,10 @@
       "title": "Giới Thiệu"
     },
     "contact": "Liên Hệ",
+    "download_cv": "Tải CV",
+    "download_cv_aria": "Tải CV",
     "expertise": {
+      "content": "Thế mạnh cốt lõi của tôi bao gồm phát triển chiến lược sản phẩm, nghiên cứu người dùng, phương pháp agile, phân tích dữ liệu và lãnh đạo nhóm đa chức năng. Tôi xuất sắc trong việc chuyển đổi các khái niệm kỹ thuật phức tạp thành giá trị kinh doanh và xây dựng các sản phẩm thực sự phù hợp với người dùng.",
       "skills": {
         "agile": "Quản Lý Agile",
         "analytics": "Phân Tích Dữ Liệu",
@@ -14,6 +17,18 @@
         "user_research": "Nghiên Cứu Người Dùng"
       },
       "title": "Chuyên Môn"
+    },
+    "approach": {
+      "content": "Tôi tin vào phương pháp phát triển sản phẩm lấy người dùng làm trung tâm và dựa trên dữ liệu. Bằng cách kết hợp sự đồng cảm sâu sắc với người dùng và phân tích nghiêm ngặt, tôi tạo ra các sản phẩm không chỉ đáp ứng mục tiêu kinh doanh mà còn mang lại trải nghiệm người dùng xuất sắc.",
+      "title": "Phương Pháp"
+    },
+    "job_title": "Quản Lý Sản Phẩm & Lãnh Đạo Công Nghệ",
+    "profile_image_alt": "Hình Ảnh Cá Nhân",
+    "skills": {
+      "title": "Kỹ Năng & Chuyên Môn",
+      "product": "Quản Lý Sản Phẩm",
+      "technical": "Kỹ Thuật",
+      "leadership": "Lãnh Đạo"
     },
     "intro": "Xin chào, tôi là Jonathan. Tôi đam mê công nghệ và tạo ra những tác động tích cực.",
     "mission": "Sứ mệnh của tôi là giúp mọi người tận dụng công nghệ để tạo ra những thay đổi tích cực.",

@@ -5,7 +5,10 @@
       "title": "Background"
     },
     "contact": "Get in Touch",
+    "download_cv": "Download CV",
+    "download_cv_aria": "Download CV",
     "expertise": {
+      "content": "My core strengths include product strategy development, user research, agile methodologies, data analytics, and cross-functional team leadership. I excel at translating complex technical concepts into business value and building products that truly resonate with users.",
       "skills": {
         "agile": "Agile Management",
         "analytics": "Data Analytics",
@@ -14,6 +17,18 @@
         "user_research": "User Research"
       },
       "title": "Expertise"
+    },
+    "job_title": "Product Manager & Technology Leader",
+    "profile_image_alt": "Profile",
+    "approach": {
+      "content": "I believe in a user-centered, data-driven approach to product development. By combining deep user empathy with rigorous analytics, I create products that not only meet business objectives but also deliver exceptional user experiences.",
+      "title": "Approach"
+    },
+    "skills": {
+      "title": "Skills & Expertise",
+      "product": "Product Management",
+      "technical": "Technical",
+      "leadership": "Leadership"
     },
     "intro": "Hi, I'm Jonathan. I'm passionate about technology and making a positive impact.",
     "mission": "My mission is to help others leverage technology for positive change.",

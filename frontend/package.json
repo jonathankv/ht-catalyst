@@ -13,6 +13,7 @@
     "translate:validate": "node scripts/translation-manager.js validate",
     "translate": "node scripts/translation-manager.js all",
     "translate:legacy": "node scripts/translate.js",
+    "update-posts": "node scripts/update-posts.js",
     "backend": "cd ../backend && ./start.sh",
     "backend:win": "cd ../backend && start.bat",
     "dev:all": "concurrently \"npm run dev\" \"npm run backend\""
