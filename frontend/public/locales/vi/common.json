@@ -30,7 +30,7 @@
       },
       "present": {
         "description": "Dẫn dắt các sáng kiến sản phẩm sáng tạo",
-        "title": "Quản Lý Sản Phẩm Cao Cấp",
+        "title": "Quản Lý Sản Phẩm Công Nghệ",
         "year": "2023 - Hiện tại"
       }
     },
@@ -113,7 +113,10 @@
   "common": {
     "back_to_library": "Quay Lại Thư Viện",
     "explore": "Khám Phá",
-    "published_on": "Xuất bản ngày {{date}}"
+    "loading": "Loading...",
+    "minRead": "min read",
+    "published_on": "Xuất bản ngày {{date}}",
+    "readMore": "Read more"
   },
   "contact": {
     "description": "Have a question or want to collaborate? I'd love to hear from you.",
@@ -195,7 +198,8 @@
     "reading_time": "{{minutes}} phút đọc",
     "section_description": "Đây là những cuốn sách tôi đã đọc và những điểm chính tôi rút ra từ mỗi cuốn. Hy vọng những ghi chú này sẽ truyền cảm hứng cho bạn đọc những cuốn sách này.",
     "section_title": "Ghi Chú Sách",
-    "table_of_contents": "Mục Lục"
+    "table_of_contents": "Mục Lục",
+    "title": "Resource Library"
   },
   "meta": {
     "home": {
@@ -219,6 +223,7 @@
     "button": "Đăng Ký",
     "description": "Nhận những thông tin mới nhất qua email",
     "error": "Đã xảy ra lỗi. Vui lòng thử lại.",
+    "invalidEmail": "Please enter a valid email address",
     "placeholder": "Nhập email của bạn",
     "success": "Cảm ơn bạn đã đăng ký!",
     "title": "Đăng Ký Nhận Bản Tin"
@@ -230,7 +235,7 @@
     "tools": "Công Cụ"
   },
   "site": {
-    "author": "John Anderson",
+    "author": "Kiên (Jonathan) Vũ Viết",
     "description": "Khám phá những hiểu biết về công nghệ, phát triển bản thân và tạo tác động tích cực",
     "tagline": "Building innovative solutions for a better tomorrow",
     "title": "KienNotes.AI"

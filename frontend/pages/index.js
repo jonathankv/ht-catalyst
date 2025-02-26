@@ -20,7 +20,7 @@ export default function Index({ locale }) {
 
   return (
     <Layout>
-      <div className="min-h-screen bg-gradient-to-b from-neutral-25 to-neutral-50 dark:from-neutral-900 dark:to-neutral-800">
+      <div className="min-h-screen bg-white dark:bg-neutral-950">
         <Head>
           <title>{t('meta.home.title')}</title>
           <meta name="description" content={t('meta.home.description')} />
@@ -29,12 +29,17 @@ export default function Index({ locale }) {
         {/* Hero Section */}
         <Hero />
 
-        {/* Main Content */}
-        <Home locale={locale} />
+        {/* Main Content - Using existing Home component with modern cards */}
+        <Home 
+          variant="modern" 
+          className="py-16 bg-neutral-50 dark:bg-neutral-900"
+          locale={locale} 
+        />
 
         {/* Newsletter Section */}
         <Newsletter locale={locale} />
 
+        {/* Floating Chat */}
         <FloatingChat locale={locale} />
       </div>
     </Layout>

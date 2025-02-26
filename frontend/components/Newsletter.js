@@ -21,7 +21,7 @@ const Newsletter = ({ locale }) => {
     
     if (!email || !email.includes('@')) {
       setStatus('error');
-      setErrorMessage('Please enter a valid email address');
+      setErrorMessage(t('newsletter.invalidEmail', 'Please enter a valid email address'));
       return;
     }
     
@@ -40,7 +40,7 @@ const Newsletter = ({ locale }) => {
   };
 
   return (
-    <section className="py-16 bg-primary-50 dark:bg-primary-900/20">
+    <section className="py-16 bg-white dark:bg-neutral-950 border-t border-neutral-200 dark:border-neutral-800">
       <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
         <motion.div 
           className="text-center space-y-6"
@@ -49,17 +49,17 @@ const Newsletter = ({ locale }) => {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl font-bold text-neutral-900 dark:text-neutral-50">
+          <h2 className="text-3xl font-bold text-neutral-900 dark:text-white">
             {t('newsletter.title')}
           </h2>
-          <p className="text-lg text-neutral-700 dark:text-neutral-300 max-w-2xl mx-auto">
+          <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
             {t('newsletter.description')}
           </p>
           
           <div className="mt-8 max-w-xl mx-auto">
             {status === 'success' ? (
               <motion.div 
-                className="bg-green-100 dark:bg-green-900/30 p-4 rounded-lg text-green-800 dark:text-green-200"
+                className="bg-green-100 dark:bg-green-900/30 p-4 rounded-lg text-green-800 dark:text-green-300 border border-green-200 dark:border-green-800"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
               >
@@ -74,14 +74,14 @@ const Newsletter = ({ locale }) => {
                   placeholder={t('newsletter.placeholder')}
                   className="flex-grow px-4 py-3 rounded-lg border border-neutral-300 dark:border-neutral-700 
                     bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100
-                    focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400"
+                    focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-blue-500"
                   disabled={status === 'loading'}
                 />
                 <motion.button
                   type="submit"
-                  className="px-6 py-3 bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600
+                  className="px-6 py-3 bg-primary-600 hover:bg-primary-700 dark:bg-blue-600 dark:hover:bg-blue-700
                     text-white font-medium rounded-lg transition-colors duration-200
-                    focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-neutral-900"
+                    focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-neutral-900"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   disabled={status === 'loading'}
@@ -92,7 +92,7 @@ const Newsletter = ({ locale }) => {
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                       </svg>
-                      Loading...
+                      {t('common.loading', 'Loading...')}
                     </span>
                   ) : t('newsletter.button')}
                 </motion.button>

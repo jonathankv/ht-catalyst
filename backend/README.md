@@ -55,9 +55,6 @@ You can also start the backend from the frontend directory using npm scripts:
 # Start backend only
 npm run backend
 
-# On Windows
-npm run backend:win
-
 # Start both frontend and backend simultaneously
 npm run dev:all
 ```

@@ -30,7 +30,7 @@
       },
       "present": {
         "description": "Leading innovative product initiatives",
-        "title": "Senior Product Manager",
+        "title": "Technical Product Manager",
         "year": "2023 - Present"
       }
     },
@@ -113,7 +113,10 @@
   "common": {
     "back_to_library": "Back to Library",
     "explore": "Explore Section",
-    "published_on": "Published on {{date}}"
+    "loading": "Loading...",
+    "minRead": "min read",
+    "published_on": "Published on {{date}}",
+    "readMore": "Read more"
   },
   "contact": {
     "description": "Have a question or want to collaborate? I'd love to hear from you.",
@@ -195,7 +198,8 @@
     "reading_time": "{{minutes}} min read",
     "section_description": "Here are the books I've read and my key takeaways from each one. I hope these notes inspire you to pick up one of these books.",
     "section_title": "My Book Notes",
-    "table_of_contents": "Table of Contents"
+    "table_of_contents": "Table of Contents",
+    "title": "Resource Library"
   },
   "meta": {
     "home": {
@@ -219,6 +223,7 @@
     "button": "Subscribe",
     "description": "Get the latest insights delivered to your inbox",
     "error": "Something went wrong. Please try again.",
+    "invalidEmail": "Please enter a valid email address",
     "placeholder": "Enter your email",
     "success": "Thank you for subscribing!",
     "title": "Subscribe to Newsletter"
@@ -230,7 +235,7 @@
     "tools": "Tools"
   },
   "site": {
-    "author": "John Anderson",
+    "author": "Kien (Jonathan) Vu Viet",
     "description": "Discover insights on technology, personal growth, and making a positive impact",
     "tagline": "Building innovative solutions for a better tomorrow",
     "title": "KienNotes.AI"
