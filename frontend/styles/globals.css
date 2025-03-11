@@ -9,10 +9,10 @@
   --color-text-secondary: theme('colors.neutral.700');
   --color-border: theme('colors.neutral.200');
   --color-input: theme('colors.neutral.100');
-  --color-accent: theme('colors.primary.500');
-  --color-accent-hover: theme('colors.primary.600');
-  --color-accent-rgb: 26, 204, 171; /* RGB values for primary-500 */
-  --color-accent-hover-rgb: 22, 179, 150; /* RGB values for primary-600 */
+  --color-accent: theme('colors.primary.700');
+  --color-accent-hover: theme('colors.primary.800');
+  --color-accent-rgb: 12, 151, 137; /* RGB values for primary-700 */
+  --color-accent-hover-rgb: 6, 121, 110; /* RGB values for primary-800 */
   
   /* Component-specific colors */
   --color-header-bg: var(--color-surface);
@@ -23,6 +23,15 @@
   --color-button-primary-hover: var(--color-accent-hover);
   --color-button-secondary: transparent;
   --color-button-secondary-hover: theme('colors.primary.50');
+  
+  /* Section Background Colors - Light Mode */
+  --color-bg-hero: theme('colors.primary.25');
+  --color-bg-main: theme('colors.white');
+  --color-bg-alt: theme('colors.primary.25');
+  --color-bg-footer: theme('colors.primary.25');
+  --color-bg-newsletter: theme('colors.primary.25');
+  --color-bg-nav: theme('colors.primary.25/80');
+  --color-bg-nav-scrolled: theme('colors.primary.700');
   
   /* Text Gradients */
   --gradient-text-primary: linear-gradient(120deg, var(--color-accent), var(--color-accent-hover));
@@ -38,16 +47,25 @@
   --color-text-secondary: theme('colors.neutral.300');
   --color-border: theme('colors.neutral.800');
   --color-input: theme('colors.neutral.800');
-  --color-accent: theme('colors.primary.400');
-  --color-accent-hover: theme('colors.primary.300');
-  --color-accent-rgb: 51, 214, 184; /* RGB values for primary-400 */
-  --color-accent-hover-rgb: 77, 224, 197; /* RGB values for primary-300 */
+  --color-accent: theme('colors.primary.500');
+  --color-accent-hover: theme('colors.primary.400');
+  --color-accent-rgb: 32, 223, 204; /* RGB values for primary-500 */
+  --color-accent-hover-rgb: 77, 229, 214; /* RGB values for primary-400 */
   
   /* Component-specific colors - dark mode */
   --color-header-bg: var(--color-surface);
   --color-footer-bg: theme('colors.neutral.900');
   --color-card-bg: var(--color-surface-elevated);
   --color-button-secondary-hover: theme('colors.primary.900/10');
+  
+  /* Section Background Colors - Dark Mode */
+  --color-bg-hero: theme('colors.neutral.950');
+  --color-bg-main: theme('colors.neutral.950');
+  --color-bg-alt: theme('colors.neutral.900');
+  --color-bg-footer: theme('colors.neutral.900');
+  --color-bg-newsletter: theme('colors.neutral.950');
+  --color-bg-nav: theme('colors.neutral.900/80');
+  --color-bg-nav-scrolled: theme('colors.primary.800');
 }
 
 @tailwind base;
@@ -57,13 +75,13 @@
 @layer base {
   /* Root settings */
   html {
-    @apply font-sans antialiased bg-neutral-25 dark:bg-neutral-950;
+    @apply font-sans antialiased bg-primary-25 dark:bg-neutral-950; /* background_color: primary-25 is the light blue color */
   }
 
   /* Body text */
   body {
     @apply text-neutral-900 dark:text-neutral-50 
-           bg-neutral-25 dark:bg-neutral-950
+           bg-primary-25 dark:bg-neutral-950
            text-base font-normal; /* base font size & weight */
   }
 
@@ -160,6 +178,37 @@
     @apply bg-gradient-to-r from-primary-500 to-secondary-500 
     dark:from-primary-400 dark:to-secondary-400 
     bg-clip-text text-transparent;
+  }
+  
+  /* Section Background Classes */
+  .bg-section-hero {
+    background-color: var(--color-bg-hero);
+  }
+  
+  .bg-section-main {
+    background-color: var(--color-bg-main);
+  }
+  
+  .bg-section-alt {
+    background-color: var(--color-bg-alt);
+  }
+  
+  .bg-section-footer {
+    background-color: var(--color-bg-footer);
+  }
+  
+  .bg-section-newsletter {
+    background-color: var(--color-bg-newsletter);
+  }
+  
+  /* Navigation Background Classes */
+  .bg-nav {
+    background-color: var(--color-bg-nav);
+    backdrop-filter: blur(8px);
+  }
+  
+  .bg-nav-scrolled {
+    background-color: var(--color-bg-nav-scrolled);
   }
 }
 

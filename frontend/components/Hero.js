@@ -13,7 +13,7 @@ function Hero() {
   const { t } = useTranslation('common');
 
   return (
-    <section className="bg-white dark:bg-neutral-950 text-neutral-900 dark:text-white py-16 md:py-24">
+    <section className="bg-section-hero text-neutral-900 dark:text-white py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Left Column - Text Content */}

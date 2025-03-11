@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { useTranslation } from 'next-i18next';
 import Layout from '../components/Layout';
 import Hero from '../components/Hero';
-import Home from '../components/Home';
+import ResourceLibrary from '../components/ResourceLibrary';
 import Newsletter from '../components/Newsletter';
 import FloatingChat from '../components/FloatingChat';
 import { getTranslatedStaticProps } from '../utils/translationUtils';
@@ -20,7 +20,7 @@ export default function Index({ locale }) {
 
   return (
     <Layout>
-      <div className="min-h-screen bg-white dark:bg-neutral-950">
+      <div className="min-h-screen bg-section-main">
         <Head>
           <title>{t('meta.home.title')}</title>
           <meta name="description" content={t('meta.home.description')} />
@@ -30,9 +30,9 @@ export default function Index({ locale }) {
         <Hero />
 
         {/* Main Content - Using existing Home component with modern cards */}
-        <Home 
+        <ResourceLibrary 
           variant="modern" 
-          className="py-16 bg-neutral-50 dark:bg-neutral-900"
+          className="py-16 bg-section-alt"
           locale={locale} 
         />
 

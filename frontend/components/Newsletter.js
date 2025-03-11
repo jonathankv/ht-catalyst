@@ -40,7 +40,7 @@ const Newsletter = ({ locale }) => {
   };
 
   return (
-    <section className="py-16 bg-white dark:bg-neutral-950 border-t border-neutral-200 dark:border-neutral-800">
+    <section className="py-16 bg-section-newsletter">
       <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
         <motion.div 
           className="text-center space-y-6"

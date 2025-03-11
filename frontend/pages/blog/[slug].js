@@ -133,10 +133,10 @@ export default function BlogPost({ post, mdxSource, headings, locale }) {
         <title>{post.title} | {t('site.title')}</title>
         <meta name="description" content={post.subtitle || post.excerpt} />
       </Head>
-      <div className="min-h-screen bg-neutral-25 dark:bg-neutral-900">
+      <div className="min-h-screen bg-primary-25 dark:bg-neutral-900">
         <div className="grid grid-cols-[1fr,minmax(auto,1000px),1fr]">
           {/* Left background */}
-          <div className="bg-neutral-25 dark:bg-neutral-900" />
+          <div className="bg-primary-25 dark:bg-neutral-900" />
 
           {/* Main content column */}
           <div className="col-start-2 bg-white border rounded-xl overflow-hidden border-neutral-200 dark:bg-neutral-900">
@@ -206,7 +206,7 @@ export default function BlogPost({ post, mdxSource, headings, locale }) {
           </div>
 
           {/* Right background */}
-          <div className="bg-neutral-25 dark:bg-neutral-900" />
+          <div className="bg-primary-25 dark:bg-neutral-900" />
         </div>
       </div>
     </Layout>

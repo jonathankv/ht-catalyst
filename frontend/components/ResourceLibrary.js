@@ -5,12 +5,12 @@ import { FaBook, FaBlog, FaPiggyBank, FaHeart, FaBookmark } from 'react-icons/fa
 import { useTranslation } from 'next-i18next';
 
 /**
- * Main home page component
+ * Main Resource Library page component
  * Combines hero section, featured content, and call-to-action elements
  * Fully responsive and animated with Framer Motion
- * @returns {JSX.Element} Complete home page layout
+ * @returns {JSX.Element} Complete Resource Library page layout
  */
-function Home({ variant = 'image', className = '' }) {
+function ResourceLibrary({ variant = 'image', className = '' }) {
   const { t } = useTranslation('common');
 
   const sections = [
@@ -69,7 +69,7 @@ function Home({ variant = 'image', className = '' }) {
         transition={{ duration: 0.5 }}
         className="mb-12"
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 dark:text-white mb-6">{t('library.title', 'Resource Library')}</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 dark:text-white mb-6">{t('library.title')}</h2>
       </motion.div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -81,7 +81,7 @@ function Home({ variant = 'image', className = '' }) {
             transition={{ delay: index * 0.1 }}
           >
             <Link href={section.href}>
-              <div className="bg-white dark:bg-neutral-800 rounded-xl p-6 h-full flex flex-col hover:bg-neutral-50 dark:hover:bg-neutral-750 transition-colors duration-300 border border-neutral-200 dark:border-neutral-700 hover:border-neutral-300 dark:hover:border-neutral-600 shadow-sm hover:shadow">
+              <div className="bg-white dark:bg-neutral-950 rounded-xl p-6 h-full flex flex-col hover:bg-neutral-50 dark:hover:bg-neutral-750 transition-colors duration-300 border border-neutral-200 dark:border-neutral-700 hover:border-neutral-300 dark:hover:border-neutral-600 shadow-sm hover:shadow">
                 <div className="flex justify-between items-start mb-4">
                   <span className={`text-xs font-medium px-2.5 py-1 rounded-full 
                     ${section.title === t('nav.library') ? 'bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-300' : 
@@ -110,7 +110,7 @@ function Home({ variant = 'image', className = '' }) {
     </div>
   );
 
-  // Image-based card layout (original Home component)
+  // Image-based card layout (original ResourceLibrary component)
   const renderImageCards = () => (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
       {sections.map((section, index) => (
@@ -185,4 +185,4 @@ function Home({ variant = 'image', className = '' }) {
   );
 }
 
-export default Home; 
+export default ResourceLibrary;

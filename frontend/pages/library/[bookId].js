@@ -193,7 +193,7 @@ export default function BookNotes({ frontMatter, mdxSource, headings, locale }) 
       <div className="min-h-screen bg-neutral-25 dark:bg-neutral-900" ref={contentRef}>
         <div className="grid grid-cols-[1fr,minmax(auto,1000px),1fr]">
           {/* Left background */}
-          <div className="bg-neutral-25 dark:bg-neutral-900" />
+          <div className="bg-primary-25 dark:bg-neutral-900" />
 
           {/* Main content column */}
           <div className="col-start-2 bg-white border rounded-xl overflow-hidden border-neutral-200 dark:bg-neutral-800 dark:border-neutral-700">
@@ -267,7 +267,7 @@ export default function BookNotes({ frontMatter, mdxSource, headings, locale }) 
           </div>
 
           {/* Right background */}
-          <div className="bg-neutral-25 dark:bg-neutral-900" />
+          <div className="bg-primary-25 dark:bg-neutral-900" />
         </div>
       </div>
     </Layout>

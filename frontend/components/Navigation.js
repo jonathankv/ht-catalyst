@@ -50,11 +50,11 @@ const Navigation = () => {
   };
 
   return (
-    <motion.nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 h-20
+    <motion.nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 h-20 
         ${isScrolled 
-          ? 'bg-primary-700 dark:bg-primary-800 shadow-lg' 
-          : 'bg-neutral-25/80 dark:bg-neutral-900/80 backdrop-blur-md'}
+          ? 'bg-nav-scrolled shadow-lg' 
+          : 'bg-nav'} 
       `}
       initial={{ y: -80 }}
       animate={{ y: 0 }}
@@ -64,7 +64,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-full">
           <Link href="/" className="relative group">
             <motion.div 
-              className={`text-3xl font-space font-bold text-primary-700 transition-colors duration-300 ${
+              className={`text-3xl font-space font-bold text-primary-800 transition-colors duration-300 ${
                 isScrolled ? 'text-white' : 'text-neutral-900 dark:text-neutral-50'
               }`}
               whileHover={{ scale: 1.05 }}
