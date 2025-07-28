@@ -1,0 +1,221 @@
+# Personal Branding Website with AI Chat
+
+## Project Overview
+A modern, techno-minimalist personal branding website with an integrated AI chatbot powered by Claude. The project combines a Next.js frontend with a FastAPI backend to create an engaging personal platform.
+
+Reference to project description:
+
+```1:12:README.md
+# Personal Branding Website with AI Chat
+
+A modern, techno-minimalist personal branding website with an integrated AI chatbot powered by Claude.
+
+## Features
+
+- Modern techno-minimalist design
+- Responsive layout
+- Animated components using Framer Motion
+- AI chatbot integration with Claude
+- Clean, organized code structure
+
+```
+
+
+## Tech Stack
+
+### Frontend
+- Next.js 14
+- React 18
+- Framer Motion for animations
+- Tailwind CSS for styling
+- i18next for internationalization
+- MDX for content management
+
+### Backend
+- FastAPI
+- Python 3.x
+- Claude API (Anthropic)
+- Uvicorn server
+
+## Project Structure
+
+```
+project/
+├── frontend/
+│   ├── components/
+│   ├── pages/
+│   ├── public/
+│   │   └── locales/
+│   ├── styles/
+│   └── content/
+│       ├── books/
+│       └── posts/
+└── backend/
+    ├── app/
+    │   ├── core/
+    │   └── services/
+    └── requirements.txt
+```
+
+## Setup Instructions
+
+### 1. Frontend Setup
+
+```bash
+cd frontend
+npm install
+```
+
+Required dependencies are listed in:
+
+```12:27:frontend/package.json
+  "dependencies": {
+    "@mdx-js/react": "^3.0.0",
+    "axios": "^1.6.7",
+    "framer-motion": "^12.4.1",
+    "gray-matter": "^4.0.3",
+    "i18next": "^24.2.2",
+    "nanoid": "^5.0.9",
+    "next": "^14.1.0",
+    "next-i18next": "^15.4.2",
+    "next-mdx-remote": "^4.4.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-i18next": "^15.4.0",
+    "react-icons": "^5.4.0",
+    "xlsx": "^0.18.5"
+  },
+```
+
+
+### 2. Backend Setup
+
+```bash
+cd backend
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+Backend dependencies:
+
+```1:5:backend/requirements.txt
+fastapi==0.115.8
+uvicorn==0.34.0
+python-dotenv==1.0.1
+anthropic==0.45.2
+pydantic-settings==2.1.0 
+```
+
+
+### 3. Environment Configuration
+
+Create a `.env` file in the backend directory:
+```
+ANTHROPIC_API_KEY=your_api_key_here
+```
+
+The backend configuration is managed through:
+
+```10:30:backend/app/core/config.py
+class Settings(BaseSettings):
+    # API Configuration
+    API_V1_STR: str = "/api/v1"
+    PROJECT_NAME: str = "Human-Technology Catalyst API"
+    
+    # Environment
+    ENVIRONMENT: Environment = Environment.DEVELOPMENT
+    DEBUG: bool = False
+    
+    # API Keys
+    ANTHROPIC_API_KEY: str
+    BACKUP_API_KEY: Optional[str] = None
+
+    # CORS Settings
+    CORS_ORIGINS: str = "http://localhost:3000"
+    
+    # AI Configuration
+    AI_MODEL: str = "claude-3-opus-20240229"
+    MAX_TOKENS: int = 1024
+    TEMPERATURE: float = 0.7
+    
+```
+
+## Key Features
+
+### 1. Multilingual Support
+The website supports multiple languages (English and Vietnamese) using i18next. Translations are stored in:
+- English: `/frontend/public/locales/en/common.json`
+- Vietnamese: `/frontend/public/locales/vi/common.json`
+
+### 2. Content Management
+- Books and reading notes are managed through MDX files in `/frontend/content/books/`
+- Blog posts are stored in `/frontend/content/posts/`
+
+### 3. AI Integration
+The AI chatbot is configured with specific guidelines
+
+### 4. Interactive Components
+- Reading progress indicator
+- Animated UI elements using Framer Motion
+- Responsive design
+
+## Development Workflow
+
+### Running Development Servers
+
+1. Frontend:
+```bash
+cd frontend
+npm run dev
+# Accessible at http://localhost:3000
+```
+
+2. Backend:
+```bash
+cd backend
+uvicorn main:app --reload
+# Accessible at http://localhost:8000
+```
+
+### Translation Management
+The project includes a translation management system
+
+## Security Considerations
+
+1. API Key Protection:
+```gitignore
+startLine: 7
+endLine: 16
+```
+
+2. CORS Configuration:
+
+```23:24:backend/app/core/config.py
+    # CORS Settings
+    CORS_ORIGINS: str = "http://localhost:3000"
+```
+
+
+## Styling Guidelines
+
+The project uses Tailwind CSS with custom configuration:
+
+
+## Production Deployment
+
+1. Build the frontend:
+```bash
+cd frontend
+npm run build
+```
+
+2. Configure production environment variables
+3. Deploy backend using a production-grade ASGI server
+4. Set up proper CORS and security headers
+
+## Additional Resources
+
+- Font configuration: See `frontend/pages/_document.js`
+- Component examples: Check `frontend/components/` directory
+- API documentation: Available at `http://localhost:8000/docs` when running the backend

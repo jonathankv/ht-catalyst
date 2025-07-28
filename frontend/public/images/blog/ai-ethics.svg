@@ -1,0 +1,112 @@
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="450" fill="#f8fafc" rx="15" ry="15" />
+  
+  <!-- Central brain icon -->
+  <g transform="translate(400, 225) scale(1.5)">
+    <!-- Brain outline -->
+    <path d="M0,-60 
+             C30,-60 50,-45 50,-20 
+             C50,-10 45,0 50,10 
+             C55,20 60,20 60,35 
+             C60,50 50,60 30,60 
+             C20,60 10,50 0,50 
+             C-10,50 -20,60 -30,60 
+             C-50,60 -60,50 -60,35 
+             C-60,20 -55,20 -50,10 
+             C-45,0 -50,-10 -50,-20 
+             C-50,-45 -30,-60 0,-60 Z" 
+          fill="#dbeafe" stroke="#3b82f6" stroke-width="2" />
+    
+    <!-- Neural network connections -->
+    <g stroke="#3b82f6" stroke-width="1.5" opacity="0.7">
+      <!-- Left hemisphere -->
+      <line x1="-40" y1="-30" x2="-20" y2="-40" />
+      <line x1="-40" y1="-30" x2="-30" y2="-10" />
+      <line x1="-30" y1="-10" x2="-40" y2="10" />
+      <line x1="-40" y1="10" x2="-20" y2="30" />
+      <line x1="-20" y1="30" x2="-30" y2="40" />
+      
+      <!-- Right hemisphere -->
+      <line x1="40" y1="-30" x2="20" y2="-40" />
+      <line x1="40" y1="-30" x2="30" y2="-10" />
+      <line x1="30" y1="-10" x2="40" y2="10" />
+      <line x1="40" y1="10" x2="20" y2="30" />
+      <line x1="20" y1="30" x2="30" y2="40" />
+      
+      <!-- Cross connections -->
+      <line x1="-20" y1="-40" x2="20" y2="-40" />
+      <line x1="-30" y1="-10" x2="30" y2="-10" />
+      <line x1="-40" y1="10" x2="40" y2="10" />
+      <line x1="-20" y1="30" x2="20" y2="30" />
+    </g>
+    
+    <!-- Neural nodes -->
+    <g fill="#3b82f6">
+      <circle cx="-40" cy="-30" r="3" />
+      <circle cx="-20" cy="-40" r="3" />
+      <circle cx="-30" cy="-10" r="3" />
+      <circle cx="-40" cy="10" r="3" />
+      <circle cx="-20" cy="30" r="3" />
+      <circle cx="-30" cy="40" r="3" />
+      
+      <circle cx="40" cy="-30" r="3" />
+      <circle cx="20" cy="-40" r="3" />
+      <circle cx="30" cy="-10" r="3" />
+      <circle cx="40" cy="10" r="3" />
+      <circle cx="20" cy="30" r="3" />
+      <circle cx="30" cy="40" r="3" />
+    </g>
+  </g>
+  
+  <!-- Ethical principles -->
+  <!-- Transparency -->
+  <g transform="translate(200, 100)">
+    <circle cx="0" cy="0" r="60" fill="#bfdbfe" opacity="0.7" />
+    <text x="0" y="-15" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#1e40af">Transparency</text>
+    <text x="0" y="15" font-family="Arial" font-size="12" text-anchor="middle" fill="#3b82f6">Clear communication</text>
+    <text x="0" y="35" font-family="Arial" font-size="12" text-anchor="middle" fill="#3b82f6">about AI systems</text>
+    
+    <!-- Connection to brain -->
+    <line x1="50" y1="30" x2="150" y2="100" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5,5" />
+  </g>
+  
+  <!-- Fairness -->
+  <g transform="translate(600, 100)">
+    <circle cx="0" cy="0" r="60" fill="#bfdbfe" opacity="0.7" />
+    <text x="0" y="-15" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#1e40af">Fairness</text>
+    <text x="0" y="15" font-family="Arial" font-size="12" text-anchor="middle" fill="#3b82f6">Preventing bias</text>
+    <text x="0" y="35" font-family="Arial" font-size="12" text-anchor="middle" fill="#3b82f6">and discrimination</text>
+    
+    <!-- Connection to brain -->
+    <line x1="-50" y1="30" x2="-150" y2="100" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5,5" />
+  </g>
+  
+  <!-- Privacy -->
+  <g transform="translate(200, 350)">
+    <circle cx="0" cy="0" r="60" fill="#bfdbfe" opacity="0.7" />
+    <text x="0" y="-15" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#1e40af">Privacy</text>
+    <text x="0" y="15" font-family="Arial" font-size="12" text-anchor="middle" fill="#3b82f6">Protecting user data</text>
+    <text x="0" y="35" font-family="Arial" font-size="12" text-anchor="middle" fill="#3b82f6">and consent</text>
+    
+    <!-- Connection to brain -->
+    <line x1="50" y1="-30" x2="150" y2="-100" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5,5" />
+  </g>
+  
+  <!-- Human Oversight -->
+  <g transform="translate(600, 350)">
+    <circle cx="0" cy="0" r="60" fill="#bfdbfe" opacity="0.7" />
+    <text x="0" y="-15" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#1e40af">Human Oversight</text>
+    <text x="0" y="15" font-family="Arial" font-size="12" text-anchor="middle" fill="#3b82f6">Keeping humans</text>
+    <text x="0" y="35" font-family="Arial" font-size="12" text-anchor="middle" fill="#3b82f6">in the loop</text>
+    
+    <!-- Connection to brain -->
+    <line x1="-50" y1="-30" x2="-150" y2="-100" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5,5" />
+  </g>
+  
+  <!-- Title -->
+  <text x="400" y="30" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle" fill="#1e40af">Ethical AI Framework</text>
+  
+  <!-- Subtitle -->
+  <text x="400" y="55" font-family="Arial" font-size="14" text-anchor="middle" fill="#64748b">Core principles for responsible AI implementation</text>
+</svg> 

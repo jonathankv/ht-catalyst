@@ -1,0 +1,81 @@
+# Dependencies
+/node_modules
+/frontend/node_modules
+/.pnp
+.pnp.js
+
+# Environment files
+.env
+.env.*
+!.env.example
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+backend/.env
+.prompt.management.md
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Next.js
+/.next/
+/out/
+/build
+.next
+
+# Misc
+.DS_Store
+*.pem
+.vscode/
+.idea/
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local Netlify folder
+.netlify
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Node
+node_modules/
+.next/
+.nuxt/
+dist/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+Thumbs.db 
+
+# AI assistance files
+*.mdc

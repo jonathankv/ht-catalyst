@@ -1,0 +1,47 @@
+{
+  "name": "personal-branding-website",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "translate:extract": "node scripts/translation-manager.js extract",
+    "translate:generate": "node scripts/translation-manager.js generate",
+    "translate:import": "node scripts/translation-manager.js import",
+    "translate:validate": "node scripts/translation-manager.js validate",
+    "translate": "node scripts/translation-manager.js all",
+    "translate:legacy": "node scripts/translate.js",
+    "update-posts": "node scripts/update-posts.js",
+    "backend": "cd ../backend && ./start.sh",
+    "backend:win": "cd ../backend && start.bat",
+    "dev:all": "concurrently \"npm run dev\" \"npm run backend\""
+  },
+  "dependencies": {
+    "@mdx-js/react": "^3.0.0",
+    "axios": "^1.6.7",
+    "firebase": "^11.3.1",
+    "framer-motion": "^12.4.1",
+    "gray-matter": "^4.0.3",
+    "i18next": "^24.2.2",
+    "nanoid": "^5.0.9",
+    "next": "^14.1.0",
+    "next-i18next": "^15.4.2",
+    "next-mdx-remote": "^4.4.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-i18next": "^15.4.0",
+    "react-icons": "^5.4.0",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.10",
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^8.2.2",
+    "postcss": "^8.5.1",
+    "postcss-preset-env": "^9.3.0",
+    "tailwindcss": "^3.4.1"
+  }
+}

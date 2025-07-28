@@ -1,0 +1,100 @@
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="450" fill="#f8fafc" rx="15" ry="15" />
+  
+  <!-- Grid lines -->
+  <g stroke="#e2e8f0" stroke-width="1">
+    <line x1="100" y1="50" x2="100" y2="400" />
+    <line x1="200" y1="50" x2="200" y2="400" />
+    <line x1="300" y1="50" x2="300" y2="400" />
+    <line x1="400" y1="50" x2="400" y2="400" />
+    <line x1="500" y1="50" x2="500" y2="400" />
+    <line x1="600" y1="50" x2="600" y2="400" />
+    <line x1="700" y1="50" x2="700" y2="400" />
+    
+    <line x1="50" y1="100" x2="750" y2="100" />
+    <line x1="50" y1="150" x2="750" y2="150" />
+    <line x1="50" y1="200" x2="750" y2="200" />
+    <line x1="50" y1="250" x2="750" y2="250" />
+    <line x1="50" y1="300" x2="750" y2="300" />
+    <line x1="50" y1="350" x2="750" y2="350" />
+  </g>
+  
+  <!-- Data visualization elements -->
+  <!-- Scatter plot points -->
+  <g fill="#3b82f6" opacity="0.7">
+    <circle cx="120" cy="280" r="5" />
+    <circle cx="150" cy="220" r="5" />
+    <circle cx="180" cy="300" r="5" />
+    <circle cx="210" cy="180" r="5" />
+    <circle cx="240" cy="250" r="5" />
+    <circle cx="270" cy="150" r="5" />
+    <circle cx="300" cy="200" r="5" />
+    <circle cx="330" cy="170" r="5" />
+    <circle cx="360" cy="220" r="5" />
+    <circle cx="390" cy="190" r="5" />
+    <circle cx="420" cy="160" r="5" />
+    <circle cx="450" cy="130" r="5" />
+    <circle cx="480" cy="150" r="5" />
+    <circle cx="510" cy="120" r="5" />
+    <circle cx="540" cy="140" r="5" />
+    <circle cx="570" cy="110" r="5" />
+    <circle cx="600" cy="130" r="5" />
+    <circle cx="630" cy="100" r="5" />
+    <circle cx="660" cy="120" r="5" />
+    <circle cx="690" cy="90" r="5" />
+  </g>
+  
+  <!-- Trend line -->
+  <path d="M120,280 Q405,240 690,90" stroke="#2563eb" stroke-width="3" fill="none" />
+  
+  <!-- Clusters -->
+  <circle cx="200" cy="250" r="40" fill="#3b82f6" opacity="0.2" />
+  <circle cx="350" cy="180" r="50" fill="#3b82f6" opacity="0.2" />
+  <circle cx="550" cy="120" r="60" fill="#3b82f6" opacity="0.2" />
+  
+  <!-- AI brain visualization -->
+  <g transform="translate(650, 320) scale(0.8)">
+    <path d="M50,10 C70,-10 130,-10 150,10 C170,30 170,70 150,90 C130,110 70,110 50,90 C30,70 30,30 50,10 Z" fill="#bfdbfe" stroke="#3b82f6" stroke-width="2" />
+    
+    <!-- Neural network connections -->
+    <g stroke="#3b82f6" stroke-width="1.5">
+      <line x1="70" y1="30" x2="130" y2="30" />
+      <line x1="70" y1="50" x2="130" y2="50" />
+      <line x1="70" y1="70" x2="130" y2="70" />
+      
+      <line x1="70" y1="30" x2="130" y2="50" />
+      <line x1="70" y1="50" x2="130" y2="30" />
+      <line x1="70" y1="50" x2="130" y2="70" />
+      <line x1="70" y1="70" x2="130" y2="50" />
+    </g>
+    
+    <!-- Nodes -->
+    <g fill="#3b82f6">
+      <circle cx="70" cy="30" r="4" />
+      <circle cx="70" cy="50" r="4" />
+      <circle cx="70" cy="70" r="4" />
+      
+      <circle cx="130" cy="30" r="4" />
+      <circle cx="130" cy="50" r="4" />
+      <circle cx="130" cy="70" r="4" />
+    </g>
+  </g>
+  
+  <!-- Labels -->
+  <text x="400" y="30" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#1e40af">AI Data Analysis Visualization</text>
+  <text x="400" y="420" font-family="Arial" font-size="14" text-anchor="middle" fill="#64748b">Time Period</text>
+  <text x="70" y="225" font-family="Arial" font-size="14" text-anchor="middle" fill="#64748b" transform="rotate(-90, 70, 225)">User Engagement</text>
+  
+  <!-- Legend -->
+  <g transform="translate(100, 380)">
+    <circle cx="10" cy="10" r="5" fill="#3b82f6" opacity="0.7" />
+    <text x="25" y="15" font-family="Arial" font-size="12" fill="#64748b">Data Points</text>
+    
+    <line x1="100" y1="10" x2="140" y2="10" stroke="#2563eb" stroke-width="3" />
+    <text x="150" y="15" font-family="Arial" font-size="12" fill="#64748b">Trend Line</text>
+    
+    <circle cx="220" cy="10" r="10" fill="#3b82f6" opacity="0.2" />
+    <text x="240" y="15" font-family="Arial" font-size="12" fill="#64748b">Data Clusters</text>
+  </g>
+</svg> 

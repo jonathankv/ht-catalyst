@@ -1,0 +1,286 @@
+{
+  "about": {
+    "approach": {
+      "content": "I believe in a user-centered, data-driven approach to product development. By combining deep user empathy with rigorous analytics, I create products that not only meet business objectives but also deliver exceptional user experiences.",
+      "title": "Approach"
+    },
+    "background": {
+      "content": "As a Product Manager with a passion for technology and social impact, I bridge the gap between innovative solutions and human needs. My journey in product management has been driven by a commitment to creating meaningful digital experiences that make a difference.",
+      "title": "Background"
+    },
+    "contact": "Get in Touch",
+    "download_cv": "Download CV",
+    "download_cv_aria": "Download CV",
+    "expertise": {
+      "content": "My core strengths include product strategy development, user research, agile methodologies, data analytics, and cross-functional team leadership. I excel at translating complex technical concepts into business value and building products that truly resonate with users.",
+      "skills": {
+        "agile": "Agile Management",
+        "analytics": "Data Analytics",
+        "product_strategy": "Product Strategy",
+        "technical": "Technical Leadership",
+        "user_research": "User Research"
+      },
+      "title": "Expertise"
+    },
+    "intro": "Hi, I'm Jonathan. I'm passionate about technology and making a positive impact.",
+    "job_title": "Product Manager & Technology Leader",
+    "mission": "My mission is to help others leverage technology for positive change.",
+    "profile_image_alt": "Profile",
+    "skills": {
+      "leadership": "Leadership",
+      "product": "Product Management",
+      "technical": "Technical",
+      "title": "Skills & Expertise"
+    },
+    "timeline": {
+      "past_1": {
+        "description": "Driving user-centered product development",
+        "title": "Product Manager",
+        "year": "2020 - 2023"
+      },
+      "past_2": {
+        "description": "Building foundation in product management",
+        "title": "Associate Product Manager",
+        "year": "2018 - 2020"
+      },
+      "present": {
+        "description": "Leading innovative product initiatives",
+        "title": "Technical Product Manager",
+        "year": "2023 - Present"
+      }
+    },
+    "title": "About Me",
+    "vision": {
+      "content": "I believe in leveraging technology to create products that not only solve problems but also contribute positively to society. My goal is to lead product initiatives that combine innovation with social responsibility.",
+      "title": "Vision"
+    }
+  },
+  "auth": {
+    "forgot_password": {
+      "back_to_login": "Back to login",
+      "email_label": "Email address",
+      "email_placeholder": "Email address",
+      "error": "Failed to reset password: {{message}}",
+      "submit_button": "Reset Password",
+      "submitting": "Processing...",
+      "success_message": "Check your inbox for further instructions",
+      "title": "Reset your password"
+    },
+    "login": {
+      "email_label": "Email address",
+      "email_placeholder": "Email address",
+      "error": "Failed to log in: {{message}}",
+      "forgot_password": "Forgot your password?",
+      "need_account": "Need an account?",
+      "password_label": "Password",
+      "password_placeholder": "Password",
+      "sign_up_link": "Sign up",
+      "submit_button": "Sign in",
+      "submitting": "Signing in...",
+      "title": "Sign in to your account"
+    },
+    "profile": {
+      "email_label": "Email",
+      "email_verified_label": "Email verified",
+      "error": "Failed to log out",
+      "logout_button": "Log Out",
+      "no": "No",
+      "title": "Profile",
+      "user_info_description": "Personal details and account settings.",
+      "user_info_title": "User Information",
+      "yes": "Yes"
+    },
+    "signup": {
+      "confirm_password_label": "Confirm Password",
+      "confirm_password_placeholder": "Confirm Password",
+      "email_label": "Email address",
+      "email_placeholder": "Email address",
+      "error": "Failed to create an account: {{message}}",
+      "have_account": "Already have an account?",
+      "login_link": "Log in",
+      "password_label": "Password",
+      "password_placeholder": "Password",
+      "passwords_not_match": "Passwords do not match",
+      "submit_button": "Sign up",
+      "submitting": "Creating account...",
+      "title": "Create your account"
+    }
+  },
+  "blog": {
+    "categories": {
+      "all": "All Posts",
+      "family": "Family",
+      "growth": "Personal Growth",
+      "impact": "Social Impact",
+      "product": "Product Management",
+      "projects": "Side Projects"
+    },
+    "description": "Thoughts on product management, technology, and social impact",
+    "latest_posts": "Latest Posts",
+    "metadata": {
+      "separator": "•"
+    },
+    "no_posts_description": "Check back soon for new content!",
+    "no_posts_title": "No Posts Yet",
+    "read_more": "Read More",
+    "title": "Blog"
+  },
+  "common": {
+    "back_to_library": "Back to Library",
+    "explore": "Explore Section",
+    "loading": "Loading...",
+    "minRead": "min read",
+    "published_on": "Published on {{date}}",
+    "readMore": "Read more"
+  },
+  "contact": {
+    "description": "Have a question or want to collaborate? I'd love to hear from you.",
+    "form": {
+      "email": "Your Email",
+      "error": "Error sending message. Please try again.",
+      "message": "Your Message",
+      "name": "Your Name",
+      "submit": "Send Message",
+      "success": "Message sent successfully!"
+    },
+    "title": "Get in Touch"
+  },
+  "finance": {
+    "description": "Insights and strategies for building financial independence",
+    "sections": {
+      "budgeting": {
+        "description": "Practical tips for effective money management",
+        "title": "Smart Budgeting"
+      },
+      "investments": {
+        "description": "Long-term approaches to wealth building",
+        "title": "Investment Strategies"
+      },
+      "planning": {
+        "description": "Setting and achieving financial goals",
+        "title": "Financial Planning"
+      }
+    },
+    "title": "Personal Finance"
+  },
+  "footer": {
+    "allRightsReserved": "All rights reserved.",
+    "connect": "Connect",
+    "privacyPolicy": "Privacy Policy",
+    "quickLinks": "Quick access",
+    "stayUpdated": "Stay updated with the latest insights",
+    "termsOfService": "Terms of Service"
+  },
+  "hero": {
+    "cta": {
+      "primary": "Explore Resources",
+      "secondary": "View Blog"
+    },
+    "description": "Exploring the intersection of technology and social impact through thoughtful analysis and practical insights",
+    "subtitle": "Discover insights on technology, personal growth, and making a positive impact",
+    "title": "Welcome to My Knowledge Hub"
+  },
+  "impact": {
+    "description": "Making a positive difference in the world",
+    "no_projects": "Nothing show here",
+    "sections": {
+      "collaboration": {
+        "description": "Ways to contribute and collaborate",
+        "title": "Get Involved"
+      },
+      "metrics": {
+        "description": "Measuring and tracking social impact",
+        "title": "Impact Metrics"
+      },
+      "projects": {
+        "description": "Current initiatives and their outcomes",
+        "title": "Impact Projects"
+      }
+    },
+    "title": "Social Impact"
+  },
+  "learning": {
+    "coming_soon": "Coming soon! This feature is under development.",
+    "description": "Discover personalized learning resources and AI-powered recommendations tailored just for you.",
+    "meta": {
+      "description": "Personalized learning resources and AI-powered recommendations",
+      "title": "Learning Hub | KienNotes.AI"
+    },
+    "sections": {
+      "assistant": {
+        "description": "Ask questions and get personalized explanations powered by Claude.",
+        "title": "AI Learning Assistant"
+      },
+      "paths": {
+        "description": "Structured learning journeys to help you master new skills.",
+        "title": "Learning Paths"
+      },
+      "recommended": {
+        "description": "Personalized content based on your interests and learning history.",
+        "title": "Recommended for You"
+      }
+    },
+    "title": "Learning Hub"
+  },
+  "library": {
+    "book_not_found": "Book not found",
+    "book_not_found_description": "Sorry, we couldn't find the book you're looking for.",
+    "by": "by",
+    "chapter": "Chapter {{number}}",
+    "key_takeaways": "Key Takeaways",
+    "last_updated": "Last updated {{date}}",
+    "latest_read": "Latest Read",
+    "next_chapter": "Next Chapter",
+    "previous_chapter": "Previous Chapter",
+    "read_notes": "Read My Notes",
+    "reading_time": "{{minutes}} min read",
+    "section_description": "Here are the books I've read and my key takeaways from each one. I hope these notes inspire you to pick up one of these books.",
+    "section_title": "My Book Notes",
+    "table_of_contents": "Table of Contents",
+    "title": "Resource Library"
+  },
+  "meta": {
+    "home": {
+      "description": "My personal website has knowledge about technology, personal growth, and making impacts on society.",
+      "title": "Home | KienNotes.AI"
+    }
+  },
+  "nav": {
+    "about": "About",
+    "blog": "Blog",
+    "finance": "Finance",
+    "home": "Home",
+    "impact": "Impact",
+    "library": "Library",
+    "login": "Login",
+    "logout": "Log Out",
+    "profile": "Profile",
+    "signup": "Sign up",
+    "start_learning": "Start Learning"
+  },
+  "newsletter": {
+    "button": "Subscribe",
+    "description": "Get the latest insights delivered to your inbox",
+    "error": "Something went wrong. Please try again.",
+    "invalidEmail": "Please enter a valid email address",
+    "placeholder": "Enter your email",
+    "success": "Thank you for subscribing!",
+    "title": "Subscribe to Newsletter"
+  },
+  "resources": {
+    "description": "A collection of tools, guides, and resources to help you on your journey",
+    "guides": "Guides",
+    "title": "Resources",
+    "tools": "Tools"
+  },
+  "site": {
+    "author": "Kien (Jonathan) Vu Viet",
+    "description": "Discover insights on technology, personal growth, and making a positive impact",
+    "tagline": "Building innovative solutions for a better tomorrow",
+    "title": "KienNotes.AI"
+  },
+  "theme": {
+    "dark": "Dark mode",
+    "light": "Light mode"
+  }
+}
