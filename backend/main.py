@@ -11,8 +11,7 @@ from prompt_config import format_chat_prompt
 load_dotenv()
 
 # Load and validate settings
-env_file = f".env.{os.getenv('ENVIRONMENT', 'development')}"
-settings = Settings(_env_file=env_file)
+settings = Settings()
 if not settings.validate_api_key():
     raise ValueError("Invalid API key format")
 
@@ -62,4 +61,7 @@ async def chat(request: ChatRequest):
         }
     except Exception as e:
         print(f"Error in chat endpoint: {str(e)}")  # Add logging for debugging
-        raise HTTPException(status_code=500, detail="Internal server error")  # Don't expose raw error details 
+        raise HTTPException(status_code=500, detail="Internal server error")  # Don't expose raw error details
+
+# For Vercel deployment - export the app
+handler = app 

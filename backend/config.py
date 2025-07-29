@@ -20,8 +20,8 @@ class Settings(BaseSettings):
     HOST: str = "0.0.0.0"
     DEBUG: bool = False
 
-    # CORS Settings
-    CORS_ORIGINS: str = "http://localhost:3000"
+    # CORS Settings  
+    CORS_ORIGINS: str = "http://localhost:3000,https://ht-catalyst-frontend.vercel.app"
     
     # AI Configuration
     AI_MODEL: str = "claude-3-opus-20240229"
