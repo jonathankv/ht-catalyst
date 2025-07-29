@@ -17,8 +17,14 @@ class Settings:
         return bool(self.ANTHROPIC_API_KEY and self.ANTHROPIC_API_KEY.startswith('sk-'))
 
 settings = Settings()
-if not settings.validate_api_key():
-    raise ValueError("Invalid API key format")
+
+# More robust error handling for deployment
+if not settings.ANTHROPIC_API_KEY:
+    print("WARNING: ANTHROPIC_API_KEY not set")
+elif not settings.validate_api_key():
+    print(f"WARNING: Invalid API key format: {settings.ANTHROPIC_API_KEY[:10]}...")
+else:
+    print("API key validated successfully")
 
 app = FastAPI(
     title="Human-Technology Catalyst API",
@@ -36,8 +42,17 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Initialize Anthropic client
-anthropic = Anthropic(api_key=settings.ANTHROPIC_API_KEY)
+# Initialize Anthropic client with error handling
+try:
+    if settings.ANTHROPIC_API_KEY:
+        anthropic = Anthropic(api_key=settings.ANTHROPIC_API_KEY)
+        print("Anthropic client initialized successfully")
+    else:
+        anthropic = None
+        print("Anthropic client not initialized - missing API key")
+except Exception as e:
+    print(f"Error initializing Anthropic client: {e}")
+    anthropic = None
 
 # System prompt for the AI
 SYSTEM_PROMPT = """You are a highly knowledgeable AI assistant focused on personal branding and career development. 
@@ -81,6 +96,12 @@ async def read_root():
 @app.post("/api/chat")
 async def chat(request: ChatRequest):
     try:
+        if not anthropic:
+            return {
+                "response": "Sorry, the AI service is not available. Please check the API key configuration.",
+                "status": "error"
+            }
+            
         chat_params = format_chat_prompt(request.message)
         message = anthropic.messages.create(**chat_params)
         
@@ -90,7 +111,10 @@ async def chat(request: ChatRequest):
         }
     except Exception as e:
         print(f"Error in chat endpoint: {str(e)}")
-        raise HTTPException(status_code=500, detail="Internal server error")
+        return {
+            "response": f"Sorry, there was an error processing your request: {str(e)}",
+            "status": "error"
+        }
 
 # For Vercel deployment
 handler = app 
