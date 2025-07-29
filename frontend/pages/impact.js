@@ -55,7 +55,7 @@ export default function Impact({ locale }) {
         <title>{t('impact.title')} | {t('site.title')}</title>
         <meta name="description" content={t('impact.description')} />
       </Head>
-      <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-8 bg-neutral-25 dark:bg-neutral-900">
+      <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-8 bg-primary-25 dark:bg-neutral-900"> {/* background_color: primary-25 is the light blue color */}
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

@@ -1,5 +1,9 @@
 {
   "about": {
+    "approach": {
+      "content": "I believe in a user-centered, data-driven approach to product development. By combining deep user empathy with rigorous analytics, I create products that not only meet business objectives but also deliver exceptional user experiences.",
+      "title": "Approach"
+    },
     "background": {
       "content": "As a Product Manager with a passion for technology and social impact, I bridge the gap between innovative solutions and human needs. My journey in product management has been driven by a commitment to creating meaningful digital experiences that make a difference.",
       "title": "Background"
@@ -18,20 +22,16 @@
       },
       "title": "Expertise"
     },
+    "intro": "Hi, I'm Jonathan. I'm passionate about technology and making a positive impact.",
     "job_title": "Product Manager & Technology Leader",
+    "mission": "My mission is to help others leverage technology for positive change.",
     "profile_image_alt": "Profile",
-    "approach": {
-      "content": "I believe in a user-centered, data-driven approach to product development. By combining deep user empathy with rigorous analytics, I create products that not only meet business objectives but also deliver exceptional user experiences.",
-      "title": "Approach"
-    },
     "skills": {
-      "title": "Skills & Expertise",
+      "leadership": "Leadership",
       "product": "Product Management",
       "technical": "Technical",
-      "leadership": "Leadership"
+      "title": "Skills & Expertise"
     },
-    "intro": "Hi, I'm Jonathan. I'm passionate about technology and making a positive impact.",
-    "mission": "My mission is to help others leverage technology for positive change.",
     "timeline": {
       "past_1": {
         "description": "Driving user-centered product development",
@@ -199,6 +199,29 @@
     },
     "title": "Social Impact"
   },
+  "learning": {
+    "coming_soon": "Coming soon! This feature is under development.",
+    "description": "Discover personalized learning resources and AI-powered recommendations tailored just for you.",
+    "meta": {
+      "description": "Personalized learning resources and AI-powered recommendations",
+      "title": "Learning Hub | KienNotes.AI"
+    },
+    "sections": {
+      "assistant": {
+        "description": "Ask questions and get personalized explanations powered by Claude.",
+        "title": "AI Learning Assistant"
+      },
+      "paths": {
+        "description": "Structured learning journeys to help you master new skills.",
+        "title": "Learning Paths"
+      },
+      "recommended": {
+        "description": "Personalized content based on your interests and learning history.",
+        "title": "Recommended for You"
+      }
+    },
+    "title": "Learning Hub"
+  },
   "library": {
     "book_not_found": "Book not found",
     "book_not_found_description": "Sorry, we couldn't find the book you're looking for.",
@@ -232,7 +255,8 @@
     "login": "Login",
     "logout": "Log Out",
     "profile": "Profile",
-    "signup": "Sign up"
+    "signup": "Sign up",
+    "start_learning": "Start Learning"
   },
   "newsletter": {
     "button": "Subscribe",

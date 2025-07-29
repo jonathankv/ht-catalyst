@@ -1,5 +1,9 @@
 {
   "about": {
+    "approach": {
+      "content": "Tôi tin vào phương pháp phát triển sản phẩm lấy người dùng làm trung tâm và dựa trên dữ liệu. Bằng cách kết hợp sự đồng cảm sâu sắc với người dùng và phân tích nghiêm ngặt, tôi tạo ra các sản phẩm không chỉ đáp ứng mục tiêu kinh doanh mà còn mang lại trải nghiệm người dùng xuất sắc.",
+      "title": "Phương Pháp"
+    },
     "background": {
       "content": "Là một Product Manager với niềm đam mê về công nghệ và tác động xã hội, tôi kết nối giữa các giải pháp sáng tạo và nhu cầu con người. Hành trình của tôi trong quản lý sản phẩm được thúc đẩy bởi cam kết tạo ra những trải nghiệm kỹ thuật số có ý nghĩa.",
       "title": "Giới Thiệu"
@@ -18,20 +22,16 @@
       },
       "title": "Chuyên Môn"
     },
-    "approach": {
-      "content": "Tôi tin vào phương pháp phát triển sản phẩm lấy người dùng làm trung tâm và dựa trên dữ liệu. Bằng cách kết hợp sự đồng cảm sâu sắc với người dùng và phân tích nghiêm ngặt, tôi tạo ra các sản phẩm không chỉ đáp ứng mục tiêu kinh doanh mà còn mang lại trải nghiệm người dùng xuất sắc.",
-      "title": "Phương Pháp"
-    },
+    "intro": "Xin chào, tôi là Jonathan. Tôi đam mê công nghệ và tạo ra những tác động tích cực.",
     "job_title": "Quản Lý Sản Phẩm & Lãnh Đạo Công Nghệ",
+    "mission": "Sứ mệnh của tôi là giúp mọi người tận dụng công nghệ để tạo ra những thay đổi tích cực.",
     "profile_image_alt": "Hình Ảnh Cá Nhân",
     "skills": {
-      "title": "Kỹ Năng & Chuyên Môn",
+      "leadership": "Lãnh Đạo",
       "product": "Quản Lý Sản Phẩm",
       "technical": "Kỹ Thuật",
-      "leadership": "Lãnh Đạo"
+      "title": "Kỹ Năng & Chuyên Môn"
     },
-    "intro": "Xin chào, tôi là Jonathan. Tôi đam mê công nghệ và tạo ra những tác động tích cực.",
-    "mission": "Sứ mệnh của tôi là giúp mọi người tận dụng công nghệ để tạo ra những thay đổi tích cực.",
     "timeline": {
       "past_1": {
         "description": "Thúc đẩy phát triển sản phẩm lấy người dùng làm trung tâm",
@@ -199,6 +199,29 @@
     },
     "title": "Tác Động Xã Hội"
   },
+  "learning": {
+    "coming_soon": "Sắp ra mắt! Tính năng này đang được phát triển.",
+    "description": "Khám phá các tài nguyên học tập được cá nhân hóa và các đề xuất được hỗ trợ bởi AI dành riêng cho bạn.",
+    "meta": {
+      "description": "Tài nguyên học tập được cá nhân hóa và đề xuất được hỗ trợ bởi AI",
+      "title": "Trung Tâm Học Tập | KienNotes.AI"
+    },
+    "sections": {
+      "assistant": {
+        "description": "Đặt câu hỏi và nhận giải thích cá nhân hóa được hỗ trợ bởi Claude.",
+        "title": "Trợ Lý Học Tập AI"
+      },
+      "paths": {
+        "description": "Hành trình học tập có cấu trúc để giúp bạn thành thạo các kỹ năng mới.",
+        "title": "Lộ Trình Học Tập"
+      },
+      "recommended": {
+        "description": "Nội dung được cá nhân hóa dựa trên sở thích và lịch sử học tập của bạn.",
+        "title": "Đề Xuất Cho Bạn"
+      }
+    },
+    "title": "Trung Tâm Học Tập"
+  },
   "library": {
     "book_not_found": "Không tìm thấy sách",
     "book_not_found_description": "Xin lỗi, chúng tôi không thể tìm thấy cuốn sách bạn đang tìm kiếm.",
@@ -225,14 +248,15 @@
   "nav": {
     "about": "Giới Thiệu",
     "blog": "Blog",
-    "finance": "Tài Chính Cá Nhân",
+    "finance": "Tài Chính",
     "home": "Trang Chủ",
-    "impact": "Tác Động Xã Hội",
-    "library": "Thư viện",
-    "login": "Đăng nhập",
-    "logout": "Đăng xuất",
-    "profile": "Tài khoản của bạn",
-    "signup": "Đăng ký"
+    "impact": "Tác Động",
+    "library": "Thư Viện",
+    "login": "Đăng Nhập",
+    "logout": "Đăng Xuất",
+    "profile": "Hồ Sơ",
+    "signup": "Đăng Ký",
+    "start_learning": "Học điều mới"
   },
   "newsletter": {
     "button": "Đăng Ký",

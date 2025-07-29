@@ -42,9 +42,9 @@ function Hero() {
               transition={{ delay: 0.3 }}
             >
               <Link href="/contact">
-                <button className="bg-primary-600 hover:bg-primary-700 dark:bg-blue-600 dark:hover:bg-blue-700 text-white font-medium px-6 py-3 rounded-lg 
+                <button className="bg-primary-600 hover:bg-primary-500 dark:bg-primary-600 dark:hover:bg-primary-500 text-white dark:text-neutral-900 font-medium px-6 py-3 rounded-lg 
                   transform hover:scale-105 transition-all duration-300
-                  shadow-lg hover:shadow-primary-600/30 dark:hover:shadow-blue-600/30 focus:outline-none focus:ring-2 focus:ring-primary-600 dark:focus:ring-blue-600 focus:ring-offset-2
+                  shadow-lg hover:shadow-primary-600/30 dark:hover:shadow-primary-600/30 focus:outline-none focus:ring-2 focus:ring-primary-600 dark:focus:ring-primary-600 focus:ring-offset-2
                   focus:ring-offset-white dark:focus:ring-offset-neutral-900">
                   {t('contact.title')}
                 </button>

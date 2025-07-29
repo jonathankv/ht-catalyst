@@ -157,7 +157,7 @@ const Footer = () => {
                   <button
                     type="submit"
                     disabled={subscribeStatus === 'loading'}
-                    className="absolute right-1 top-1 bottom-1 px-3 bg-primary-600 hover:bg-primary-700 dark:bg-blue-600 dark:hover:bg-blue-700 
+                    className="absolute right-1 top-1 bottom-1 px-3 bg-primary-600 hover:bg-primary-700 dark:bg-primary-600 dark:hover:bg-primary-700 
                       text-white rounded-md transition-colors flex items-center justify-center"
                   >
                     {subscribeStatus === 'loading' ? (

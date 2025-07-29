@@ -30,11 +30,19 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = [
+  // Left side navigation items - KienNotes.AI
+  const leftNavItems = [
+    { name: 'KienNotes.AI', href: '/', isLogo: true }
+  ];
+
+  // Center navigation items
+  const centerNavItems = [
     { name: t('nav.library'), href: '/library' },
-    { name: t('nav.blog'), href: '/blog' },
-    { name: t('nav.finance'), href: '/finance' },
-    { name: t('nav.impact'), href: '/impact' },
+    { name: t('nav.blog'), href: '/blog' }
+  ];
+
+  // Right side navigation items
+  const rightNavItems = [
     { name: t('nav.about'), href: '/about' }
   ];
 
@@ -62,23 +70,27 @@ const Navigation = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
         <div className="flex items-center justify-between h-full">
-          <Link href="/" className="relative group">
-            <motion.div 
-              className={`text-3xl font-space font-bold text-primary-800 transition-colors duration-300 ${
-                isScrolled ? 'text-white' : 'text-neutral-900 dark:text-neutral-50'
-              }`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {t('site.title')}
-              <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all group-hover:w-full duration-300 ${
-                isScrolled ? 'bg-white' : 'bg-neutral-900 dark:bg-neutral-50'
-              }`} />
-            </motion.div>
-          </Link>
+          {/* Left Side - KienNotes.AI */}
+          <div className="flex items-center">
+            <Link href="/" className="relative group">
+              <motion.div 
+                className={`text-3xl font-space font-bold text-primary-800 transition-colors duration-300 ${
+                  isScrolled ? 'text-white' : 'text-neutral-900 dark:text-neutral-50'
+                }`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {t('site.title')}
+                <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all group-hover:w-full duration-300 ${
+                  isScrolled ? 'bg-white' : 'bg-neutral-900 dark:bg-neutral-50'
+                }`} />
+              </motion.div>
+            </Link>
+          </div>
 
+          {/* Center - Main Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item, index) => (
+            {centerNavItems.map((item, index) => (
               <motion.div
                 key={item.name}
                 initial={{ opacity: 0, y: -20 }}
@@ -102,59 +114,87 @@ const Navigation = () => {
               </motion.div>
             ))}
             
-            <div className="flex items-center space-x-4 ml-4">
-              {/* Auth Links */}
-              {currentUser ? (
-                <div className="relative group">
-                  <Link 
-                    href="/profile"
-                    className={`relative group ${
-                      isScrolled 
-                        ? 'text-white hover:text-neutral-100' 
-                        : 'text-neutral-800 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-50'
-                    } transition-colors duration-200`}
-                  >
-                    {t('nav.profile')}
-                    <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all group-hover:w-full duration-300 ${
-                      isScrolled ? 'bg-neutral-50' : 'bg-neutral-900 dark:bg-neutral-50'
-                    }`} />
-                  </Link>
-                </div>
-              ) : (
-                <>
-                  <div className="relative group">
-                    <Link 
-                      href="/login"
-                      className={`relative group ${
-                        isScrolled 
-                          ? 'text-white hover:text-neutral-100' 
-                          : 'text-neutral-800 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-50'
-                      } transition-colors duration-200`}
-                    >
-                      {t('nav.login')}
-                      <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all group-hover:w-full duration-300 ${
-                        isScrolled ? 'bg-neutral-50' : 'bg-neutral-900 dark:bg-neutral-50'
-                      }`} />
-                    </Link>
-                  </div>
-                  <div className="relative group">
-                    <Link 
-                      href="/signup"
-                      className={`relative group ${
-                        isScrolled 
-                          ? 'text-white hover:text-neutral-100' 
-                          : 'text-neutral-800 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-50'
-                      } transition-colors duration-200`}
-                    >
-                      {t('nav.signup')}
-                      <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all group-hover:w-full duration-300 ${
-                        isScrolled ? 'bg-neutral-50' : 'bg-neutral-900 dark:bg-neutral-50'
-                      }`} />
-                    </Link>
-                  </div>
-                </>
-              )}
+            {/* Start Learning CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+            >
+              <Link 
+                href="/start-learning"
+                className={`px-4 py-2 rounded-full font-medium transition-all duration-300 ${
+                  isScrolled 
+                    ? 'bg-white text-primary-600 hover:bg-neutral-100 shadow-md hover:shadow-lg' 
+                    : 'bg-primary-600 hover:bg-primary-400 text-white shadow-md hover:shadow-lg'
+                }`}
+              >
+                {t('nav.start_learning')}
+              </Link>
+            </motion.div>
+          </div>
 
+          {/* Right Side - About & Auth */}
+          <div className="hidden md:flex items-center space-x-6">
+            {/* About Link */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="relative group"
+            >
+              <Link 
+                href="/about"
+                className={`relative group ${
+                  isScrolled 
+                    ? 'text-white hover:text-neutral-100' 
+                    : 'text-neutral-800 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-50'
+                } transition-colors duration-200`}
+              >
+                {t('nav.about')}
+                <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all group-hover:w-full duration-300 ${
+                  isScrolled ? 'bg-neutral-50' : 'bg-neutral-900 dark:bg-neutral-50'
+                }`} />
+              </Link>
+            </motion.div>
+
+            {/* Auth Links */}
+            {currentUser ? (
+              <div className="relative group">
+                <Link 
+                  href="/profile"
+                  className={`relative group ${
+                    isScrolled 
+                      ? 'text-white hover:text-neutral-100' 
+                      : 'text-neutral-800 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-50'
+                  } transition-colors duration-200`}
+                >
+                  {t('nav.profile')}
+                  <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all group-hover:w-full duration-300 ${
+                    isScrolled ? 'bg-neutral-50' : 'bg-neutral-900 dark:bg-neutral-50'
+                  }`} />
+                </Link>
+              </div>
+            ) : (
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+              >
+                <Link 
+                  href="/login"
+                  className={`px-4 py-2 rounded-full font-medium transition-all duration-300 ${
+                    isScrolled 
+                      ? 'bg-white text-primary-600 hover:bg-neutral-100 shadow-md hover:shadow-lg' 
+                      : 'bg-primary-600 text-white hover:bg-primary-500 shadow-md hover:shadow-lg'
+                  }`}
+                >
+                  {t('nav.login')}
+                </Link>
+              </motion.div>
+            )}
+
+            {/* Theme & Language Controls */}
+            <div className="flex items-center space-x-2 ml-2 bg-opacity-20 bg-neutral-200 dark:bg-neutral-700 rounded-full px-2 py-1">
               {/* Theme Toggle Button */}
               <motion.button
                 onClick={toggleDarkMode}
@@ -179,6 +219,7 @@ const Navigation = () => {
             </div>
           </div>
 
+          {/* Mobile Menu Button */}
           <motion.button
             className={`md:hidden p-2 rounded-lg transition-colors duration-200 ${
               isScrolled ? 'hover:bg-primary-600/50' : 'hover:bg-neutral-100 dark:hover:bg-neutral-800'
@@ -213,7 +254,8 @@ const Navigation = () => {
         transition={{ duration: 0.3, ease: 'easeInOut' }}
       >
         <div className="px-2 pt-2 pb-3 space-y-1 bg-primary-700 dark:bg-primary-800 shadow-lg">
-          {navItems.map((item) => (
+          {/* Mobile Navigation Links */}
+          {centerNavItems.map((item) => (
             <Link
               key={item.name}
               href={item.href}
@@ -228,6 +270,29 @@ const Navigation = () => {
               {item.name}
             </Link>
           ))}
+          
+          {/* Start Learning CTA for Mobile */}
+          <Link
+            href="/start-learning"
+            className="block px-3 py-2 rounded-md text-sm font-medium bg-primary-500 text-white hover:bg-primary-400 transition-colors duration-200"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            {t('nav.start_learning')}
+          </Link>
+          
+          {/* About Link for Mobile */}
+          <Link
+            href="/about"
+            className={`block px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200
+              ${isActive('/about')
+                ? 'text-neutral-50 bg-primary-600/50'
+                : 'text-neutral-100 hover:text-neutral-50 hover:bg-primary-600/30'
+              }
+            `}
+            onClick={() => setIsMenuOpen(false)}
+          >
+            {t('nav.about')}
+          </Link>
           
           {/* Auth Links for Mobile */}
           {currentUser ? (
@@ -255,34 +320,16 @@ const Navigation = () => {
               </button>
             </>
           ) : (
-            <>
-              <Link
-                href="/login"
-                className={`block px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200
-                  ${isActive('/login')
-                    ? 'text-neutral-50 bg-primary-600/50'
-                    : 'text-neutral-100 hover:text-neutral-50 hover:bg-primary-600/30'
-                  }
-                `}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {t('nav.login')}
-              </Link>
-              <Link
-                href="/signup"
-                className={`block px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200
-                  ${isActive('/signup')
-                    ? 'text-neutral-50 bg-primary-600/50'
-                    : 'text-neutral-100 hover:text-neutral-50 hover:bg-primary-600/30'
-                  }
-                `}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {t('nav.signup')}
-              </Link>
-            </>
+            <Link
+              href="/login"
+              className="block px-3 py-2 rounded-md text-sm font-medium bg-white text-primary-600 hover:bg-neutral-100 transition-colors duration-200"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {t('nav.login')}
+            </Link>
           )}
           
+          {/* Theme Toggle for Mobile */}
           <button
             onClick={() => {
               toggleDarkMode();
@@ -292,7 +339,11 @@ const Navigation = () => {
           >
             {isDarkMode ? t('theme.light') : t('theme.dark')}
           </button>
-          <LanguageSwitcher isScrolled={isScrolled} />
+          
+          {/* Language Switcher for Mobile */}
+          <div className="px-3 py-2">
+            <LanguageSwitcher isScrolled={true} />
+          </div>
         </div>
       </motion.div>
     </motion.nav>
