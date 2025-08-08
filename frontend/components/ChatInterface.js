@@ -31,11 +31,43 @@ const Chat = () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post(`${apiUrl || 'http://localhost:8000'}/api/v1/chat`, {
-        message: userMessage
+      // Start streaming response
+      const streamUrl = `${apiUrl || 'http://localhost:8000'}/api/v1/chat/stream`;
+      const res = await fetch(streamUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: userMessage })
       });
 
-      setMessages(prev => [...prev, { type: 'bot', content: response.data.response }]);
+      if (!res.ok || !res.body) {
+        throw new Error('Failed to start streaming');
+      }
+
+      // Optimistically add an empty bot message to fill as tokens arrive
+      let botContent = '';
+      setMessages(prev => [...prev, { type: 'bot', content: '' }]);
+
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        const chunk = decoder.decode(value, { stream: true });
+        // Detect backend error marker
+        if (chunk.startsWith('[STREAM_ERROR]:')) {
+          throw new Error(chunk.replace('[STREAM_ERROR]:', '').trim());
+        }
+        botContent += chunk;
+        setMessages(prev => {
+          const next = [...prev];
+          // Update the last message (bot placeholder)
+          const lastIndex = next.length - 1;
+          if (lastIndex >= 0 && next[lastIndex].type === 'bot') {
+            next[lastIndex] = { ...next[lastIndex], content: botContent };
+          }
+          return next;
+        });
+      }
     } catch (error) {
       console.error('Error:', error);
       setMessages(prev => [...prev, { 

@@ -57,5 +57,45 @@ class AIService:
             error=str(last_error) if last_error else "Unknown error",
         )
 
+    async def stream_response(self, request: ChatRequest):
+        """
+        Async generator that yields plain text chunks of the assistant response using Anthropic streaming.
+        Intended to be wrapped by a StreamingResponse/SSE endpoint.
+        """
+        chat_params = self.format_chat_params(request)
+
+        # Attempt streaming with a timeout; surface partial chunks as they arrive
+        try:
+            # The AsyncAnthropic SDK supports streaming; depending on SDK version, either:
+            # 1) client.messages.create(..., stream=True) returns an event stream
+            # 2) client.messages.stream(...) is available as a context manager
+            # We'll prefer the context manager API when present.
+            stream_ctx = getattr(self.client.messages, "stream", None)
+            if stream_ctx is not None:
+                async with stream_ctx(**chat_params) as stream:
+                    async for event in stream:
+                        # Emit only textual deltas
+                        if getattr(event, "type", "") == "content_block_delta":
+                            delta = getattr(event, "delta", None)
+                            text = getattr(delta, "text", None) if delta else None
+                            if text:
+                                yield text
+                return
+            else:
+                # Fallback: create with stream=True and iterate .text_stream if available
+                message = await self.client.messages.create(stream=True, **chat_params)
+                text_stream = getattr(message, "text_stream", None)
+                if text_stream is not None:
+                    async for text in text_stream:
+                        if text:
+                            yield text
+                    return
+                # If no streaming API available, perform a single request and yield once
+                message = await self.client.messages.create(**chat_params)
+                yield message.content[0].text
+        except Exception as error:
+            # Surface error as a yielded exception text so the SSE endpoint can forward it as an error event
+            yield f"[STREAM_ERROR]: {str(error)}"
+
 # Create global AI service instance
 ai_service = AIService() 
