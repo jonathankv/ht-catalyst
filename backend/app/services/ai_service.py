@@ -1,11 +1,17 @@
-from anthropic import Anthropic
+from anthropic import AsyncAnthropic
 from app.core.config import settings
 from app.schemas.chat import ChatRequest, ChatResponse
 from typing import Dict, Any
+import asyncio
+
+DEFAULT_REQUEST_TIMEOUT_SECONDS = 60
+MAX_RETRY_ATTEMPTS = 2
+INITIAL_BACKOFF_SECONDS = 0.5
 
 class AIService:
     def __init__(self):
-        self.client = Anthropic(api_key=settings.ANTHROPIC_API_KEY)
+        # Use async client to avoid blocking the event loop
+        self.client = AsyncAnthropic(api_key=settings.ANTHROPIC_API_KEY)
         self.model = settings.AI_MODEL
         self.max_tokens = settings.MAX_TOKENS
         self.temperature = settings.TEMPERATURE
@@ -20,21 +26,36 @@ class AIService:
         }
 
     async def generate_response(self, request: ChatRequest) -> ChatResponse:
-        """Generate a response using the Anthropic API."""
-        try:
-            chat_params = self.format_chat_params(request)
-            message = self.client.messages.create(**chat_params)
-            
-            return ChatResponse(
-                response=message.content[0].text,
-                status="success"
-            )
-        except Exception as e:
-            return ChatResponse(
-                response="",
-                status="error",
-                error=str(e)
-            )
+        """Generate a response using the Anthropic API with timeout and simple retries."""
+        chat_params = self.format_chat_params(request)
+
+        last_error: Exception | None = None
+        backoff_seconds = INITIAL_BACKOFF_SECONDS
+
+        for attempt in range(1, MAX_RETRY_ATTEMPTS + 2):
+            try:
+                message = await asyncio.wait_for(
+                    self.client.messages.create(**chat_params),
+                    timeout=DEFAULT_REQUEST_TIMEOUT_SECONDS,
+                )
+
+                return ChatResponse(
+                    response=message.content[0].text,
+                    status="success",
+                )
+            except Exception as error:  # broad catch to translate into consistent API errors
+                last_error = error
+                if attempt <= MAX_RETRY_ATTEMPTS:
+                    await asyncio.sleep(backoff_seconds)
+                    backoff_seconds *= 2
+                else:
+                    break
+
+        return ChatResponse(
+            response="",
+            status="error",
+            error=str(last_error) if last_error else "Unknown error",
+        )
 
 # Create global AI service instance
 ai_service = AIService() 

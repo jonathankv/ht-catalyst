@@ -27,7 +27,7 @@ const FeaturedPost = ({ post }) => {
               alt={post.title}
               fill
               className="object-cover rounded-lg shadow-xl"
-              priority
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
         </div>

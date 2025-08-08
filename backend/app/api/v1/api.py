@@ -7,11 +7,11 @@ api_router = APIRouter()
 api_router.include_router(
     newsletter.router,
     prefix="/newsletter",
-    tags=["newsletter"]
+    tags=["newsletter"],
 )
 
 api_router.include_router(
     chat.router,
     prefix="/chat",
-    tags=["chat"]
-) 
+    tags=["chat"],
+)

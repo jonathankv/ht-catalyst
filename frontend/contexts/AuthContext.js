@@ -9,7 +9,16 @@ import {
 } from 'firebase/auth';
 import { auth } from '../firebase/config';
 
-const AuthContext = createContext();
+const defaultAuthContextValue = {
+  currentUser: null,
+  signup: async () => {},
+  login: async () => {},
+  logout: async () => {},
+  resetPassword: async () => {},
+  updateUserProfile: async () => {},
+};
+
+const AuthContext = createContext(defaultAuthContextValue);
 
 export function useAuth() {
   return useContext(AuthContext);

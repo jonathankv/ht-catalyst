@@ -3,6 +3,7 @@ from sqlalchemy.orm import Session
 from app.database import get_db
 from app.models.subscriber import Subscriber
 from pydantic import BaseModel, EmailStr
+from starlette.concurrency import run_in_threadpool
 import re
 
 router = APIRouter()
@@ -19,24 +20,35 @@ async def subscribe(request: SubscribeRequest, db: Session = Depends(get_db)):
     if not is_valid_email(request.email):
         raise HTTPException(status_code=400, detail="Invalid email format")
 
-    # Check if email already exists
-    existing_subscriber = db.query(Subscriber).filter(Subscriber.email == request.email).first()
-    if existing_subscriber:
-        if existing_subscriber.is_active:
-            raise HTTPException(status_code=400, detail="Email already subscribed")
-        else:
-            # Reactivate subscription
+    # Execute blocking DB operations in a threadpool to avoid blocking the event loop
+    def upsert_subscription():
+        existing_subscriber = (
+            db.query(Subscriber)
+            .filter(Subscriber.email == request.email)
+            .first()
+        )
+        if existing_subscriber:
+            if existing_subscriber.is_active:
+                return "Email already subscribed", False
             existing_subscriber.is_active = True
             db.commit()
-            return {"message": "Subscription reactivated successfully"}
+            return "Subscription reactivated successfully", True
 
-    # Create new subscriber
-    new_subscriber = Subscriber(email=request.email)
-    db.add(new_subscriber)
-    
+        new_subscriber = Subscriber(email=request.email)
+        db.add(new_subscriber)
+        try:
+            db.commit()
+            return "Subscribed successfully", True
+        except Exception:
+            db.rollback()
+            raise
+
     try:
-        db.commit()
-        return {"message": "Subscribed successfully"}
-    except Exception as e:
-        db.rollback()
-        raise HTTPException(status_code=500, detail="Failed to subscribe. Please try again.") 
+        message, changed = await run_in_threadpool(upsert_subscription)
+        if not changed and message == "Email already subscribed":
+            raise HTTPException(status_code=400, detail=message)
+        return {"message": message}
+    except HTTPException:
+        raise
+    except Exception:
+        raise HTTPException(status_code=500, detail="Failed to subscribe. Please try again.")

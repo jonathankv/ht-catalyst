@@ -31,7 +31,7 @@ const Chat = () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post(`${apiUrl || 'http://localhost:8000'}/api/chat`, {
+      const response = await axios.post(`${apiUrl || 'http://localhost:8000'}/api/v1/chat`, {
         message: userMessage
       });
 

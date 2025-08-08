@@ -19,7 +19,7 @@ import Link from 'next/link';
  */
 const BlogCard = ({ post }) => {
   return (
-    <Link href={`/blog/${post.slug}`}>
+    <Link href={`/blog/${post.slug}`} prefetch={false}>
       <article className="group bg-white dark:bg-neutral-800 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
         {/* Category Label */}
         <div className="px-6 pt-4 text-sm font-semibold uppercase tracking-wider text-neutral-700 dark:text-neutral-300">

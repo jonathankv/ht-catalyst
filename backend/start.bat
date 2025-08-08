@@ -14,7 +14,7 @@ if not exist .env (
 
 REM Start the FastAPI server with hot reload
 echo Starting FastAPI server...
-uvicorn main:app --reload --host 0.0.0.0 --port 8000
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 
 REM Deactivate virtual environment on exit
 if exist venv\Scripts\activate.bat (
