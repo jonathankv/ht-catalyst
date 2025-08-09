@@ -75,9 +75,9 @@
       "password_label": "Password",
       "password_placeholder": "Password",
       "sign_up_link": "Sign up",
-      "submit_button": "Sign in",
+      "submit_button": "Become a Mentee",
       "submitting": "Signing in...",
-      "title": "Sign in to your account"
+      "title": "Become a Mentee"
     },
     "profile": {
       "email_label": "Email",
@@ -252,7 +252,8 @@
     "home": "Home",
     "impact": "Impact",
     "library": "Library",
-    "login": "Login",
+    "mentoring": "Mentoring",
+    "login": "Become a Mentee",
     "logout": "Log Out",
     "profile": "Profile",
     "signup": "Sign up",

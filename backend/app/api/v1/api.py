@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from app.api.v1.endpoints import chat, newsletter
+from app.api.v1.endpoints import chat, newsletter, mentoring
 
 api_router = APIRouter()
 
@@ -14,4 +14,10 @@ api_router.include_router(
     chat.router,
     prefix="/chat",
     tags=["chat"],
+)
+
+api_router.include_router(
+    mentoring.router,
+    prefix="/mentoring",
+    tags=["mentoring"],
 )

@@ -38,7 +38,8 @@ const Navigation = () => {
   // Center navigation items
   const centerNavItems = [
     { name: t('nav.library'), href: '/library' },
-    { name: t('nav.blog'), href: '/blog' }
+    { name: t('nav.blog'), href: '/blog' },
+    { name: t('nav.mentoring'), href: '/mentoring' },
   ];
 
   // Right side navigation items

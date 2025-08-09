@@ -75,9 +75,9 @@
       "password_label": "Mật khẩu",
       "password_placeholder": "Mật khẩu",
       "sign_up_link": "Đăng ký",
-      "submit_button": "Đăng nhập",
+      "submit_button": "Trở thành mentee",
       "submitting": "Đang đăng nhập...",
-      "title": "Đăng nhập vào tài khoản của bạn"
+      "title": "Trở thành mentee"
     },
     "profile": {
       "email_label": "Email",
@@ -252,7 +252,8 @@
     "home": "Trang Chủ",
     "impact": "Tác Động",
     "library": "Thư Viện",
-    "login": "Đăng Nhập",
+    "mentoring": "Mentoring",
+    "login": "Trở thành mentee",
     "logout": "Đăng Xuất",
     "profile": "Hồ Sơ",
     "signup": "Đăng Ký",

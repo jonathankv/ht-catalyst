@@ -4,6 +4,8 @@ from fastapi.middleware.gzip import GZipMiddleware
 from app.core.config import settings
 from app.api.v1.api import api_router
 from app.database import Base, engine
+from app.models import subscriber  # ensure model is imported
+from app.models import mentee_application  # ensure model is imported
 import os
 
 def create_application() -> FastAPI:
