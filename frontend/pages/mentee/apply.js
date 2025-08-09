@@ -36,6 +36,11 @@ export default function ApplyMenteePage() {
     setSubmitting(true);
     setError('');
     setSuccessId(null);
+    if (!formValues.goals || formValues.goals.trim().length < 10) {
+      setError('Please describe your goals (at least 10 characters).');
+      setSubmitting(false);
+      return;
+    }
     try {
       const payload = { user_email: currentUser?.email, ...formValues };
       const res = await axios.post(`${API_BASE}/mentoring/applications`, payload);

@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 import { useState } from 'react';
-import { FaLinkedin, FaGithub, FaEnvelope, FaDownload, FaUser } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaEnvelope, FaUser } from 'react-icons/fa';
 import styles from '../styles/About.module.css';
 
 const About = () => {
@@ -117,9 +117,7 @@ const About = () => {
                   <a href="mailto:vuvietkien.ptithcm@gmail.com" aria-label="Email">
                     <FaEnvelope />
                   </a>
-                  <a href="/files/jonathan-vu-cv.pdf" download aria-label={t('about.download_cv_aria', 'Download CV')} className={styles.downloadButton}>
-                    <FaDownload /> <span>{t('about.download_cv', 'Download CV')}</span>
-                  </a>
+                  {/* CV download removed per request */}
                 </div>
               </div>
             </div>

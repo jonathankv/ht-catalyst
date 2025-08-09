@@ -43,9 +43,7 @@ const Navigation = () => {
   ];
 
   // Right side navigation items
-  const rightNavItems = [
-    { name: t('nav.about'), href: '/about' }
-  ];
+  const rightNavItems = [];
 
   const isActive = (path) => router.pathname === path;
 
@@ -136,27 +134,7 @@ const Navigation = () => {
 
           {/* Right Side - About & Auth */}
           <div className="hidden md:flex items-center space-x-6">
-            {/* About Link */}
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="relative group"
-            >
-              <Link 
-                href="/about"
-                className={`relative group ${
-                  isScrolled 
-                    ? 'text-white hover:text-neutral-100' 
-                    : 'text-neutral-800 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-50'
-                } transition-colors duration-200`}
-              >
-                {t('nav.about')}
-                <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all group-hover:w-full duration-300 ${
-                  isScrolled ? 'bg-neutral-50' : 'bg-neutral-900 dark:bg-neutral-50'
-                }`} />
-              </Link>
-            </motion.div>
+            {/* About merged into Mentoring; right side reserved for auth controls */}
 
             {/* Auth Links */}
             {currentUser ? (
