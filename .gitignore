@@ -79,3 +79,15 @@ Thumbs.db
 
 # AI assistance files
 *.mdc
+
+# Deployment and environment templates
+env.template
+*.template
+
+# Virtual environments
+backend/venv_new/
+backend/venv/
+
+# Sensitive files
+firebase-service-account*.json
+*service-account*.json

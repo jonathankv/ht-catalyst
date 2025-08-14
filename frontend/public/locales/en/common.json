@@ -75,7 +75,7 @@
       "password_label": "Password",
       "password_placeholder": "Password",
       "sign_up_link": "Sign up",
-      "submit_button": "Become a Mentee",
+      "submit_button": "Mentee Login",
       "submitting": "Signing in...",
       "title": "Become a Mentee"
     },
@@ -253,7 +253,7 @@
     "impact": "Impact",
     "library": "Library",
     "mentoring": "Mentoring",
-    "login": "Become a Mentee",
+    "login": "Mentee Login",
     "logout": "Log Out",
     "profile": "Profile",
     "signup": "Sign up",
@@ -283,5 +283,55 @@
   "theme": {
     "dark": "Dark mode",
     "light": "Light mode"
+  },
+  "mentoring": {
+    "meta": { "title": "Mentoring" },
+    "tabs": {
+      "overview": "Overview",
+      "reviews": "Reviews",
+      "achievements": "Achievements",
+      "group": "Group sessions"
+    },
+    "apply": {
+      "title": "Become a Mentee",
+      "description": "Apply to become a mentee and start your journey."
+    },
+    "header": {
+      "tagline": "Product Manager • Data/AI • Social Impact"
+    },
+    "overview": {
+      "title": "Overview",
+      "body": "I'm Jonathan, a Product Manager focused on Data/AI and social impact. I help mentees achieve strategic clarity, execution rigor, and stakeholder influence through practical frameworks and hands-on reviews."
+    },
+    "insights": {
+      "title": "Profile insights",
+      "badge": "Top 50 in Generalist Product Management",
+      "dateRange": "Apr 2025 – Jun 2025"
+    },
+    "background": {
+      "title": "Background",
+      "core": "Core competencies",
+      "tags": {
+        "product": "Product",
+        "ai": "AI",
+        "data": "Data",
+        "b2c": "B2C",
+        "saas": "SaaS"
+      }
+    },
+    "testimonials": {
+      "title": "Testimonials"
+    },
+    "sidebar": {
+      "stats": {
+        "title": "Community statistics",
+        "minutesLabel": "Total mentoring time",
+        "sessionsLabel": "Sessions completed"
+      },
+      "sessions": {
+        "title": "Available sessions",
+        "book": "Book"
+      }
+    }
   }
 }

@@ -7,6 +7,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import About from '../components/About';
 import { FiTarget, FiClock, FiUsers, FiMessageSquare, FiCheck, FiCalendar, FiBriefcase, FiBookOpen, FiArrowRight, FiStar, FiTrendingUp } from 'react-icons/fi';
+import { mentoringStats, mentoringSessions } from '../data/mentoring';
 
 const skills = [
   {
@@ -54,7 +55,7 @@ export default function MentoringPage({ locale }) {
               </div>
               <div className="pb-3">
                 <h1 className="text-2xl md:text-3xl font-bold">Kien (Jonathan) Vu Viet</h1>
-                <div className="text-sm md:text-base text-neutral-600 dark:text-neutral-300">Product Manager • Data/AI • Social Impact</div>
+                <div className="text-sm md:text-base text-neutral-600 dark:text-neutral-300">{t('mentoring.header.tagline')}</div>
               </div>
             </div>
           </div>
@@ -64,10 +65,10 @@ export default function MentoringPage({ locale }) {
         <div className="border-b border-neutral-200 dark:border-neutral-800">
           <div className="max-w-7xl mx-auto px-6">
             <nav className="flex items-center gap-6 text-sm">
-              <span className="py-4 border-b-2 border-neutral-900 dark:border-white font-medium">Overview</span>
-              <span className="py-4 text-neutral-500">Reviews</span>
-              <span className="py-4 text-neutral-500">Achievements</span>
-              <span className="py-4 text-neutral-500">Group sessions</span>
+              <span className="py-4 border-b-2 border-neutral-900 dark:border-white font-medium">{t('mentoring.tabs.overview')}</span>
+              <span className="py-4 text-neutral-500">{t('mentoring.tabs.reviews')}</span>
+              <span className="py-4 text-neutral-500">{t('mentoring.tabs.achievements')}</span>
+              <span className="py-4 text-neutral-500">{t('mentoring.tabs.group')}</span>
             </nav>
           </div>
         </div>
@@ -77,37 +78,40 @@ export default function MentoringPage({ locale }) {
           {/* Left: Overview */}
           <div className="md:col-span-2 space-y-6">
             <div className="rounded-lg border border-neutral-200 dark:border-neutral-800 p-6 bg-white dark:bg-neutral-900">
-              <h2 className="text-lg font-semibold mb-2">Overview</h2>
-              <p className="text-sm text-neutral-700 dark:text-neutral-300">
-                I'm Jonathan, a Product Manager focused on Data/AI and social impact. I help mentees achieve strategic clarity,
-                execution rigor, and stakeholder influence through practical frameworks and hands-on reviews.
-              </p>
+              <h2 className="text-lg font-semibold mb-2">{t('mentoring.overview.title')}</h2>
+              <p className="text-sm text-neutral-700 dark:text-neutral-300">{t('mentoring.overview.body')}</p>
               <div className="mt-4">
                 <Link href="/mentee/apply" className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-primary-600 text-white hover:bg-primary-500">
-                  {t('nav.login')} <FiArrowRight />
+                  {t('mentoring.apply.title')} <FiArrowRight />
                 </Link>
               </div>
             </div>
 
             <div className="rounded-lg border border-neutral-200 dark:border-neutral-800 p-6 bg-white dark:bg-neutral-900">
-              <h3 className="text-base font-semibold mb-3">Profile insights</h3>
+              <h3 className="text-base font-semibold mb-3">{t('mentoring.insights.title')}</h3>
               <div className="flex items-center gap-3 text-sm">
                 <div className="inline-flex items-center gap-2 px-3 py-2 rounded-md bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700">
-                  <FiStar className="text-yellow-500" /> Top 50 in Generalist Product Management
+                  <FiStar className="text-yellow-500" /> {t('mentoring.insights.badge')}
                 </div>
-                <span className="text-neutral-500">Apr 2025 – Jun 2025</span>
+                <span className="text-neutral-500">{t('mentoring.insights.dateRange')}</span>
               </div>
             </div>
 
             <div className="rounded-lg border border-neutral-200 dark:border-neutral-800 p-6 bg-white dark:bg-neutral-900">
-              <h3 className="text-base font-semibold mb-3">Background</h3>
+              <h3 className="text-base font-semibold mb-3">{t('mentoring.background.title')}</h3>
               <div className="flex flex-wrap gap-2">
-                {["Product", "AI", "Data", "B2C", "SaaS"].map((tag) => (
+                {[
+                  t('mentoring.background.tags.product'),
+                  t('mentoring.background.tags.ai'),
+                  t('mentoring.background.tags.data'),
+                  t('mentoring.background.tags.b2c'),
+                  t('mentoring.background.tags.saas'),
+                ].map((tag) => (
                   <span key={tag} className="px-2.5 py-1 text-xs rounded-full bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700">{tag}</span>
                 ))}
               </div>
               <div className="mt-6">
-                <h4 className="text-sm font-medium mb-2">Core competencies</h4>
+                <h4 className="text-sm font-medium mb-2">{t('mentoring.background.core')}</h4>
                 <div className="grid sm:grid-cols-2 gap-4">
                   {skills.map((group) => (
                     <div key={group.title} className="rounded-md border border-neutral-200 dark:border-neutral-700 p-4">
@@ -124,7 +128,7 @@ export default function MentoringPage({ locale }) {
             </div>
 
             <div className="rounded-lg border border-neutral-200 dark:border-neutral-800 p-6 bg-white dark:bg-neutral-900">
-              <h3 className="text-base font-semibold mb-3">Testimonials</h3>
+              <h3 className="text-base font-semibold mb-3">{t('mentoring.testimonials.title')}</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 {testimonials.map((tst) => (
                   <blockquote key={tst.name} className="rounded-md border border-neutral-200 dark:border-neutral-700 p-4">
@@ -139,23 +143,23 @@ export default function MentoringPage({ locale }) {
           {/* Right: Sidebar */}
           <div className="space-y-6">
             <div className="rounded-lg border border-neutral-200 dark:border-neutral-800 p-6 bg-white dark:bg-neutral-900">
-              <h3 className="text-base font-semibold mb-3">Community statistics</h3>
+              <h3 className="text-base font-semibold mb-3">{t('mentoring.sidebar.stats.title')}</h3>
               <div className="space-y-2 text-sm">
-                <div className="flex items-center gap-2"><FiClock className="text-primary-600" /> <span>3,780 mins</span> <span className="text-neutral-500">Total mentoring time</span></div>
-                <div className="flex items-center gap-2"><FiTrendingUp className="text-primary-600" /> <span>126</span> <span className="text-neutral-500">Sessions completed</span></div>
+                <div className="flex items-center gap-2"><FiClock className="text-primary-600" /> <span>{mentoringStats.minutes} mins</span> <span className="text-neutral-500">{t('mentoring.sidebar.stats.minutesLabel')}</span></div>
+                <div className="flex items-center gap-2"><FiTrendingUp className="text-primary-600" /> <span>{mentoringStats.sessionsCompleted}</span> <span className="text-neutral-500">{t('mentoring.sidebar.stats.sessionsLabel')}</span></div>
               </div>
             </div>
             <div className="rounded-lg border border-neutral-200 dark:border-neutral-800 p-6 bg-white dark:bg-neutral-900">
-              <h3 className="text-base font-semibold mb-3">Available sessions</h3>
+              <h3 className="text-base font-semibold mb-3">{t('mentoring.sidebar.sessions.title')}</h3>
               <div className="space-y-3">
-                {[{name:'General Mentorship', duration:'30 minutes', price:'Free'}, {name:'Mentorship Session', duration:'30 minutes', price:'Free'}].map((s) => (
-                  <div key={s.name} className="border border-neutral-200 dark:border-neutral-700 rounded-md p-4">
+                {mentoringSessions.map((s) => (
+                  <div key={s.slug} className="border border-neutral-200 dark:border-neutral-700 rounded-md p-4">
                     <div className="flex items-center justify-between">
                       <div>
                         <div className="font-medium">{s.name}</div>
                         <div className="text-xs text-neutral-500">{s.duration} • {s.price}</div>
                       </div>
-                      <Link href="/mentee/apply" className="px-3 py-1.5 rounded-md bg-neutral-900 text-white hover:bg-neutral-800">Book</Link>
+                      <Link href={s.bookingPath} className="px-3 py-1.5 rounded-md bg-neutral-900 text-white hover:bg-neutral-800">{t('mentoring.sidebar.sessions.book')}</Link>
                     </div>
                   </div>
                 ))}

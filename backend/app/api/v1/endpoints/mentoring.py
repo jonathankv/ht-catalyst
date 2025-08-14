@@ -10,6 +10,7 @@ from app.schemas.mentee import (
 )
 from app.utils.rate_limiter import rate_limit
 from app.core.config import settings
+from app.utils.auth import verify_bearer_token
 
 
 router = APIRouter()
@@ -19,6 +20,7 @@ router = APIRouter()
 def create_application(
     application_in: MenteeApplicationCreate,
     db: Session = Depends(get_db),
+    user_email: str = Depends(verify_bearer_token),
 ):
     # Basic validation
     if not (application_in.goals and application_in.goals.strip()):
@@ -35,7 +37,9 @@ def create_application(
         .first()
     )
     # Optional: prevent rapid duplicate submissions; keep simplest behavior
-    new_app = MenteeApplication(**application_in.model_dump())
+    payload = application_in.model_dump()
+    payload["user_email"] = user_email
+    new_app = MenteeApplication(**payload)
     db.add(new_app)
     db.commit()
     db.refresh(new_app)
@@ -44,8 +48,8 @@ def create_application(
 
 @router.get("/applications", response_model=List[MenteeApplicationResponse])
 def list_my_applications(
-    user_email: str = Query(..., description="User email to filter applications"),
     db: Session = Depends(get_db),
+    user_email: str = Depends(verify_bearer_token),
 ):
     apps = (
         db.query(MenteeApplication)

@@ -1,9 +1,12 @@
 // Firebase configuration
-import { initializeApp } from 'firebase/app';
+import { initializeApp, getApps } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 
+// Environment detection
+const isDevelopment = process.env.NODE_ENV === 'development';
+const isProduction = process.env.NODE_ENV === 'production';
+
 // Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
@@ -14,13 +17,37 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
 };
 
-// Check for missing required configuration
-const requiredFields = ['apiKey', 'authDomain', 'projectId', 'appId'];
-const missingFields = requiredFields.filter(field => !firebaseConfig[field]);
-
-if (missingFields.length > 0) {
-  console.error(`Missing required Firebase configuration: ${missingFields.join(', ')}`);
-  console.error('Please check your .env.local file and make sure all required Firebase configuration values are set.');
+// Validation function
+function validateFirebaseConfig() {
+  const requiredFields = ['apiKey', 'authDomain', 'projectId', 'appId'];
+  const missingFields = requiredFields.filter(field => !firebaseConfig[field]);
+  
+  if (missingFields.length > 0) {
+    const envFile = isProduction ? '.env.production.local' : '.env.local';
+    const errorMessage = `Missing required Firebase configuration: ${missingFields.join(', ')}`;
+    const helpMessage = `Please check your ${envFile} file and ensure all required Firebase configuration values are set.`;
+    
+    console.error('🔥 Firebase Configuration Error:');
+    console.error(`   ${errorMessage}`);
+    console.error(`   ${helpMessage}`);
+    
+    if (isDevelopment) {
+      console.error('   Environment detected: Development');
+      console.error('   Expected file: .env.local');
+    } else if (isProduction) {
+      console.error('   Environment detected: Production');
+      console.error('   Expected file: .env.production.local');
+    }
+    
+    throw new Error(`Firebase configuration incomplete: ${missingFields.join(', ')}`);
+  }
+  
+  // Log successful validation
+  if (isDevelopment) {
+    console.log('🔥 Firebase config validated successfully for development');
+    console.log(`   Project ID: ${firebaseConfig.projectId}`);
+    console.log(`   Auth Domain: ${firebaseConfig.authDomain}`);
+  }
 }
 
 // Initialize Firebase
@@ -28,11 +55,50 @@ let app;
 let auth;
 
 try {
-  app = initializeApp(firebaseConfig);
+  // Validate configuration first
+  validateFirebaseConfig();
+  
+  // Check if Firebase is already initialized to prevent multiple initialization
+  if (!getApps().length) {
+    app = initializeApp(firebaseConfig);
+    console.log('🔥 Firebase initialized successfully');
+  } else {
+    app = getApps()[0];
+    console.log('🔥 Using existing Firebase app');
+  }
+  
   auth = getAuth(app);
-  console.log('Firebase initialized successfully');
+  
+  // Additional auth configuration
+  if (isDevelopment) {
+    // Enable auth state persistence in development
+    auth.settings = {
+      ...auth.settings,
+      // You can add development-specific auth settings here
+    };
+  }
+  
 } catch (error) {
-  console.error('Error initializing Firebase:', error);
+  console.error('🔥 Critical Firebase initialization error:', error);
+  console.error('   This will prevent authentication from working.');
+  
+  if (isDevelopment) {
+    console.error('   Troubleshooting steps for development:');
+    console.error('   1. Check that .env.local exists in the frontend directory');
+    console.error('   2. Verify all NEXT_PUBLIC_FIREBASE_* variables are set');
+    console.error('   3. Ensure Firebase project settings are correct');
+  } else {
+    console.error('   Troubleshooting steps for production:');
+    console.error('   1. Check that .env.production.local is properly deployed');
+    console.error('   2. Verify production Firebase project configuration');
+    console.error('   3. Ensure environment variables are accessible at build time');
+  }
+  
+  // In development, we might want to continue without Firebase for testing
+  // In production, this should probably be a hard failure
+  if (isProduction) {
+    throw error;
+  }
 }
 
 export { auth };

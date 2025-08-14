@@ -26,8 +26,9 @@ export default function Profile({ locale }) {
         return;
       }
       try {
+        const token = await currentUser.getIdToken();
         const res = await axios.get(`${API_BASE}/mentoring/applications`, {
-          params: { user_email: currentUser.email },
+          headers: { Authorization: `Bearer ${token}` },
         });
         setApplications(res.data || []);
       } catch (e) {

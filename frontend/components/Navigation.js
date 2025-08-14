@@ -121,7 +121,7 @@ const Navigation = () => {
             >
               <Link 
                 href="/start-learning"
-                className={`px-4 py-2 rounded-full font-medium transition-all duration-300 ${
+                className={`px-4 py-2 rounded-md font-medium transition-all duration-300 ${
                   isScrolled 
                     ? 'bg-white text-primary-600 hover:bg-neutral-100 shadow-md hover:shadow-lg' 
                     : 'bg-primary-600 hover:bg-primary-400 text-white shadow-md hover:shadow-lg'
@@ -161,7 +161,7 @@ const Navigation = () => {
               >
                 <Link 
                   href="/login"
-                  className={`px-4 py-2 rounded-full font-medium transition-all duration-300 ${
+                  className={`px-4 py-2 rounded-md font-medium transition-all duration-300 ${
                     isScrolled 
                       ? 'bg-white text-primary-600 hover:bg-neutral-100 shadow-md hover:shadow-lg' 
                       : 'bg-primary-600 text-white hover:bg-primary-500 shadow-md hover:shadow-lg'
@@ -177,7 +177,7 @@ const Navigation = () => {
               {/* Theme Toggle Button */}
               <motion.button
                 onClick={toggleDarkMode}
-                className={`p-2 rounded-full transition-colors duration-200 ${
+                className={`p-2 rounded-md transition-colors duration-200 ${
                   isScrolled ? 'hover:bg-primary-600/50' : 'hover:bg-neutral-100 dark:hover:bg-neutral-800'
                 }`}
                 whileHover={{ scale: 1.1 }}

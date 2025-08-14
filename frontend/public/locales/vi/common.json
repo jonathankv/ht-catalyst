@@ -75,9 +75,9 @@
       "password_label": "Mật khẩu",
       "password_placeholder": "Mật khẩu",
       "sign_up_link": "Đăng ký",
-      "submit_button": "Trở thành mentee",
+      "submit_button": "Đăng Nhập Mentee",
       "submitting": "Đang đăng nhập...",
-      "title": "Trở thành mentee"
+      "title": "Đăng Nhập Mentee"
     },
     "profile": {
       "email_label": "Email",
@@ -253,7 +253,7 @@
     "impact": "Tác Động",
     "library": "Thư Viện",
     "mentoring": "Mentoring",
-    "login": "Trở thành mentee",
+    "login": "Đăng Nhập Mentee",
     "logout": "Đăng Xuất",
     "profile": "Hồ Sơ",
     "signup": "Đăng Ký",
@@ -283,5 +283,55 @@
   "theme": {
     "dark": "Chế độ tối",
     "light": "Chế độ sáng"
+  },
+  "mentoring": {
+    "meta": { "title": "Mentoring" },
+    "tabs": {
+      "overview": "Tổng quan",
+      "reviews": "Đánh giá",
+      "achievements": "Thành tựu",
+      "group": "Buổi nhóm"
+    },
+    "apply": {
+      "title": "Đăng ký Mentee",
+      "description": "Đăng ký để trở thành mentee và bắt đầu hành trình của bạn."
+    },
+    "header": {
+      "tagline": "Quản lý Sản phẩm • Data/AI • Tác động xã hội"
+    },
+    "overview": {
+      "title": "Tổng quan",
+      "body": "Tôi là Jonathan, một Quản lý Sản phẩm tập trung vào Data/AI và tác động xã hội. Tôi giúp mentee đạt được sự rõ ràng chiến lược, kỷ luật thực thi và ảnh hưởng với các bên liên quan thông qua khung phương pháp thực tiễn và phản hồi trực tiếp."
+    },
+    "insights": {
+      "title": "Thông tin nổi bật",
+      "badge": "Top 50 Quản lý Sản phẩm Tổng quát",
+      "dateRange": "Th4 2025 – Th6 2025"
+    },
+    "background": {
+      "title": "Nền tảng",
+      "core": "Năng lực cốt lõi",
+      "tags": {
+        "product": "Sản phẩm",
+        "ai": "AI",
+        "data": "Dữ liệu",
+        "b2c": "B2C",
+        "saas": "SaaS"
+      }
+    },
+    "testimonials": {
+      "title": "Lời chứng thực"
+    },
+    "sidebar": {
+      "stats": {
+        "title": "Số liệu cộng đồng",
+        "minutesLabel": "Tổng thời gian mentoring",
+        "sessionsLabel": "Số buổi đã hoàn thành"
+      },
+      "sessions": {
+        "title": "Các buổi có sẵn",
+        "book": "Đặt lịch"
+      }
+    }
   }
 }

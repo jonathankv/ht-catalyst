@@ -42,8 +42,11 @@ export default function ApplyMenteePage() {
       return;
     }
     try {
-      const payload = { user_email: currentUser?.email, ...formValues };
-      const res = await axios.post(`${API_BASE}/mentoring/applications`, payload);
+      const token = await currentUser.getIdToken();
+      const payload = { ...formValues };
+      const res = await axios.post(`${API_BASE}/mentoring/applications`, payload, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       setSuccessId(res.data.id);
     } catch (err) {
       setError(err?.response?.data?.detail || 'Submission failed');

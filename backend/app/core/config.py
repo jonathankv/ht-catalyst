@@ -21,7 +21,7 @@ class Settings(BaseSettings):
     BACKUP_API_KEY: Optional[str] = None
 
     # CORS Settings
-    CORS_ORIGINS: str = "http://localhost:3000,http://localhost:3001,https://your-frontend-url.vercel.app"
+    CORS_ORIGINS: str = "http://localhost:3000,http://localhost:3001,https://ht-catalyst-vuvietkienptithcm-gmailcoms-projects.vercel.app"
     
     # AI Configuration
     AI_MODEL: str = "claude-3-opus-20240229"
