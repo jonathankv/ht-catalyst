@@ -45,7 +45,7 @@ export default function Login({ locale }) {
           transition={{ duration: 0.5 }}
         >
           <div>
-            <h2 className="mt-6 text-center text-3xl font-bold tracking-tight">
+            <h2 className="mt-6 text-center text-heading-xl">
               {t('auth.login.title')}
             </h2>
           </div>
@@ -53,7 +53,7 @@ export default function Login({ locale }) {
             <div className="rounded-md bg-red-50 p-4">
               <div className="flex">
                 <div className="ml-3">
-                  <h3 className="text-sm font-medium text-red-800">{error}</h3>
+                  <h3 className="text-ui text-red-800">{error}</h3>
                 </div>
               </div>
             </div>
@@ -94,7 +94,7 @@ export default function Login({ locale }) {
 
             <div className="flex items-center justify-between">
               <div className="text-sm">
-                <Link href="/forgot-password" className="font-medium text-indigo-600 hover:text-indigo-500">
+                <Link href="/forgot-password" className="text-ui text-indigo-600 hover:text-indigo-500">
                   {t('auth.login.forgot_password')}
                 </Link>
               </div>
@@ -104,15 +104,15 @@ export default function Login({ locale }) {
               <button
                 type="submit"
                 disabled={loading}
-                className="group relative flex w-full justify-center rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:bg-indigo-300"
+                className="group relative flex w-full justify-center rounded-md bg-indigo-600 py-2 px-3 text-ui text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:bg-indigo-300"
               >
                 {loading ? t('auth.login.submitting') : t('auth.login.submit_button')}
               </button>
             </div>
           </form>
-          <div className="text-sm text-center">
+          <div className="text-body-sm text-center">
             {t('auth.login.need_account')}{' '}
-            <Link href="/signup" className="font-medium text-indigo-600 hover:text-indigo-500">
+            <Link href="/signup" className="text-ui text-indigo-600 hover:text-indigo-500">
               {t('auth.login.sign_up_link')}
             </Link>
           </div>

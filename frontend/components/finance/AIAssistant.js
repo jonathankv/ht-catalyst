@@ -47,7 +47,7 @@ const AIAssistant = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-8"
         >
-          <h2 className="text-3xl font-bold mb-4">Financial AI Assistant</h2>
+          <h2 className="text-display-sm mb-4">Financial AI Assistant</h2>
           <p className="text-gray-600 dark:text-gray-400">
             Get personalized financial advice and insights
           </p>

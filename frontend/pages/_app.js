@@ -8,9 +8,24 @@ import { Space_Grotesk, Inter, JetBrains_Mono } from 'next/font/google';
 // Lazy-load AuthProvider to keep it out of the critical path on non-auth pages
 const AuthProvider = dynamic(() => import('../contexts/AuthContext').then(m => m.AuthProvider), { ssr: false });
 
-const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space-grotesk', weight: ['300','400','500','600','700'] });
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter', weight: ['300','400','500','600','700'] });
-const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-jetbrains-mono', weight: ['400','500'] });
+const spaceGrotesk = Space_Grotesk({ 
+  subsets: ['latin', 'vietnamese'], 
+  variable: '--font-space-grotesk', 
+  weight: ['300','400','500','600','700'],
+  display: 'swap'
+});
+const inter = Inter({ 
+  subsets: ['latin', 'vietnamese'], 
+  variable: '--font-inter', 
+  weight: ['300','400','500','600','700'],
+  display: 'swap'
+});
+const jetbrainsMono = JetBrains_Mono({ 
+  subsets: ['latin', 'vietnamese'], 
+  variable: '--font-jetbrains-mono', 
+  weight: ['400','500'],
+  display: 'swap'
+});
 
 function MyApp({ Component, pageProps }) {
   return (

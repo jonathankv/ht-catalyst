@@ -21,15 +21,15 @@ export default function BookCard({ book }) {
         />
       </div>
       <div className="p-6">
-        <h3 className="text-xl font-bold mb-2 text-neutral-900 dark:text-neutral-50">{book.title}</h3>
-        <p className="text-neutral-600 dark:text-neutral-300 mb-4">{book.author}</p>
-        <p className="text-sm text-neutral-500 dark:text-neutral-400 mb-6 line-clamp-3">
+        <h3 className="text-heading-sm mb-2 text-neutral-900 dark:text-neutral-50">{book.title}</h3>
+        <p className="text-body-sm text-neutral-600 dark:text-neutral-300 mb-4">{book.author}</p>
+        <p className="text-caption text-neutral-500 dark:text-neutral-400 mb-6 line-clamp-3">
           {book.summary}
         </p>
         <div className="flex justify-between items-center">
           <button
             onClick={() => router.push(`/library/${book.id}`)}
-            className="text-primary-700 hover:text-primary-800 dark:text-primary-400 dark:hover:text-primary-300 transition-colors"
+            className="text-primary-700 hover:text-primary-800 dark:text-primary-400 dark:hover:text-primary-300 text-ui transition-colors"
           >
             {t('library.read_notes')} →
           </button>

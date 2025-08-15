@@ -74,10 +74,10 @@ const MyLearning = () => {
             transition={{ duration: 0.5 }}
             className="text-center mb-12"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-neutral-50 mb-4">
+            <h1 className="text-display text-neutral-900 dark:text-neutral-50 mb-4">
               {t('learning.title', 'DeepLearning.AI Short Courses')}
             </h1>
-            <p className="text-xl text-neutral-600 dark:text-neutral-300 max-w-3xl mx-auto">
+            <p className="text-body-lg text-neutral-600 dark:text-neutral-300 max-w-3xl mx-auto">
               {t('learning.description', 'Expand your AI knowledge with our curated short courses')}
             </p>
           </motion.div>
@@ -91,7 +91,7 @@ const MyLearning = () => {
           >
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
               <div className="w-full md:w-auto">
-                <h2 className="text-xl font-semibold text-neutral-900 dark:text-neutral-50 mb-2">
+                <h2 className="text-body-lg font-medium text-neutral-900 dark:text-neutral-50 mb-2">
                   {t('learning.course_available', 'Course Available')}
                 </h2>
               </div>
@@ -193,7 +193,7 @@ const CourseCard = ({ course, type }) => {
         <div className="flex flex-col md:flex-row gap-6">
           {/* Course Info */}
           <div className="flex-1">
-            <h3 className="text-xl font-semibold text-neutral-900 dark:text-neutral-50 mb-2">
+            <h3 className="text-body-lg font-medium text-neutral-900 dark:text-neutral-50 mb-2">
               {course.title}
             </h3>
             <p className="text-neutral-600 dark:text-neutral-300 mb-4">

@@ -16,13 +16,13 @@ import { getTranslatedStaticProps } from '../../utils/translationUtils';
 const components = {
   h1: props => (
     <h1
-      className="text-3xl font-bold mt-12 mb-6 text-neutral-900 dark:text-white pb-2 border-b border-neutral-200 dark:border-neutral-700"
+      className="text-display-sm mt-12 mb-6 text-neutral-900 dark:text-white pb-2 border-b border-neutral-200 dark:border-neutral-700"
       {...props}
     />
   ),
   h2: props => (
     <h2
-      className="text-2xl font-semibold mt-8 mb-4 text-neutral-900 dark:text-white"
+      className="text-body-lg font-medium mt-8 mb-4 text-neutral-900 dark:text-white"
       {...props}
     />
   ),
@@ -31,7 +31,7 @@ const components = {
     return (
       <h3 
         id={id} 
-        className="text-2xl font-semibold mt-8 mb-4 text-neutral-900 dark:text-white"
+        className="text-body-lg font-medium mt-8 mb-4 text-neutral-900 dark:text-white"
         {...props}
       >
         {children}
@@ -40,7 +40,7 @@ const components = {
   },
   p: props => (
     <p
-      className="text-lg leading-relaxed text-neutral-800 dark:text-neutral-100 mb-6 selection:bg-primary-100 dark:selection:bg-primary-900/30 selection:text-primary-900 dark:selection:text-primary-100"
+      className="text-body text-neutral-800 dark:text-neutral-100 mb-6 selection:bg-primary-100 dark:selection:bg-primary-900/30 selection:text-primary-900 dark:selection:text-primary-100"
       {...props}
     />
   ),
@@ -70,7 +70,7 @@ const components = {
     </ol>
   ),
   li: (props) => (
-    <li className="relative pl-8 text-lg leading-relaxed before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-primary-600 dark:before:bg-primary-400 before:rounded-full" {...props} />
+    <li className="relative pl-8 text-body before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-primary-600 dark:before:bg-primary-400 before:rounded-full" {...props} />
   ),
   a: (props) => (
     <a 
@@ -223,10 +223,10 @@ export default function BookNotes({ frontMatter, mdxSource, headings, locale }) 
                     transition={{ delay: 0.1 }}
                     className="space-y-4"
                   >
-                    <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white leading-tight">
+                    <h1 className="text-display text-neutral-900 dark:text-white">
                       {frontMatter.title}
                     </h1>
-                    <p className="text-xl text-neutral-700 dark:text-neutral-300">
+                    <p className="text-body-lg text-neutral-700 dark:text-neutral-300">
                       {t('library.by')} {frontMatter.author}
                     </p>
                   </motion.div>
@@ -236,7 +236,7 @@ export default function BookNotes({ frontMatter, mdxSource, headings, locale }) 
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
                   >
-                    <p className="text-neutral-700 dark:text-neutral-300">{frontMatter.summary}</p>
+                    <p className="text-body text-neutral-700 dark:text-neutral-300">{frontMatter.summary}</p>
                   </motion.div>
                   
                   <motion.div
@@ -248,7 +248,7 @@ export default function BookNotes({ frontMatter, mdxSource, headings, locale }) 
                     {frontMatter.tags?.map(tag => (
                       <span
                         key={tag}
-                        className="px-3 py-1 text-sm font-medium bg-primary-100 text-primary-800 dark:bg-primary-900/40 dark:text-primary-200 rounded-full"
+                        className="px-3 py-1 text-caption font-medium bg-primary-100 text-primary-800 dark:bg-primary-900/40 dark:text-primary-200 rounded-full"
                       >
                         {tag}
                       </span>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+/* Fonts are loaded via next/font in _app.js for better performance */
 
 :root {
   /* Semantic Colors - Light Mode */
@@ -80,40 +80,40 @@
 
   /* Body text */
   body {
-    @apply text-neutral-900 dark:text-neutral-50 
+    @apply font-sans text-neutral-900 dark:text-neutral-50 
            bg-primary-25 dark:bg-neutral-950
-           text-base font-normal; /* base font size & weight */
+           text-base font-normal leading-relaxed; /* base font size & weight with improved readability */
   }
 
-  /* Heading system */
+  /* Heading system - optimized for Vietnamese text readability */
   h1 {
     @apply font-space text-h1 
            text-neutral-900 dark:text-neutral-50
-           mb-6;
+           mb-6 font-semibold tracking-normal;
   }
 
   h2 {
     @apply font-space text-h2 
            text-neutral-900 dark:text-neutral-50
-           mb-5;
+           mb-5 font-semibold tracking-normal;
   }
 
   h3 {
     @apply font-space text-h3 
            text-neutral-900 dark:text-neutral-50
-           mb-4;
+           mb-4 font-medium tracking-normal;
   }
 
   h4 {
     @apply font-space text-h4 
            text-neutral-900 dark:text-neutral-50
-           mb-3;
+           mb-3 font-medium tracking-normal;
   }
 
   h5 {
     @apply font-space text-h5 
            text-neutral-900 dark:text-neutral-50
-           mb-2;
+           mb-2 font-medium tracking-normal;
   }
 
   /* Code elements */
@@ -121,17 +121,155 @@
     @apply font-mono text-sm;
   }
 
-  /* Optional: Common text utilities */
+  /* 
+  =============================================
+  STANDARDIZED TYPOGRAPHY SYSTEM
+  =============================================
+  
+  Font Family Usage:
+  - Display & Headings: font-space (Space Grotesk)  
+  - Body & UI: font-sans (Inter)
+  - Code: font-mono (JetBrains Mono)
+  
+  Font Weight Standards:
+  - Light: 400 (font-normal)
+  - Medium: 500 (font-medium) 
+  - Semibold: 600 (font-semibold)
+  - Bold: 700 (font-bold)
+  
+  Text Size Hierarchy:
+  - Display: 48px+ (Large titles, hero text)
+  - Headings: 20-32px (Section titles)
+  - Body: 16-18px (Main content)
+  - UI Labels: 14px (Form labels, buttons)
+  - Captions: 12px (Small descriptions, metadata)
+  */
+
+  /* DISPLAY TYPOGRAPHY - For hero sections and main titles */
+  .text-display-xl {
+    @apply font-space text-5xl md:text-6xl lg:text-7xl font-semibold leading-tight tracking-tight;
+  }
+
+  .text-display-lg {
+    @apply font-space text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight;
+  }
+
+  .text-display {
+    @apply font-space text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight tracking-normal;
+  }
+
+  .text-display-sm {
+    @apply font-space text-2xl md:text-3xl lg:text-4xl font-medium leading-tight tracking-normal;
+  }
+
+  /* HEADING TYPOGRAPHY - For section titles and content headers */
+  .text-heading-xl {
+    @apply font-space text-3xl font-semibold leading-tight tracking-normal text-neutral-900 dark:text-neutral-50;
+  }
+
+  .text-heading-lg {
+    @apply font-space text-2xl font-semibold leading-snug tracking-normal text-neutral-900 dark:text-neutral-50;
+  }
+
+  .text-heading {
+    @apply font-space text-xl font-medium leading-snug tracking-normal text-neutral-900 dark:text-neutral-50;
+  }
+
+  .text-heading-sm {
+    @apply font-space text-lg font-medium leading-normal tracking-normal text-neutral-900 dark:text-neutral-50;
+  }
+
+  /* BODY TYPOGRAPHY - For main content and readable text */
+  .text-body-xl {
+    @apply font-sans text-xl leading-relaxed tracking-normal text-neutral-700 dark:text-neutral-300;
+  }
+
   .text-body-lg {
-    @apply text-lg leading-relaxed;
+    @apply font-sans text-lg leading-relaxed tracking-normal text-neutral-700 dark:text-neutral-300;
   }
 
   .text-body {
-    @apply text-base leading-normal;
+    @apply font-sans text-base leading-relaxed tracking-normal text-neutral-700 dark:text-neutral-300;
   }
 
   .text-body-sm {
-    @apply text-sm leading-normal;
+    @apply font-sans text-sm leading-relaxed tracking-normal text-neutral-600 dark:text-neutral-400;
+  }
+
+  /* UI TYPOGRAPHY - For buttons, labels, and interface elements */
+  .text-ui-lg {
+    @apply font-sans text-base font-medium leading-normal tracking-normal;
+  }
+
+  .text-ui {
+    @apply font-sans text-sm font-medium leading-normal tracking-normal;
+  }
+
+  .text-ui-sm {
+    @apply font-sans text-xs font-medium leading-normal tracking-wide uppercase;
+  }
+
+  /* LABEL TYPOGRAPHY - For form labels and descriptive text */
+  .text-label-lg {
+    @apply font-sans text-base font-medium leading-normal tracking-normal text-neutral-800 dark:text-neutral-200;
+  }
+
+  .text-label {
+    @apply font-sans text-sm font-medium leading-normal tracking-normal text-neutral-800 dark:text-neutral-200;
+  }
+
+  .text-label-sm {
+    @apply font-sans text-xs font-medium leading-normal tracking-normal text-neutral-700 dark:text-neutral-300;
+  }
+
+  /* CAPTION TYPOGRAPHY - For metadata, small descriptions */
+  .text-caption {
+    @apply font-sans text-xs leading-normal tracking-normal text-neutral-600 dark:text-neutral-400;
+  }
+
+  .text-caption-sm {
+    @apply font-sans text-2xs leading-normal tracking-wide text-neutral-500 dark:text-neutral-500;
+  }
+
+  /* CODE TYPOGRAPHY - For technical content */
+  .text-code {
+    @apply font-mono text-sm leading-normal tracking-normal;
+  }
+
+  .text-code-sm {
+    @apply font-mono text-xs leading-normal tracking-normal;
+  }
+
+  /* ENHANCED READING STYLES - For long-form content */
+  .prose-enhanced p {
+    @apply text-body mb-6;
+  }
+
+  .prose-enhanced h1 {
+    @apply text-heading-xl mb-8;
+  }
+
+  .prose-enhanced h2 {
+    @apply text-heading-lg mb-6;
+  }
+
+  .prose-enhanced h3 {
+    @apply text-heading mb-4;
+  }
+
+  .prose-enhanced h4 {
+    @apply text-heading-sm mb-3;
+  }
+
+  /* Vietnamese-optimized typography */
+  .text-vietnamese {
+    @apply font-sans leading-relaxed tracking-wide;
+    letter-spacing: 0.01em; /* Slightly more spacing for Vietnamese diacritics */
+  }
+
+  .text-vietnamese-heading {
+    @apply font-space font-medium leading-relaxed tracking-normal;
+    letter-spacing: 0.005em; /* Minimal spacing for Vietnamese headings */
   }
 }
 
@@ -263,41 +401,75 @@ a {
   hover:bg-neutral-400 dark:hover:bg-neutral-600;
 }
 
-/* Prose Dark Mode Overrides */
+/* Enhanced Prose Styles for Better Reading Experience */
 .prose {
-  @apply text-neutral-900 dark:text-neutral-100;
+  @apply font-sans text-neutral-900 dark:text-neutral-100 leading-relaxed;
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+  @apply font-space;
+}
+
+.prose p {
+  @apply leading-7 mb-6 text-neutral-700 dark:text-neutral-300;
+  font-size: 1.0625rem; /* 17px - optimized for reading */
 }
 
 .prose a {
   @apply text-primary-500 dark:text-primary-400 
-  hover:text-primary-600 dark:hover:text-primary-300;
+  hover:text-primary-600 dark:hover:text-primary-300
+  underline decoration-2 underline-offset-2 
+  hover:decoration-primary-600 dark:hover:decoration-primary-300;
 }
 
 .prose strong {
-  @apply text-neutral-900 dark:text-neutral-50;
+  @apply text-neutral-900 dark:text-neutral-50 font-semibold;
+}
+
+.prose em {
+  @apply italic text-neutral-800 dark:text-neutral-200;
 }
 
 .prose blockquote {
-  @apply border-l-4 border-neutral-300 dark:border-neutral-700;
+  @apply border-l-4 border-primary-300 dark:border-primary-700
+  bg-primary-25 dark:bg-primary-950/30 
+  pl-6 pr-4 py-4 my-6 rounded-r-lg
+  text-neutral-700 dark:text-neutral-300 
+  italic leading-relaxed;
+}
+
+.prose blockquote p {
+  @apply mb-0;
 }
 
 .prose code {
-  @apply text-primary-500 dark:text-primary-400 
+  @apply font-mono text-primary-500 dark:text-primary-400 
   bg-neutral-100 dark:bg-neutral-900 
-  px-1 py-0.5 rounded;
+  px-2 py-1 rounded text-sm;
 }
 
 .prose pre {
-  @apply bg-neutral-100 dark:bg-neutral-900 
-  border border-neutral-200 dark:border-neutral-800;
+  @apply font-mono bg-neutral-100 dark:bg-neutral-900 
+  border border-neutral-200 dark:border-neutral-800
+  rounded-lg p-4 overflow-x-auto;
 }
 
 .prose img {
-  @apply rounded-lg shadow-lg dark:shadow-neutral-950/30;
+  @apply rounded-lg shadow-lg dark:shadow-neutral-950/30 
+  mx-auto my-8;
+}
+
+.prose ul, .prose ol {
+  @apply pl-6 space-y-2;
+}
+
+.prose li {
+  @apply leading-relaxed text-neutral-700 dark:text-neutral-300;
 }
 
 .prose table {
-  @apply border-neutral-300 dark:border-neutral-700;
+  @apply border-neutral-300 dark:border-neutral-700 
+  rounded-lg overflow-hidden my-8;
 }
 
 .prose thead {
@@ -305,7 +477,8 @@ a {
 }
 
 .prose thead th {
-  @apply text-neutral-900 dark:text-neutral-50;
+  @apply text-neutral-900 dark:text-neutral-50 
+  font-space font-semibold py-3 px-4;
 }
 
 .prose tbody tr {
@@ -313,7 +486,8 @@ a {
 }
 
 .prose tbody td {
-  @apply text-neutral-700 dark:text-neutral-300;
+  @apply text-neutral-700 dark:text-neutral-300 
+  py-3 px-4 leading-relaxed;
 }
 
 /* Animation utilities */

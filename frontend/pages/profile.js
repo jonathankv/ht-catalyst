@@ -65,7 +65,7 @@ export default function Profile({ locale }) {
             transition={{ duration: 0.5 }}
           >
             <div>
-              <h2 className="mt-6 text-center text-3xl font-bold tracking-tight">
+              <h2 className="mt-6 text-center text-display-sm">
                 {t('auth.profile.title')}
               </h2>
             </div>
@@ -80,7 +80,7 @@ export default function Profile({ locale }) {
             )}
             <div className="bg-white shadow overflow-hidden sm:rounded-lg">
               <div className="px-4 py-5 sm:px-6">
-                <h3 className="text-lg leading-6 font-medium text-gray-900">
+                <h3 className="text-body-lg font-medium text-gray-900">
                   {t('auth.profile.user_info_title')}
                 </h3>
                 <p className="mt-1 max-w-2xl text-sm text-gray-500">
@@ -108,7 +108,7 @@ export default function Profile({ locale }) {
             {/* Mentoring applications */}
             <div className="bg-white shadow overflow-hidden sm:rounded-lg">
               <div className="px-4 py-5 sm:px-6">
-                <h3 className="text-lg leading-6 font-medium text-gray-900">Mentoring Applications</h3>
+                <h3 className="text-body-lg font-medium text-gray-900">Mentoring Applications</h3>
                 <p className="mt-1 max-w-2xl text-sm text-gray-500">Your submissions and current status.</p>
               </div>
               <div className="border-t border-gray-200">

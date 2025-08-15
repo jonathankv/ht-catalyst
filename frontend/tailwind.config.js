@@ -7,24 +7,27 @@ module.exports = {
   darkMode: 'class',
   theme: {
     fontFamily: {
-      // Main text font
-      sans: ['DM Sans', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
-      // Headings and display text
-      space: ['Space Grotesk', 'Azeret Mono', 'sans-serif'],
+      // Main text font - Vietnamese optimized
+      sans: ['var(--font-inter)', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Noto Sans', 'Helvetica Neue', 'Arial', 'sans-serif'],
+      // Headings and display text - Vietnamese optimized
+      space: ['var(--font-space-grotesk)', 'Space Grotesk', 'Inter', 'system-ui', 'sans-serif'],
       // Code blocks and technical content
-      mono: ['JetBrains Mono', 'monospace'],
+      mono: ['var(--font-jetbrains-mono)', 'JetBrains Mono', 'Consolas', 'Monaco', 'Courier New', 'monospace'],
+      // Vietnamese-friendly alternative
+      vietnamese: ['Inter', 'Noto Sans', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
     },
     extend: {
       fontSize: {
         // Thêm các custom sizes cho heading nếu cần
-        'h1': ['2.5rem', { lineHeight: '1.2', fontWeight: '700' }],  /* 40px */
-        'h2': ['2rem', { lineHeight: '1.25', fontWeight: '700' }],   /* 32px */
-        'h3': ['1.5rem', { lineHeight: '1.3', fontWeight: '600' }],  /* 24px */
-        'h4': ['1.25rem', { lineHeight: '1.4', fontWeight: '600' }], /* 20px */
-        'h5': ['1.1rem', { lineHeight: '1.5', fontWeight: '600' }],  /* 16px */
-        // Giữ nguyên các sizes hiện tại
-        '2xs': '0.625rem',  /* 10px */
-        '3xs': '0.5rem',  /* 8px */
+        'h1': ['2.5rem', { lineHeight: '1.2', fontWeight: '600' }],  /* 40px - lighter for Vietnamese */
+        'h2': ['2rem', { lineHeight: '1.25', fontWeight: '600' }],   /* 32px - lighter for Vietnamese */
+        'h3': ['1.5rem', { lineHeight: '1.3', fontWeight: '500' }],  /* 24px - lighter for Vietnamese */
+        'h4': ['1.25rem', { lineHeight: '1.4', fontWeight: '500' }], /* 20px - lighter for Vietnamese */
+        'h5': ['1.1rem', { lineHeight: '1.5', fontWeight: '500' }],  /* 16px - lighter for Vietnamese */
+        // Additional small text sizes for UI elements
+        '2xs': '0.6875rem', /* 11px */
+        '3xs': '0.625rem',  /* 10px */
+        '4xs': '0.5rem',    /* 8px */
       },
       colors: {
         neutral: {

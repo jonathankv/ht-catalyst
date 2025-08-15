@@ -54,7 +54,7 @@ export default function MentoringPage({ locale }) {
                 <Image src="/images/avatar/profile-avatar.jpg" alt="Profile" width={128} height={128} className="w-full h-full object-cover" />
               </div>
               <div className="pb-3">
-                <h1 className="text-2xl md:text-3xl font-bold">Kien (Jonathan) Vu Viet</h1>
+                <h1 className="text-display-sm">Kien (Jonathan) Vu Viet</h1>
                 <div className="text-sm md:text-base text-neutral-600 dark:text-neutral-300">{t('mentoring.header.tagline')}</div>
               </div>
             </div>
@@ -78,7 +78,7 @@ export default function MentoringPage({ locale }) {
           {/* Left: Overview */}
           <div className="md:col-span-2 space-y-6">
             <div className="rounded-lg border border-neutral-200 dark:border-neutral-800 p-6 bg-white dark:bg-neutral-900">
-              <h2 className="text-lg font-semibold mb-2">{t('mentoring.overview.title')}</h2>
+              <h2 className="text-body-lg font-medium mb-2">{t('mentoring.overview.title')}</h2>
               <p className="text-sm text-neutral-700 dark:text-neutral-300">{t('mentoring.overview.body')}</p>
               <div className="mt-4">
                 <Link href="/mentee/apply" className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-primary-600 text-white hover:bg-primary-500">

@@ -49,10 +49,10 @@ const Newsletter = ({ locale }) => {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl font-bold text-neutral-900 dark:text-white">
+          <h2 className="text-display-sm text-neutral-900 dark:text-white">
             {t('newsletter.title')}
           </h2>
-          <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
+          <p className="text-body-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
             {t('newsletter.description')}
           </p>
           
@@ -74,13 +74,13 @@ const Newsletter = ({ locale }) => {
                   placeholder={t('newsletter.placeholder')}
                   className="flex-grow px-4 py-3 rounded-lg border border-neutral-300 dark:border-neutral-700 
                     bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100
-                    focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-500"
+                    font-sans focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-500"
                   disabled={status === 'loading'}
                 />
                 <motion.button
                   type="submit"
                   className="px-6 py-3 bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-700
-                    text-white dark:text-neutral-900 font-medium rounded-lg transition-colors duration-200
+                    text-white dark:text-neutral-900 text-label rounded-lg transition-colors duration-200
                     focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-neutral-900"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}

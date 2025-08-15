@@ -73,7 +73,7 @@ const Navigation = () => {
           <div className="flex items-center">
             <Link href="/" className="relative group">
               <motion.div 
-                className={`text-3xl font-space font-bold text-primary-800 transition-colors duration-300 ${
+                className={`text-heading-lg text-primary-800 transition-colors duration-300 ${
                   isScrolled ? 'text-white' : 'text-neutral-900 dark:text-neutral-50'
                 }`}
                 whileHover={{ scale: 1.05 }}
@@ -99,7 +99,7 @@ const Navigation = () => {
               >
                 <Link 
                   href={item.href}
-                  className={`relative group ${
+                  className={`relative group text-ui ${
                     isScrolled 
                       ? 'text-white hover:text-neutral-100' 
                       : 'text-neutral-800 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-50'
@@ -121,7 +121,7 @@ const Navigation = () => {
             >
               <Link 
                 href="/start-learning"
-                className={`px-4 py-2 rounded-md font-medium transition-all duration-300 ${
+                className={`px-4 py-2 rounded-md text-ui transition-all duration-300 ${
                   isScrolled 
                     ? 'bg-white text-primary-600 hover:bg-neutral-100 shadow-md hover:shadow-lg' 
                     : 'bg-primary-600 hover:bg-primary-400 text-white shadow-md hover:shadow-lg'
@@ -141,7 +141,7 @@ const Navigation = () => {
               <div className="relative group">
                 <Link 
                   href="/profile"
-                  className={`relative group ${
+                  className={`relative group text-ui ${
                     isScrolled 
                       ? 'text-white hover:text-neutral-100' 
                       : 'text-neutral-800 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-50'
@@ -161,7 +161,7 @@ const Navigation = () => {
               >
                 <Link 
                   href="/login"
-                  className={`px-4 py-2 rounded-md font-medium transition-all duration-300 ${
+                  className={`px-4 py-2 rounded-md text-ui transition-all duration-300 ${
                     isScrolled 
                       ? 'bg-white text-primary-600 hover:bg-neutral-100 shadow-md hover:shadow-lg' 
                       : 'bg-primary-600 text-white hover:bg-primary-500 shadow-md hover:shadow-lg'
@@ -238,7 +238,7 @@ const Navigation = () => {
             <Link
               key={item.name}
               href={item.href}
-              className={`block px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200
+              className={`block px-3 py-2 rounded-md text-ui transition-colors duration-200
                 ${isActive(item.href)
                   ? 'text-neutral-50 bg-primary-600/50'
                   : 'text-neutral-100 hover:text-neutral-50 hover:bg-primary-600/30'
@@ -253,7 +253,7 @@ const Navigation = () => {
           {/* Start Learning CTA for Mobile */}
           <Link
             href="/start-learning"
-            className="block px-3 py-2 rounded-md text-sm font-medium bg-primary-500 text-white hover:bg-primary-400 transition-colors duration-200"
+            className="block px-3 py-2 rounded-md text-ui bg-primary-500 text-white hover:bg-primary-400 transition-colors duration-200"
             onClick={() => setIsMenuOpen(false)}
           >
             {t('nav.start_learning')}
@@ -262,7 +262,7 @@ const Navigation = () => {
           {/* About Link for Mobile */}
           <Link
             href="/about"
-            className={`block px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200
+            className={`block px-3 py-2 rounded-md text-ui transition-colors duration-200
               ${isActive('/about')
                 ? 'text-neutral-50 bg-primary-600/50'
                 : 'text-neutral-100 hover:text-neutral-50 hover:bg-primary-600/30'
@@ -278,7 +278,7 @@ const Navigation = () => {
             <>
               <Link
                 href="/profile"
-                className={`block px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200
+                className={`block px-3 py-2 rounded-md text-ui transition-colors duration-200
                   ${isActive('/profile')
                     ? 'text-neutral-50 bg-primary-600/50'
                     : 'text-neutral-100 hover:text-neutral-50 hover:bg-primary-600/30'
@@ -293,7 +293,7 @@ const Navigation = () => {
                   handleLogout();
                   setIsMenuOpen(false);
                 }}
-                className="w-full text-left px-3 py-2 rounded-md text-sm font-medium text-neutral-100 hover:text-neutral-50 hover:bg-primary-600/30 transition-colors duration-200"
+                className="w-full text-left px-3 py-2 rounded-md text-ui text-neutral-100 hover:text-neutral-50 hover:bg-primary-600/30 transition-colors duration-200"
               >
                 {t('nav.logout')}
               </button>
@@ -301,7 +301,7 @@ const Navigation = () => {
           ) : (
             <Link
               href="/login"
-              className="block px-3 py-2 rounded-md text-sm font-medium bg-white text-primary-600 hover:bg-neutral-100 transition-colors duration-200"
+              className="block px-3 py-2 rounded-md text-ui bg-white text-primary-600 hover:bg-neutral-100 transition-colors duration-200"
               onClick={() => setIsMenuOpen(false)}
             >
               {t('nav.login')}
@@ -314,7 +314,7 @@ const Navigation = () => {
               toggleDarkMode();
               setIsMenuOpen(false);
             }}
-            className="w-full text-left px-3 py-2 rounded-md text-sm font-medium text-neutral-100 hover:text-neutral-50 hover:bg-primary-600/30 transition-colors duration-200"
+            className="w-full text-left px-3 py-2 rounded-md text-ui text-neutral-100 hover:text-neutral-50 hover:bg-primary-600/30 transition-colors duration-200"
           >
             {isDarkMode ? t('theme.light') : t('theme.dark')}
           </button>

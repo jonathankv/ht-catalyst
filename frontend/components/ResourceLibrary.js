@@ -69,7 +69,7 @@ function ResourceLibrary({ variant = 'image', className = '' }) {
         transition={{ duration: 0.5 }}
         className="mb-12"
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 dark:text-white mb-6">{t('library.title')}</h2>
+        <h2 className="text-heading-xl text-neutral-900 dark:text-white mb-6">{t('library.title')}</h2>
       </motion.div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -83,7 +83,7 @@ function ResourceLibrary({ variant = 'image', className = '' }) {
             <Link href={section.href}>
               <div className="bg-white dark:bg-neutral-950 rounded-xl p-6 h-full flex flex-col hover:bg-neutral-50 dark:hover:bg-neutral-750 transition-colors duration-300 border border-neutral-200 dark:border-neutral-700 hover:border-neutral-300 dark:hover:border-neutral-600 shadow-sm hover:shadow">
                 <div className="flex justify-between items-start mb-4">
-                  <span className={`text-xs font-medium px-2.5 py-1 rounded-full 
+                  <span className={`text-ui-sm px-2.5 py-1 rounded-full 
                     ${section.title === t('nav.library') ? 'bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-300' : 
                       section.title === t('nav.blog') ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300' : 
                       section.title === t('nav.finance') ? 'bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300' : 
@@ -95,12 +95,12 @@ function ResourceLibrary({ variant = 'image', className = '' }) {
                   </button>
                 </div>
                 
-                <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-3">{section.title}</h3>
-                <p className="text-neutral-600 dark:text-neutral-400 mb-4 flex-grow">{section.description}</p>
+                <h3 className="text-heading-sm text-neutral-900 dark:text-white mb-3">{section.title}</h3>
+                <p className="text-body-sm text-neutral-600 dark:text-neutral-400 mb-4 flex-grow">{section.description}</p>
                 
                 <div className="flex justify-between items-center mt-auto pt-4 border-t border-neutral-200 dark:border-neutral-700">
-                  <span className="text-sm text-neutral-500 dark:text-neutral-400">{section.readTime} {t('common.minRead', 'min read')}</span>
-                  <span className="text-primary-600 dark:text-blue-400 text-sm font-medium">{t('common.readMore', 'Read more')}</span>
+                  <span className="text-caption text-neutral-500 dark:text-neutral-400">{section.readTime} {t('common.minRead', 'min read')}</span>
+                  <span className="text-primary-600 dark:text-blue-400 text-ui">{t('common.readMore', 'Read more')}</span>
                 </div>
               </div>
             </Link>
@@ -134,8 +134,8 @@ function ResourceLibrary({ variant = 'image', className = '' }) {
                 dark:from-black/95 dark:to-black/50 dark:group-hover:from-black/95 dark:group-hover:to-black/60" />
               
               <div className="absolute bottom-0 left-0 right-0 p-8">
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-primary-300 transition-colors duration-300">{section.title}</h3>
-                <p className="text-neutral-100 group-hover:text-white transition-colors duration-300">{section.description}</p>
+                <h3 className="text-heading-lg text-white mb-3 group-hover:text-primary-300 transition-colors duration-300">{section.title}</h3>
+                <p className="text-body-lg text-neutral-100 group-hover:text-white transition-colors duration-300">{section.description}</p>
               </div>
             </div>
           </Link>
@@ -159,8 +159,8 @@ function ResourceLibrary({ variant = 'image', className = '' }) {
               <div className={`${section.iconColor} mb-6`}>
                 {section.icon}
               </div>
-              <h3 className="text-2xl font-semibold mb-3 text-gray-900 dark:text-white">{section.title}</h3>
-              <p className="text-gray-600 dark:text-gray-300 text-lg">{section.description}</p>
+              <h3 className="text-heading-lg mb-3 text-gray-900 dark:text-white">{section.title}</h3>
+              <p className="text-body text-gray-600 dark:text-gray-300">{section.description}</p>
             </div>
           </Link>
         </motion.div>

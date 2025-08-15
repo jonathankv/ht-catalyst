@@ -63,10 +63,10 @@ export default function Impact({ locale }) {
             transition={{ duration: 0.5 }}
             className="text-center mb-16"
           >
-            <h1 className="text-4xl font-bold mb-4 text-neutral-900 dark:text-white">
+            <h1 className="text-display mb-4 text-neutral-900 dark:text-white">
               {t('impact.title')}
             </h1>
-            <p className="text-xl text-neutral-700 dark:text-neutral-100 max-w-3xl mx-auto">
+            <p className="text-body-lg text-neutral-700 dark:text-neutral-100 max-w-3xl mx-auto">
               {t('impact.description')}
             </p>
           </motion.div>

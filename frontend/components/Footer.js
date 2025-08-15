@@ -42,17 +42,17 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           {/* Logo and Tagline */}
           <div className="space-y-4">
-            <Link href="/" className="text-3xl font-bold text-neutral-900 dark:text-white font-space">
+            <Link href="/" className="text-heading-lg text-neutral-900 dark:text-white">
               {t('site.title')}
             </Link>
-            <p className="text-neutral-600 dark:text-neutral-400 mt-2">
+            <p className="text-body-sm text-neutral-600 dark:text-neutral-400 mt-2">
               {t('site.tagline', 'Building innovative solutions for a better tomorrow')}
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold text-neutral-900 dark:text-white mb-4">{t('footer.quickLinks')}</h3>
+            <h3 className="text-label-lg text-neutral-900 dark:text-white mb-4">{t('footer.quickLinks')}</h3>
             <ul className="space-y-3">
               <li>
                 <Link href="/library" className="text-neutral-600 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
@@ -84,7 +84,7 @@ const Footer = () => {
 
           {/* Connect */}
           <div>
-            <h3 className="text-lg font-semibold text-neutral-900 dark:text-white mb-4">{t('footer.connect')}</h3>
+            <h3 className="text-label-lg text-neutral-900 dark:text-white mb-4">{t('footer.connect')}</h3>
             <ul className="space-y-3">
               <li>
                 <a 
@@ -129,8 +129,8 @@ const Footer = () => {
 
           {/* Newsletter */}
           <div>
-            <h3 className="text-lg font-semibold text-neutral-900 dark:text-white mb-4">{t('newsletter.title')}</h3>
-            <p className="text-neutral-600 dark:text-neutral-400 mb-4">
+            <h3 className="text-label-lg text-neutral-900 dark:text-white mb-4">{t('newsletter.title')}</h3>
+            <p className="text-body-sm text-neutral-600 dark:text-neutral-400 mb-4">
               {t('footer.stayUpdated', 'Stay updated with the latest insights')}
             </p>
             
@@ -151,7 +151,7 @@ const Footer = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder={t('newsletter.placeholder')}
                     className="w-full bg-white dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 rounded-lg py-2 px-4 text-neutral-900 dark:text-white 
-                      placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                      font-sans placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
                     required
                   />
                   <button
@@ -180,7 +180,7 @@ const Footer = () => {
                 </div>
                 
                 {subscribeStatus === 'error' && (
-                  <p className="text-red-600 dark:text-red-400 text-sm">{t('newsletter.error')}</p>
+                  <p className="text-body-sm text-red-600 dark:text-red-400">{t('newsletter.error')}</p>
                 )}
               </form>
             )}
@@ -191,7 +191,7 @@ const Footer = () => {
         <div className="border-t border-neutral-200 dark:border-neutral-800 my-8"></div>
 
         {/* Copyright and Legal */}
-        <div className="flex flex-col md:flex-row justify-between items-center text-sm text-neutral-500 dark:text-neutral-500">
+        <div className="flex flex-col md:flex-row justify-between items-center text-body-sm text-neutral-500 dark:text-neutral-500">
           <div>
             © {currentYear} {t('site.author', 'John Anderson')}. {t('footer.allRightsReserved', 'All rights reserved.')}
           </div>

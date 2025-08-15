@@ -63,7 +63,7 @@ export default function ApplyMenteePage() {
         </Head>
         <div className="max-w-3xl mx-auto px-4 py-24">
           <div className="flex items-center justify-between mb-6">
-            <h1 className="text-3xl font-bold">Apply as a Mentee</h1>
+            <h1 className="text-display-sm">Apply as a Mentee</h1>
             <Link href="/mentoring" className="text-primary-600 hover:underline">Back to Mentoring</Link>
           </div>
 
@@ -79,7 +79,7 @@ export default function ApplyMenteePage() {
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label className="block text-sm font-medium mb-1">Full Name</label>
+              <label className="block text-label mb-1">Full Name</label>
               <input
                 type="text"
                 name="full_name"
@@ -90,7 +90,7 @@ export default function ApplyMenteePage() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-1">Your Goals</label>
+              <label className="block text-label mb-1">Your Goals</label>
               <textarea
                 name="goals"
                 value={formValues.goals}
@@ -101,7 +101,7 @@ export default function ApplyMenteePage() {
 
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium mb-1">Background</label>
+                <label className="block text-label mb-1">Background</label>
                 <input
                   type="text"
                   name="background"
@@ -111,7 +111,7 @@ export default function ApplyMenteePage() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium mb-1">Focus Areas</label>
+                <label className="block text-label mb-1">Focus Areas</label>
                 <input
                   type="text"
                   name="areas"
@@ -124,7 +124,7 @@ export default function ApplyMenteePage() {
 
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium mb-1">Time Commitment</label>
+                <label className="block text-label mb-1">Time Commitment</label>
                 <input
                   type="text"
                   name="time_commitment"
@@ -134,7 +134,7 @@ export default function ApplyMenteePage() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium mb-1">Timezone</label>
+                <label className="block text-label mb-1">Timezone</label>
                 <input
                   type="text"
                   name="timezone"
@@ -147,7 +147,7 @@ export default function ApplyMenteePage() {
 
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium mb-1">LinkedIn</label>
+                <label className="block text-label mb-1">LinkedIn</label>
                 <input
                   type="url"
                   name="linkedin"
@@ -157,7 +157,7 @@ export default function ApplyMenteePage() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium mb-1">GitHub</label>
+                <label className="block text-label mb-1">GitHub</label>
                 <input
                   type="url"
                   name="github"
@@ -169,7 +169,7 @@ export default function ApplyMenteePage() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-1">Expectations</label>
+              <label className="block text-label mb-1">Expectations</label>
               <textarea
                 name="expectations"
                 value={formValues.expectations}
