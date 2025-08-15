@@ -7,14 +7,14 @@ module.exports = {
   darkMode: 'class',
   theme: {
     fontFamily: {
-      // Main text font - Vietnamese optimized
+      // Text & content (Body + H1–H5 + Footer)
       sans: ['var(--font-inter)', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Noto Sans', 'Helvetica Neue', 'Arial', 'sans-serif'],
-      // Headings and display text - Vietnamese optimized
+      // Display/Hero only (branding, large titles)
+      display: ['var(--font-space-grotesk)', 'Space Grotesk', 'Inter', 'system-ui', 'sans-serif'],
+      // Backward-compat alias (if existing code uses font-space)
       space: ['var(--font-space-grotesk)', 'Space Grotesk', 'Inter', 'system-ui', 'sans-serif'],
       // Code blocks and technical content
       mono: ['var(--font-jetbrains-mono)', 'JetBrains Mono', 'Consolas', 'Monaco', 'Courier New', 'monospace'],
-      // Vietnamese-friendly alternative
-      vietnamese: ['Inter', 'Noto Sans', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
     },
     extend: {
       fontSize: {
@@ -142,28 +142,34 @@ module.exports = {
           css: {
             color: theme('colors.neutral.700'),
             maxWidth: '65ch',
-            h1: {
-              backgroundClip: 'text',
-              backgroundImage: 'linear-gradient(to right, var(--tw-gradient-stops))',
-              fontWeight: '800',
-            },
             a: {
               color: theme('colors.primary.500'),
-              '&:hover': {
-                color: theme('colors.primary.600'),
-              },
+              '&:hover': { color: theme('colors.primary.600') },
             },
             h1: {
               color: theme('colors.neutral.900'),
+              fontFamily: theme('fontFamily.sans').join(','),
+              fontWeight: '700',
+              lineHeight: '1.2',
+              letterSpacing: '-0.01em',
             },
             h2: {
               color: theme('colors.neutral.900'),
+              fontFamily: theme('fontFamily.sans').join(','),
+              fontWeight: '600',
+              lineHeight: '1.25',
             },
             h3: {
               color: theme('colors.neutral.900'),
+              fontFamily: theme('fontFamily.sans').join(','),
+              fontWeight: '600',
+              lineHeight: '1.3',
             },
             h4: {
               color: theme('colors.neutral.900'),
+              fontFamily: theme('fontFamily.sans').join(','),
+              fontWeight: '500',
+              lineHeight: '1.4',
             },
             code: {
               color: theme('colors.primary.500'),
@@ -172,12 +178,8 @@ module.exports = {
               borderRadius: '0.25rem',
               fontWeight: '500',
             },
-            'code::before': {
-              content: '""',
-            },
-            'code::after': {
-              content: '""',
-            },
+            'code::before': { content: '""' },
+            'code::after': { content: '""' },
           },
         },
         dark: {
@@ -185,21 +187,32 @@ module.exports = {
             color: theme('colors.neutral.300'),
             a: {
               color: theme('colors.primary.400'),
-              '&:hover': {
-                color: theme('colors.primary.300'),
-              },
+              '&:hover': { color: theme('colors.primary.300') },
             },
             h1: {
               color: theme('colors.neutral.50'),
+              fontFamily: theme('fontFamily.sans').join(','),
+              fontWeight: '700',
+              lineHeight: '1.2',
+              letterSpacing: '-0.01em',
             },
             h2: {
               color: theme('colors.neutral.50'),
+              fontFamily: theme('fontFamily.sans').join(','),
+              fontWeight: '600',
+              lineHeight: '1.25',
             },
             h3: {
               color: theme('colors.neutral.50'),
+              fontFamily: theme('fontFamily.sans').join(','),
+              fontWeight: '600',
+              lineHeight: '1.3',
             },
             h4: {
               color: theme('colors.neutral.50'),
+              fontFamily: theme('fontFamily.sans').join(','),
+              fontWeight: '500',
+              lineHeight: '1.4',
             },
             code: {
               color: theme('colors.primary.400'),
@@ -209,21 +222,13 @@ module.exports = {
               color: theme('colors.neutral.400'),
               borderLeftColor: theme('colors.neutral.700'),
             },
-            hr: {
-              borderColor: theme('colors.neutral.700'),
-            },
-            strong: {
-              color: theme('colors.neutral.50'),
-            },
+            hr: { borderColor: theme('colors.neutral.700') },
+            strong: { color: theme('colors.neutral.50') },
             thead: {
               color: theme('colors.neutral.50'),
               borderBottomColor: theme('colors.neutral.700'),
             },
-            tbody: {
-              tr: {
-                borderBottomColor: theme('colors.neutral.700'),
-              },
-            },
+            tbody: { tr: { borderBottomColor: theme('colors.neutral.700') } },
           },
         },
       }),

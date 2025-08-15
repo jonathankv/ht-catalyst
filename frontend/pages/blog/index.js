@@ -29,7 +29,7 @@ export default function Blog() {
       <Layout>
         <div className="min-h-screen flex items-center justify-center">
           <div className="text-center">
-            <h1 className="text-3xl font-bold mb-4">{t('blog.no_posts_title')}</h1>
+            <h1 className="text-heading-xl mb-4">{t('blog.no_posts_title')}</h1>
             <p className="text-gray-600 dark:text-gray-400">
               {t('blog.no_posts_description')}
             </p>
@@ -49,7 +49,7 @@ export default function Blog() {
             transition={{ duration: 0.5 }}
             className="text-center mb-16"
           >
-            <h1 className="text-4xl font-bold mb-4">{t('blog.title')}</h1>
+            <h1 className="text-heading-xl mb-4">{t('blog.title')}</h1>
             <p className="text-xl text-gray-600 dark:text-gray-400">
               {t('blog.description')}
             </p>

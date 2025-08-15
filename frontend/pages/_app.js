@@ -11,20 +11,23 @@ const AuthProvider = dynamic(() => import('../contexts/AuthContext').then(m => m
 const spaceGrotesk = Space_Grotesk({ 
   subsets: ['latin', 'vietnamese'], 
   variable: '--font-space-grotesk', 
-  weight: ['300','400','500','600','700'],
-  display: 'swap'
+  weight: ['400','500','600','700'],
+  display: 'swap',
+  fallback: ['Inter', 'system-ui', 'sans-serif']
 });
 const inter = Inter({ 
   subsets: ['latin', 'vietnamese'], 
   variable: '--font-inter', 
-  weight: ['300','400','500','600','700'],
-  display: 'swap'
+  weight: ['400','500','600','700'],
+  display: 'swap',
+  fallback: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif']
 });
 const jetbrainsMono = JetBrains_Mono({ 
-  subsets: ['latin', 'vietnamese'], 
+  subsets: ['latin'], 
   variable: '--font-jetbrains-mono', 
-  weight: ['400','500'],
-  display: 'swap'
+  weight: ['400','500','600'],
+  display: 'swap',
+  fallback: ['Consolas', 'Monaco', 'Courier New', 'monospace']
 });
 
 function MyApp({ Component, pageProps }) {

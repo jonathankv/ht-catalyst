@@ -78,7 +78,7 @@ export default function MentoringPage({ locale }) {
           {/* Left: Overview */}
           <div className="md:col-span-2 space-y-6">
             <div className="rounded-lg border border-neutral-200 dark:border-neutral-800 p-6 bg-white dark:bg-neutral-900">
-              <h2 className="text-body-lg font-medium mb-2">{t('mentoring.overview.title')}</h2>
+              <h2 className="text-heading-sm mb-2">{t('mentoring.overview.title')}</h2>
               <p className="text-sm text-neutral-700 dark:text-neutral-300">{t('mentoring.overview.body')}</p>
               <div className="mt-4">
                 <Link href="/mentee/apply" className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-primary-600 text-white hover:bg-primary-500">
@@ -88,7 +88,7 @@ export default function MentoringPage({ locale }) {
             </div>
 
             <div className="rounded-lg border border-neutral-200 dark:border-neutral-800 p-6 bg-white dark:bg-neutral-900">
-              <h3 className="text-base font-semibold mb-3">{t('mentoring.insights.title')}</h3>
+              <h3 className="text-heading-sm mb-3">{t('mentoring.insights.title')}</h3>
               <div className="flex items-center gap-3 text-sm">
                 <div className="inline-flex items-center gap-2 px-3 py-2 rounded-md bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700">
                   <FiStar className="text-yellow-500" /> {t('mentoring.insights.badge')}
@@ -98,7 +98,7 @@ export default function MentoringPage({ locale }) {
             </div>
 
             <div className="rounded-lg border border-neutral-200 dark:border-neutral-800 p-6 bg-white dark:bg-neutral-900">
-              <h3 className="text-base font-semibold mb-3">{t('mentoring.background.title')}</h3>
+              <h3 className="text-heading-sm mb-3">{t('mentoring.background.title')}</h3>
               <div className="flex flex-wrap gap-2">
                 {[
                   t('mentoring.background.tags.product'),
@@ -111,7 +111,7 @@ export default function MentoringPage({ locale }) {
                 ))}
               </div>
               <div className="mt-6">
-                <h4 className="text-sm font-medium mb-2">{t('mentoring.background.core')}</h4>
+                <h4 className="text-label-lg mb-2">{t('mentoring.background.core')}</h4>
                 <div className="grid sm:grid-cols-2 gap-4">
                   {skills.map((group) => (
                     <div key={group.title} className="rounded-md border border-neutral-200 dark:border-neutral-700 p-4">
@@ -128,7 +128,7 @@ export default function MentoringPage({ locale }) {
             </div>
 
             <div className="rounded-lg border border-neutral-200 dark:border-neutral-800 p-6 bg-white dark:bg-neutral-900">
-              <h3 className="text-base font-semibold mb-3">{t('mentoring.testimonials.title')}</h3>
+              <h3 className="text-heading-sm mb-3">{t('mentoring.testimonials.title')}</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 {testimonials.map((tst) => (
                   <blockquote key={tst.name} className="rounded-md border border-neutral-200 dark:border-neutral-700 p-4">
@@ -143,14 +143,14 @@ export default function MentoringPage({ locale }) {
           {/* Right: Sidebar */}
           <div className="space-y-6">
             <div className="rounded-lg border border-neutral-200 dark:border-neutral-800 p-6 bg-white dark:bg-neutral-900">
-              <h3 className="text-base font-semibold mb-3">{t('mentoring.sidebar.stats.title')}</h3>
+              <h3 className="text-heading-sm mb-3">{t('mentoring.sidebar.stats.title')}</h3>
               <div className="space-y-2 text-sm">
                 <div className="flex items-center gap-2"><FiClock className="text-primary-600" /> <span>{mentoringStats.minutes} mins</span> <span className="text-neutral-500">{t('mentoring.sidebar.stats.minutesLabel')}</span></div>
                 <div className="flex items-center gap-2"><FiTrendingUp className="text-primary-600" /> <span>{mentoringStats.sessionsCompleted}</span> <span className="text-neutral-500">{t('mentoring.sidebar.stats.sessionsLabel')}</span></div>
               </div>
             </div>
             <div className="rounded-lg border border-neutral-200 dark:border-neutral-800 p-6 bg-white dark:bg-neutral-900">
-              <h3 className="text-base font-semibold mb-3">{t('mentoring.sidebar.sessions.title')}</h3>
+              <h3 className="text-heading-sm mb-3">{t('mentoring.sidebar.sessions.title')}</h3>
               <div className="space-y-3">
                 {mentoringSessions.map((s) => (
                   <div key={s.slug} className="border border-neutral-200 dark:border-neutral-700 rounded-md p-4">

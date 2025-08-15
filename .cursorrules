@@ -20,6 +20,10 @@ A modern, techno-minimalist personal branding website with an integrated AI chat
 
 ```
 
+This is a Next.js personal branding website with a strict 2-font typography system:
+- **Space Grotesk** (font-display): Hero/branding elements ONLY
+- **Inter** (font-sans): ALL content text (headings, body, forms, UI)
+- **JetBrains Mono** (font-mono): Code blocks ONLY
 
 ## Tech Stack
 
@@ -219,3 +223,223 @@ npm run build
 - Font configuration: See `frontend/pages/_document.js`
 - Component examples: Check `frontend/components/` directory
 - API documentation: Available at `http://localhost:8000/docs` when running the backend
+
+## 🚨 CRITICAL CSS RULES
+
+### ❌ STRICTLY FORBIDDEN
+```css
+/* NEVER add !important to base layer styles */
+html, body, h1, h2, h3, h4, h5, h6 {
+  font-family: ... !important; /* ❌ FORBIDDEN */
+}
+
+/* NEVER use direct font-family in CSS */
+.component { font-family: 'Inter', sans-serif; } /* ❌ Use Tailwind classes */
+
+/* NEVER use serif fonts anywhere */
+.text { font-family: 'Times', serif; } /* ❌ BRAND VIOLATION */
+
+/* NEVER exceed 3 !important per CSS file */
+/* Current limit: globals.css has 3 emergency utilities only */
+```
+
+### ✅ REQUIRED PATTERNS
+```css
+/* Base layer: NO !important allowed */
+@layer base {
+  html { font-family: var(--font-inter), 'Inter', system-ui, sans-serif; }
+}
+
+/* Utilities layer: emergency only */
+@layer utilities {
+  .font-sans-force { font-family: ... !important; } /* Emergency only */
+}
+```
+
+## 🎨 TYPOGRAPHY ENFORCEMENT
+
+### Component Usage Rules
+```jsx
+/* ✅ CORRECT Tailwind class usage */
+<h1 className="font-sans text-heading-xl">Content Heading</h1>
+<h1 className="font-display text-display-xl">Hero Title</h1>
+<code className="font-mono">Code snippet</code>
+
+/* ❌ FORBIDDEN patterns */
+<h1 style={{fontFamily: 'Inter'}}>Title</h1>               // ❌ No inline styles
+<h3 className="font-display">Article Heading</h3>          // ❌ Content must use font-sans
+<p className="font-display">Body text</p>                  // ❌ Content must use font-sans
+```
+
+### Font Distribution Rules
+- **font-display (Space Grotesk)**: Hero sections, landing page titles, section headers, branding elements
+- **font-sans (Inter)**: Article headings, body text, navigation, buttons, forms, footer, ALL content
+- **font-mono (JetBrains Mono)**: Code blocks, technical content, monospace needs
+
+## 🔧 DEVELOPMENT STANDARDS
+
+### CSS Architecture
+```css
+/* Layer hierarchy (mandatory) */
+@layer base     { /* Foundation - no !important */ }
+@layer utilities { /* Overrides - emergency !important only */ }
+
+/* Emergency utilities (keep these exactly) */
+.font-sans-force { font-family: var(--font-inter), 'Inter', system-ui, sans-serif !important; }
+.font-display-force { font-family: var(--font-space-grotesk), 'Space Grotesk', 'Inter', system-ui, sans-serif !important; }
+.font-mono-force { font-family: var(--font-jetbrains-mono), 'JetBrains Mono', 'Consolas', 'Monaco', 'Courier New', monospace !important; }
+```
+
+### Component Patterns
+```jsx
+// Heading component pattern
+const Heading = ({ variant = "content", children, className, ...props }) => {
+  const fontClass = variant === "display" ? "font-display" : "font-sans";
+  return (
+    <h1 className={`${fontClass} ${className}`} {...props}>
+      {children}
+    </h1>
+  );
+};
+
+// Usage examples
+<Heading variant="display">Hero Title</Heading>  // Space Grotesk
+<Heading>Article Title</Heading>                 // Inter (default)
+```
+
+## 🌍 INTERNATIONALIZATION
+
+### Vietnamese Text Requirements
+- **Primary font**: Inter (excellent Vietnamese support)
+- **Fallback chain**: 'Noto Sans', 'system-ui', 'sans-serif'
+- **Test diacritics**: ă â ê ô ơ ư đ à á ạ ả ã
+- **NO serif fonts**: Vietnamese + serif = poor readability
+
+### Font Loading
+```javascript
+// Next.js font configuration (maintain this structure)
+import { Inter, Space_Grotesk, JetBrains_Mono } from 'next/font/google'
+
+const inter = Inter({
+  subsets: ['latin', 'vietnamese'],
+  variable: '--font-inter',
+  display: 'swap'
+});
+```
+
+## 🚨 ERROR PREVENTION
+
+### Pre-Commit Validation
+Before ANY commit:
+1. Check `!important` count: `grep -r "!important" styles/` ≤ 3 results
+2. Verify no serif fonts: `grep -r "serif" styles/` (except in emergency utilities)
+3. Test Vietnamese text rendering
+4. Verify font variables resolve in DevTools
+
+### Debug Protocol
+If serif fonts appear:
+1. **Inspect element** → identify conflicting CSS
+2. **Create targeted fix** with higher specificity (NO !important)
+3. **Temporarily apply** `.font-sans-force` if needed
+4. **Document root cause** and permanent solution
+5. **Remove emergency class** after fix
+
+## 📱 RESPONSIVE CONSIDERATIONS
+
+### Font Scaling
+```css
+/* Mobile-first typography scaling */
+.text-heading-xl { font-size: clamp(1.75rem, 4vw, 2.5rem); }
+.text-body { font-size: clamp(0.875rem, 2vw, 1rem); }
+
+/* Maintain font families across all breakpoints */
+@media (min-width: 768px) {
+  .font-sans { /* Still Inter, never change font-family in media queries */ }
+}
+```
+
+## 🛠️ TOOLS & PLUGINS
+
+### Required Tailwind Plugins
+```javascript
+// tailwind.config.js
+plugins: [
+  require('@tailwindcss/forms'),      // Form styling consistency
+  require('@tailwindcss/typography'), // Prose styling with Inter
+]
+```
+
+### Typography Plugin Configuration
+```javascript
+typography: {
+  DEFAULT: {
+    css: {
+      h1: { fontFamily: theme('fontFamily.sans').join(',') }, // Force Inter
+      h2: { fontFamily: theme('fontFamily.sans').join(',') },
+      h3: { fontFamily: theme('fontFamily.sans').join(',') },
+      // ... all headings use Inter, never Space Grotesk in content
+    }
+  }
+}
+```
+
+## 🎯 QUALITY GATES
+
+### Before Any Font-Related Change
+- [ ] Typography system maintains 2-font rule
+- [ ] No new !important in @layer base
+- [ ] All content uses Inter (font-sans)
+- [ ] Display elements use Space Grotesk (font-display) appropriately
+- [ ] Code uses JetBrains Mono (font-mono)
+- [ ] Vietnamese characters render correctly
+- [ ] Emergency utilities remain exactly 3 total
+
+### Performance Requirements
+- Font loading with `font-display: swap`
+- CSS variables properly resolved
+- No FOUT (Flash of Unstyled Text)
+- Build size impact minimal
+
+## 📚 FILE STRUCTURE AWARENESS
+
+```
+styles/
+├── globals.css          # Base styles, emergency utilities (≤3 !important)
+├── components/          # Component-specific styles (≤1 !important each)
+└── typography.css       # Typography utilities (if separate)
+
+components/
+├── ui/                  # Reusable UI components
+└── typography/          # Text components (Heading, Text, etc.)
+```
+
+## ⚡ PERFORMANCE RULES
+
+### CSS Optimization
+- Use CSS layers properly: @layer base, @layer utilities
+- Minimize CSS specificity wars
+- Prefer Tailwind classes over custom CSS
+- Keep emergency utilities minimal and documented
+
+### Font Loading Strategy
+- Preload critical fonts
+- Use font-display: swap
+- Optimize for Core Web Vitals
+- Test loading on slow networks
+
+## 🔍 DEBUGGING GUIDE
+
+### Common Issues & Solutions
+```css
+/* Issue: Serif fonts appearing */
+/* Solution: Check computed styles, add targeted specificity */
+.specific-component h2 { font-family: var(--font-inter), 'Inter', system-ui, sans-serif; }
+
+/* Issue: Font variables not resolving */
+/* Solution: Verify CSS variable definitions in :root */
+:root { --font-inter: 'Inter', system-ui, sans-serif; }
+```
+
+---
+
+**SUMMARY**: Maintain strict 2-font typography system, avoid !important in base styles, use proper CSS cascade, ensure Vietnamese support, and follow established component patterns. Typography consistency is critical for brand identity and user experience.

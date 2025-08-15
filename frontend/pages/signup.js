@@ -54,7 +54,7 @@ export default function Signup({ locale }) {
           transition={{ duration: 0.5 }}
         >
           <div>
-            <h2 className="mt-6 text-center text-3xl font-bold tracking-tight">
+            <h2 className="mt-6 text-center text-heading-xl">
               {t('auth.signup.title')}
             </h2>
           </div>
@@ -62,7 +62,7 @@ export default function Signup({ locale }) {
             <div className="rounded-md bg-red-50 p-4">
               <div className="flex">
                 <div className="ml-3">
-                  <h3 className="text-sm font-medium text-red-800">{error}</h3>
+                  <h3 className="text-ui text-red-800">{error}</h3>
                 </div>
               </div>
             </div>

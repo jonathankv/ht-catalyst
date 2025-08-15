@@ -162,7 +162,7 @@ export default function BlogPost({ post, mdxSource, headings, locale }) {
                     </span>
                   </div>
 
-                  <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white leading-tight">
+                  <h1 className="text-heading-xl font-bold text-neutral-900 dark:text-white leading-tight">
                     {post.title}
                   </h1>
                   

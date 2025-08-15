@@ -106,7 +106,7 @@ export default function Library({ locale }) {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-6 text-neutral-900 dark:text-neutral-50">{t('library.section_title')}</h2>
+            <h2 className="text-heading-xl mb-6 text-neutral-900 dark:text-neutral-50">{t('library.section_title')}</h2>
             <p className="text-xl text-neutral-600 dark:text-neutral-300 max-w-3xl mx-auto leading-relaxed">
               {t('library.section_description')}
             </p>

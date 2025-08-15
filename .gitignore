@@ -79,6 +79,8 @@ Thumbs.db
 
 # AI assistance files
 *.mdc
+.cursorrules
+claude.md
 
 # Deployment and environment templates
 env.template

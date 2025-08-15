@@ -1,6 +1,11 @@
 /* Fonts are loaded via next/font in _app.js for better performance */
 
 :root {
+  /* CRITICAL: Font CSS Variables Fallback Definition */
+  --font-inter: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+  --font-space-grotesk: 'Space Grotesk', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-jetbrains-mono: 'JetBrains Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+
   /* Semantic Colors - Light Mode */
   --color-background: theme('colors.neutral.25');
   --color-surface: white;
@@ -73,47 +78,64 @@
 @tailwind utilities;
 
 @layer base {
-  /* Root settings */
+  /* CRITICAL: Anti-serif protection - ensure no serif fonts anywhere */
   html {
-    @apply font-sans antialiased bg-primary-25 dark:bg-neutral-950; /* background_color: primary-25 is the light blue color */
+    @apply font-sans antialiased bg-primary-25 dark:bg-neutral-950;
+    font-family: var(--font-inter), 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
   }
 
-  /* Body text */
   body {
     @apply font-sans text-neutral-900 dark:text-neutral-50 
            bg-primary-25 dark:bg-neutral-950
-           text-base font-normal leading-relaxed; /* base font size & weight with improved readability */
+           text-base font-normal leading-relaxed;
+    font-family: var(--font-inter), 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
   }
 
-  /* Heading system - optimized for Vietnamese text readability */
+  /* Heading system - optimized for Vietnamese text readability with Inter */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-inter), 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+  }
+
   h1 {
-    @apply font-space text-h1 
+    @apply font-sans text-h1 
            text-neutral-900 dark:text-neutral-50
            mb-6 font-semibold tracking-normal;
   }
 
   h2 {
-    @apply font-space text-h2 
+    @apply font-sans text-h2 
            text-neutral-900 dark:text-neutral-50
            mb-5 font-semibold tracking-normal;
   }
 
   h3 {
-    @apply font-space text-h3 
+    @apply font-sans text-h3 
            text-neutral-900 dark:text-neutral-50
            mb-4 font-medium tracking-normal;
   }
 
   h4 {
-    @apply font-space text-h4 
+    @apply font-sans text-h4 
            text-neutral-900 dark:text-neutral-50
            mb-3 font-medium tracking-normal;
   }
 
   h5 {
-    @apply font-space text-h5 
+    @apply font-sans text-h5 
            text-neutral-900 dark:text-neutral-50
            mb-2 font-medium tracking-normal;
+  }
+
+  /* Form and UI element protection */
+  input, textarea, select, button {
+    font-family: var(--font-inter), 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  /* Prose protection moved to @layer utilities for proper cascade */
+
+  /* Prevent any element from falling back to serif */
+  p, span, div, article, section, nav, header, footer, main, aside {
+    font-family: inherit;
   }
 
   /* Code elements */
@@ -127,8 +149,8 @@
   =============================================
   
   Font Family Usage:
-  - Display & Headings: font-space (Space Grotesk)  
-  - Body & UI: font-sans (Inter)
+  - Display/Hero ONLY: font-display (Space Grotesk)  
+  - All Content & Headings: font-sans (Inter)
   - Code: font-mono (JetBrains Mono)
   
   Font Weight Standards:
@@ -145,38 +167,38 @@
   - Captions: 12px (Small descriptions, metadata)
   */
 
-  /* DISPLAY TYPOGRAPHY - For hero sections and main titles */
+  /* DISPLAY TYPOGRAPHY - For hero sections and branding titles ONLY */
   .text-display-xl {
-    @apply font-space text-5xl md:text-6xl lg:text-7xl font-semibold leading-tight tracking-tight;
+    @apply font-display text-5xl md:text-6xl lg:text-7xl font-semibold leading-tight tracking-tight;
   }
 
   .text-display-lg {
-    @apply font-space text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight;
+    @apply font-display text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight;
   }
 
   .text-display {
-    @apply font-space text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight tracking-normal;
+    @apply font-display text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight tracking-normal;
   }
 
   .text-display-sm {
-    @apply font-space text-2xl md:text-3xl lg:text-4xl font-medium leading-tight tracking-normal;
+    @apply font-display text-2xl md:text-3xl lg:text-4xl font-medium leading-tight tracking-normal;
   }
 
-  /* HEADING TYPOGRAPHY - For section titles and content headers */
+  /* HEADING TYPOGRAPHY - For content headers (Inter font) */
   .text-heading-xl {
-    @apply font-space text-3xl font-semibold leading-tight tracking-normal text-neutral-900 dark:text-neutral-50;
+    @apply font-sans text-3xl font-semibold leading-tight tracking-normal text-neutral-900 dark:text-neutral-50;
   }
 
   .text-heading-lg {
-    @apply font-space text-2xl font-semibold leading-snug tracking-normal text-neutral-900 dark:text-neutral-50;
+    @apply font-sans text-2xl font-semibold leading-snug tracking-normal text-neutral-900 dark:text-neutral-50;
   }
 
   .text-heading {
-    @apply font-space text-xl font-medium leading-snug tracking-normal text-neutral-900 dark:text-neutral-50;
+    @apply font-sans text-xl font-medium leading-snug tracking-normal text-neutral-900 dark:text-neutral-50;
   }
 
   .text-heading-sm {
-    @apply font-space text-lg font-medium leading-normal tracking-normal text-neutral-900 dark:text-neutral-50;
+    @apply font-sans text-lg font-medium leading-normal tracking-normal text-neutral-900 dark:text-neutral-50;
   }
 
   /* BODY TYPOGRAPHY - For main content and readable text */
@@ -268,7 +290,7 @@
   }
 
   .text-vietnamese-heading {
-    @apply font-space font-medium leading-relaxed tracking-normal;
+    @apply font-sans font-medium leading-relaxed tracking-normal;
     letter-spacing: 0.005em; /* Minimal spacing for Vietnamese headings */
   }
 }
@@ -308,7 +330,7 @@
   }
 
   .section-title {
-    @apply font-space text-3xl md:text-4xl font-bold 
+    @apply font-display text-3xl md:text-4xl font-bold 
     text-neutral-900 dark:text-neutral-50 mb-8;
   }
 
@@ -407,7 +429,7 @@ a {
 }
 
 .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
-  @apply font-space;
+  @apply font-sans;
 }
 
 .prose p {
@@ -478,7 +500,7 @@ a {
 
 .prose thead th {
   @apply text-neutral-900 dark:text-neutral-50 
-  font-space font-semibold py-3 px-4;
+  font-sans font-semibold py-3 px-4;
 }
 
 .prose tbody tr {
@@ -499,6 +521,24 @@ a {
 
   .animate-float {
     animation: float 6s ease-in-out infinite;
+  }
+
+  /* Prose typography plugin override - higher specificity than base layer */
+  .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+    font-family: var(--font-inter), 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  /* Emergency font utilities - force specific fonts with !important */
+  .font-sans-force {
+    font-family: var(--font-inter), 'Inter', system-ui, sans-serif !important;
+  }
+
+  .font-display-force {
+    font-family: var(--font-space-grotesk), 'Space Grotesk', 'Inter', system-ui, sans-serif !important;
+  }
+
+  .font-mono-force {
+    font-family: var(--font-jetbrains-mono), 'JetBrains Mono', 'Consolas', 'Monaco', 'Courier New', monospace !important;
   }
 }
 
