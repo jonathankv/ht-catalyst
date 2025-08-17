@@ -39,7 +39,7 @@ const Navigation = () => {
   const centerNavItems = [
     { name: t('nav.library'), href: '/library' },
     { name: t('nav.blog'), href: '/blog' },
-    { name: t('nav.mentoring'), href: '/mentoring' },
+    { name: t('nav.start_learning'), href: '/start-learning' },
   ];
 
   // Right side navigation items
@@ -120,14 +120,14 @@ const Navigation = () => {
               transition={{ delay: 0.3 }}
             >
               <Link 
-                href="/start-learning"
+                href="/mentoring"
                 className={`px-4 py-2 rounded-md text-ui transition-all duration-300 ${
                   isScrolled 
                     ? 'bg-white text-primary-600 hover:bg-neutral-100 shadow-md hover:shadow-lg' 
                     : 'bg-primary-600 hover:bg-primary-400 text-white shadow-md hover:shadow-lg'
                 }`}
               >
-                {t('nav.start_learning')}
+                {t('nav.mentoring')}
               </Link>
             </motion.div>
           </div>
@@ -164,7 +164,7 @@ const Navigation = () => {
                   className={`px-4 py-2 rounded-md text-ui transition-all duration-300 ${
                     isScrolled 
                       ? 'bg-white text-primary-600 hover:bg-neutral-100 shadow-md hover:shadow-lg' 
-                      : 'bg-primary-600 text-white hover:bg-primary-500 shadow-md hover:shadow-lg'
+                      : 'bg-white border border-primary-600 text-neutral-800 hover:bg-primary-600 hover:text-white shadow-md hover:shadow-lg'
                   }`}
                 >
                   {t('nav.login')}

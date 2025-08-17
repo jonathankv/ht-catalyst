@@ -173,7 +173,7 @@
   },
   "hero": {
     "cta": {
-      "primary": "Khám Phá Tài Nguyên",
+      "primary": "Đăng Ký Mentorship",
       "secondary": "Xem Blog"
     },
     "description": "Khám phá sự giao thoa giữa công nghệ và tác động xã hội thông qua phân tích sâu sắc và những hiểu biết thực tế",
@@ -252,7 +252,7 @@
     "home": "Trang Chủ",
     "impact": "Tác Động",
     "library": "Thư Viện",
-    "mentoring": "Mentoring",
+    "mentoring": "Chương trình Mentorship",
     "login": "Đăng Nhập Mentee",
     "logout": "Đăng Xuất",
     "profile": "Hồ Sơ",
@@ -285,7 +285,7 @@
     "light": "Chế độ sáng"
   },
   "mentoring": {
-    "meta": { "title": "Mentoring" },
+    "meta": { "title": "Mentorship Program" },
     "tabs": {
       "overview": "Tổng quan",
       "reviews": "Đánh giá",

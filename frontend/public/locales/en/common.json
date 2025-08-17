@@ -173,7 +173,7 @@
   },
   "hero": {
     "cta": {
-      "primary": "Explore Resources",
+      "primary": "Mentorship Registration",
       "secondary": "View Blog"
     },
     "description": "Exploring the intersection of technology and social impact through thoughtful analysis and practical insights",
@@ -252,7 +252,7 @@
     "home": "Home",
     "impact": "Impact",
     "library": "Library",
-    "mentoring": "Mentoring",
+    "mentoring": "Mentorship Program",
     "login": "Mentee Login",
     "logout": "Log Out",
     "profile": "Profile",
@@ -285,7 +285,7 @@
     "light": "Light mode"
   },
   "mentoring": {
-    "meta": { "title": "Mentoring" },
+    "meta": { "title": "Mentoring Program" },
     "tabs": {
       "overview": "Overview",
       "reviews": "Reviews",

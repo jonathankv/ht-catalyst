@@ -46,7 +46,7 @@ function Hero() {
                   transform hover:scale-105 transition-all duration-300
                   shadow-lg hover:shadow-primary-600/30 dark:hover:shadow-primary-600/30 focus:outline-none focus:ring-2 focus:ring-primary-600 dark:focus:ring-primary-600 focus:ring-offset-2
                   focus:ring-offset-white dark:focus:ring-offset-neutral-900">
-                  {t('contact.title')}
+                  {t('hero.cta.primary')}
                 </button>
               </Link>
               <Link href="/library">
@@ -55,7 +55,7 @@ function Hero() {
                   px-6 py-3 rounded-lg transform hover:scale-105 transition-all duration-300
                   focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-600 focus:ring-offset-2
                   focus:ring-offset-white dark:focus:ring-offset-neutral-900">
-                  {t('hero.cta.primary')}
+                  {t('hero.cta.secondary')}
                 </button>
               </Link>
             </motion.div>
